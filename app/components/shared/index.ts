@@ -1,2 +1,2 @@
-export { Container } from "./container2";
+export { Container } from "./container";
 export { Logo } from "./logo";
