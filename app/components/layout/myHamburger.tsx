@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Hamburger from "hamburger-react";
 
-const MyHamburger = () => {
+export const MyHamburger = () => {
   const [isOpen, setOpen] = useState(false);
   return (
     <div className="xl:hidden block">
@@ -10,5 +10,3 @@ const MyHamburger = () => {
     </div>
   );
 };
-
-export default MyHamburger;

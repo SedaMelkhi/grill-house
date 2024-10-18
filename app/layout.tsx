@@ -1,11 +1,9 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Image from "next/image";
+import type { Metadata } from "next";
+import { Container, Logo } from "./components/shared";
+import { Contacts, Menu, MyHamburger } from "./components/layout";
 
 import "./globals.css";
-import { Container } from "./components";
-import Link from "next/link";
-import MyHamburger from "./components/layout/myHamburger";
 
 const rubikSans = localFont({
   src: "./fonts/Rubik-VariableFont_wght.ttf",
@@ -30,35 +28,10 @@ export default function RootLayout({
           <Container>
             <div className="h-[68px] flex items-center text-sm leading-[16.6px] justify-between">
               <div className="xl:hidden block w-[103px]">
-                <Image
-                  src="/logo.png"
-                  alt="grill house"
-                  width={103}
-                  height={38}
-                  className="w-full"
-                />
+                <Logo />
               </div>
-              <ul className="xl:flex hidden gap-6 items-center">
-                <li className="hover:text-[#706e6e] transition-colors duration-150">
-                  <Link href="/">Главная</Link>
-                </li>
-                <li className="hover:text-[#706e6e] transition-colors duration-150">
-                  <Link href="/about_us">О нас</Link>
-                </li>
-                <li className="hover:text-[#706e6e] transition-colors duration-150">
-                  <Link href="/contacts">Контакты</Link>
-                </li>
-              </ul>
-              <div className="xl:flex hidden gap-6 items-center">
-                <Link
-                  href="tel:+79289876543"
-                  className="font-medium hover:text-[#706e6e] transition-colors duration-150"
-                >
-                  + 7 (928) 987-65-43
-                </Link>
-                <div>c 09:00 до 22:00</div>
-              </div>
-
+              <Menu />
+              <Contacts />
               <MyHamburger />
             </div>
           </Container>
