@@ -1,8 +1,6 @@
 import localFont from "next/font/local";
 import type { Metadata } from "next";
-import { Container, Logo } from "./components/shared";
-import { Contacts, Menu, MyHamburger } from "./components/layout";
-
+import { Footer, Nav } from "./components/layout";
 import "./globals.css";
 
 const rubikSans = localFont({
@@ -24,19 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${rubikSans.variable} antialiased`}>
-        <nav className="xl:border-b border-[#F3F3F7]">
-          <Container>
-            <div className="h-[68px] flex items-center text-sm leading-[16.6px] justify-between">
-              <div className="xl:hidden block w-[103px]">
-                <Logo />
-              </div>
-              <Menu />
-              <Contacts />
-              <MyHamburger />
-            </div>
-          </Container>
-        </nav>
+        <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );

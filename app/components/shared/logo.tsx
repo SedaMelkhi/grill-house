@@ -1,13 +1,14 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-export const Logo = () => {
+export const Logo = ({ className }: { className?: string }) => {
   return (
     <Image
       src="/logo.png"
       alt="grill house"
-      width={103}
-      height={38}
-      className="w-full"
+      width={228}
+      height={84}
+      className={cn("w-full", className)}
     />
   );
 };
