@@ -1,9 +1,12 @@
-import { Header } from "./components/homePage";
+import { Header, SwiperHeader } from "./components/homePage";
+
 
 const Home = () => {
   return (
     <main>
       <Header />
+      
+      <SwiperHeader/>
     </main>
   );
 };
