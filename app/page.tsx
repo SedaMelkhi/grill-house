@@ -1,10 +1,11 @@
-import { Header, Menu } from "./components/homePage";
+import { Header, MenuWhile, MenuMobile  } from "./components/homePage";
 
 const Home = () => {
   return (
     <main>
       <Header />
-      <Menu/>
+      <MenuWhile/>
+      <MenuMobile/>
     </main>
   );
 };
