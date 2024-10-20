@@ -20,7 +20,12 @@ export const MenuWhile = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const handleScroll = () => {
-    setIsScrolled(window.scrollY > 195);
+    
+    if (window.innerWidth >= 1280) { 
+      setIsScrolled(window.scrollY > 195);
+    } else {
+      setIsScrolled(window.scrollY > 30);
+    }
   };
 
   useEffect(() => {
@@ -36,12 +41,12 @@ export const MenuWhile = () => {
 
   return (
     <Container>
-      <div className={`lg:flex hidden justify-between items-center 
+      <div className={`xl:flex hidden justify-between items-center 
         ${isScrolled ? 'fixed z-10 top-0 transition-all duration-300' : ''}`}>
         
-        <ul className="flex justify-center items-center gap-2 rounded-[15px] h-[55px] bg-[#fafafa] mx-4">
+        <ul className="flex justify-center items-center gap-2 rounded-[15px] h-[55px] bg-[#fafafa]">
           {menu.map(({ id, name }) => (
-            <li className='pt-[13px] pr-[24px] pb-[13px] pl-[24px] hover:text-red-500 rounded-[15px] hover:shadow-xl active:shadow-2xl transition-shadow duration-300 ease-in-out' key={id}>
+            <li className='pt-[13px] pr-[24px] pb-[13px] pl-[24px] hover:text-red rounded-[15px] hover:shadow-xl active:shadow-2xl transition-shadow duration-300 ease-in-out' key={id}>
               <Link href={`#`}>
                 {name}
               </Link>
@@ -52,7 +57,7 @@ export const MenuWhile = () => {
               id="exampleSelect"
               value={selectedOption}
               onChange={handleChange}
-              className="block w-full h-full p-2 bg-white text-gray-700 rounded-md focus:outline-none"
+              className="block w-full h-full p-2 bg-[#fafafa] text-gray-700 rounded-md focus:outline-none"
             >
               <option value='' disabled>Ещё</option>
               <option value="option1">Опция 1</option>
@@ -63,6 +68,7 @@ export const MenuWhile = () => {
         </ul>
         <button className="w-[113px] h-[43px] p-[12px] rounded-[50px] bg-[var(--green)] text-white">Корзина</button>
       </div>
+      
     </Container>
   );
 };
@@ -80,7 +86,7 @@ export const MenuMobile = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const handleScroll = () => {
-    setIsScrolled(window.scrollY > 195);
+    setIsScrolled(window.scrollY > 30);
   };
 
   useEffect(() => {
@@ -91,10 +97,10 @@ export const MenuMobile = () => {
   }, []);
 
   return (
-    <div className={`lg:hidden flex justify-between items-center 
+    <div className={`xl:hidden flex justify-end items-center 
       ${isScrolled ? 'fixed z-10 top-0 transition-all duration-300' : ''}`}>
       
-      <div className="flex w-[100vw] rounded-[20px] bg-[#fafafa] justify-center items-center gap-2 h-[55px] ">
+      <div className=" w-[98vw] rounded-[20px]   h-[55px] ">
         <Swiper
           slidesPerView='auto'
           spaceBetween={8}
@@ -115,5 +121,7 @@ export const MenuMobile = () => {
       </div>
       
     </div>
+    
+    
   );
 };
