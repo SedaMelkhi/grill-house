@@ -10,10 +10,10 @@ export const MenuWhile = () => {
   const [menu] = useState([
     { name: "Завтраки", id: 0 },
     { name: "Салаты", id: 1 },
-    { name: 'Брускетты', id: 2 },
-    { name: 'Супы', id: 3 },
-    { name: 'Горячие блюда', id: 4 },
-    { name: 'Мангал и гриль', id: 5 },
+    { name: "Брускетты", id: 2 },
+    { name: "Супы", id: 3 },
+    { name: "Горячие блюда", id: 4 },
+    { name: "Мангал и гриль", id: 5 },
   ]);
 
   const [selectedOption, setSelectedOption] = useState('');
