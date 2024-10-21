@@ -1,47 +1,58 @@
 'use client';
-import React, { useRef, useState } from 'react';
+
+import React from 'react';
+
+
 import { Container } from "../shared";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
 
 import Image from 'next/image';
-import 'swiper/css';
+
 
 export const SwiperHeader = () => {
   
   return (
     <Container>
-    <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        loop={true}
-        className="mySwiper"
-      >
-        <SwiperSlide>
+      <div className="w-[100%] h-auto">
+        <Swiper
+          slidesPerView={4}
+          spaceBetween={30}
+          centeredSlides={true}
+          className="mySwiper"
+        >
+        <SwiperSlide className="w-[auto!important] h-[auto!important] ">
         <Image
         src="/swiperImg.png" 
-        alt="Пример изображения"
+        alt=""
         width={1300}       
         height={374} 
+        className="rounded-[20px]"
       />
       </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="w-[auto!important] h-[auto!important]">
         <Image
         src="/swiperImg.png" 
-        alt="Пример изображения"
+        alt=""
         width={1300} 
         height={374} 
+        className="rounded-[20px]"
       />
+      
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="w-[auto!important] h-[auto!important]">
         <Image
         src="/swiperImg.png" 
-        alt="Пример изображения"
+        alt=""
         width={1300} 
         height={374} 
+        className="rounded-[20px]"
       />
         </SwiperSlide>
-        
-      </Swiper>
+        </Swiper>
+      </div>
+  
       </Container>
   );
 };
