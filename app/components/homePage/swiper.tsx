@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import Image from 'next/image';
+import { div } from 'framer-motion/client';
 
 
 export const SwiperHeader = () => {
@@ -20,7 +21,9 @@ export const SwiperHeader = () => {
   
   return (
     
-      <div  className="w-[100%]  xl:h-[374px] lg:h-[278px] mt-[34px]    mx-auto xl:mx-0">
+      <div  className="relative z-0 w-[100%]  xl:h-[374px] lg:h-[278px] mt-[34px] mx-auto xl:mx-0 ">
+        <div className='none xl2:block  pointer-events-none absolute z-10  bg-custom-gradient-left left-0 t-0 w-custom-width h-[374px]'></div>
+        <div className='none xl2:block  pointer-events-none absolute z-10 bg-custom-gradient-right right-0 t-0 w-custom-width h-[374px]'> </div>
         <Swiper
           slidesPerView= 'auto'
           spaceBetween={0}
@@ -30,17 +33,17 @@ export const SwiperHeader = () => {
               
             },
             1000: {
-              
               slidesPerView: 1,
             },
             1300: {
+              slidesPerView: 'auto',
               spaceBetween: 30,
             },
           }}
           centeredSlides={true}
-          initialSlide={1}
+          initialSlide={2}
           loop = {true}
-          className="bg-[linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.01) 100%)]"
+          className=""
         >
           
           {sliderImgs.map(({ id, img }) => (
@@ -56,7 +59,10 @@ export const SwiperHeader = () => {
           ))}
       
         </Swiper>
+        
       </div>
+     
+     
   
      
   );
