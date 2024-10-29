@@ -1,9 +1,11 @@
-import { Header } from "./components/homePage";
+import { Header,Recommendation } from "./components/homePage";
+
 
 const Home = () => {
   return (
     <main>
       <Header />
+      <Recommendation/>
     </main>
   );
 };
