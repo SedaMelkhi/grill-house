@@ -1,8 +1,7 @@
 'use client';
 
-import Link from "next/link"; 
-import { useState, useEffect } from "react";
-import { Container } from "../shared";
+
+import { useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Image from 'next/image';
@@ -41,8 +40,8 @@ export const Recommendation = () => {
                 className="rounded-[10px] object-cover w-[69px] h-[69px] sm:w-[100px] sm:h-[100px]"
                 />
                 <div className="flex flex-col gap-[11px] sm:gap-[20px]">
-                <p className="">{name}</p>
-                <p className="">{price} ₽</p>
+                <p >{name}</p>
+                <p >{price} ₽</p>
                 </div>
                 
                 </div>
