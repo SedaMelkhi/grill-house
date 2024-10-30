@@ -19,6 +19,7 @@ export const Recommendation = () => {
     
   return (
     <div className="xl:w-[1300px] m-auto w-[98wv] text-[11px] sm:text-[16px]">
+      <h1 className="xl:font-normal font-medium ml-[20px] lg:ml-[28px] mt-[24px] mb-[16px] sm:mt-[32px] sm:mb-[24px] xl:ml-0 xl:mt-[60px] xl:mb-[32px] text-[15px] xl:text-[32px] sm:text-[28px] ">Часто заказывают</h1>
         <div className="w-[100%]  rounded-[20px]">
         <Swiper
           slidesPerView='auto'
