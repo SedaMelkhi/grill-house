@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { Footer, Nav } from "./components/layout";
 import "./globals.css";
+import { Providers } from "./providers";
 
 const rubikSans = localFont({
   src: "./fonts/Rubik-VariableFont_wght.ttf",
@@ -22,9 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${rubikSans.variable} antialiased`}>
-        <Nav />
-        {children}
-        <Footer />
+        <Providers>
+          <>
+            <Nav />
+            {children}
+            <Footer />
+          </>
+        </Providers>
       </body>
     </html>
   );
