@@ -56,7 +56,7 @@ export const MenuWhile = () => {
         <div className="xl:flex  hidden justify-between items-center xl:w-[1300px] m-auto">
         <ul className="flex  justify-center items-center gap-2 rounded-[15px] h-[55px] bg-[#fafafa] transition-all duration-500 ease-in-out">
           {menu.slice(0, 7).map(({ id, name }) => (
-            <li className='pt-[13px] pr-[24px] pb-[13px] pl-[24px] hover:text-red hover:bg-white rounded-[15px] 
+            <li className='py-[13px] px-[24px]  hover:text-red hover:bg-white rounded-[15px] 
             hover:shadow-[0px_4px_4px_rgba(0,0,0,0.05)] active:shadow-xl transition-color transition-shadow duration-300 ease-in-out' 
             key={id}>
               <Link href={`#`}>
@@ -69,7 +69,7 @@ export const MenuWhile = () => {
             onMouseLeave={() => setIsDropdownOpen(false)}>
             <button
               onClick={toggleDropdown}
-              className="flex gap-[10px] p-2 bg-[#fafafa] text-gray-700 rounded-md focus:outline-none"
+              className="flex gap-[10px] py-[10px] px-[10px] bg-[#fafafa] text-gray-700 rounded-md focus:outline-none"
             >
               {selectedOption || 'Ещё'}
               <Image
@@ -87,7 +87,7 @@ export const MenuWhile = () => {
                 {menu.slice(7, 10).map(({ id, name }) => (
             <div key={id}
                   onClick={() => handleOptionClick({name})}
-                  className="px-4 py-2 cursor-pointer rounded-[8px] hover:text-red hover:bg-white 
+                  className="p-[10px] cursor-pointer rounded-[8px] hover:text-red hover:bg-white 
             hover:shadow-[0px_4px_4px_rgba(0,0,0,0.05)]"
                 >
                   <Link href={`#`}>{name}</Link>
@@ -139,7 +139,7 @@ export const MenuMobile = () => {
     <div className={`flex xl:hidden h-[55px]   items-center 
       ${isScrolled ? 'fixed z-10 bg-white top-0 ease-in-out shadow-lg' : 'transition-shadow duration-500 ease-in-out'}`}>
       
-      <div className="w-[98vw] rounded-[20px]  overflow-x-visible">
+      <div className="w-[100%] rounded-[20px]  overflow-x-visible">
         <Swiper
           slidesPerView='auto'
           spaceBetween={8}
@@ -161,46 +161,38 @@ export const MenuMobile = () => {
       
     </div>
     <div> 
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
-      <h1 className="text-[50px]">1111111111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+      <h1 className="text-[50px]">11111111111111111</h1>
+
       </div>
     </div>
   );
