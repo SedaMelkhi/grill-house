@@ -1,4 +1,4 @@
-import { Header, SwiperHeader } from "./components/homePage";
+import { Header, SwiperHeader, MenuSection } from "./components/homePage";
 
 
 const Home = () => {
@@ -6,6 +6,7 @@ const Home = () => {
     <main>
       <Header />
       <SwiperHeader/>
+      <MenuSection/>
     </main>
   );
 };
