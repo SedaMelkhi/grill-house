@@ -1,4 +1,4 @@
-import { Header, MenuWhile, MenuMobile  } from "./components/homePage";
+import { Header, MenuWhile, MenuMobile, SwiperHeader  } from "./components/homePage";
 
 const Home = () => {
   return (
@@ -6,6 +6,7 @@ const Home = () => {
       <Header />
       <MenuWhile/>
       <MenuMobile/>
+      <SwiperHeader/>
     </main>
   );
 };
