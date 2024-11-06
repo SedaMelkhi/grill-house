@@ -12,6 +12,7 @@
   --stroke-2: #7b8e97;
   --blue: #304763;
   --light: #eef0f3;
+  --grey: #aeb1b7;
 }
 body {
   background: var(--background);
@@ -97,3 +98,59 @@ ul {
   padding: 0;
   font-weight: normal;
 }
+.chakra-steps__trigger {
+  flex-direction: column;
+  position: relative;
+  gap: 8px;
+}
+.chakra-steps__indicator {
+  border: 1px solid var(--grey);
+  background-color: transparent;
+  color: var(--grey);
+  font-size: 16px;
+  font-weight: 400;
+  transition: 0.2s;
+}
+.chakra-steps__indicator[data-complete],
+.chakra-steps__indicator[data-current] {
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+.chakra-steps__title {
+  width: 154px;
+  position: absolute;
+  bottom: -25px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  color: var(--grey);
+  transition: 0.2s;
+}
+.chakra-steps__indicator[data-complete] + .chakra-steps__title,
+.chakra-steps__indicator[data-current] + .chakra-steps__title {
+  color: var(--green);
+}
+.chakra-steps__separator {
+  height: 2px;
+  background: url("/line.svg") center/contain repeat-x;
+  transition: 0.2s;
+}
+.chakra-steps__separator[data-complete] {
+  background: url("/line-green.svg") center/contain repeat-x;
+}
+/* .chakra-step > div > div:first-child {
+  border-width: 1px;
+}
+
+.chakra-step > div > div[data-status="active"]:first-child {
+  border-color: #15523e;
+}
+
+.chakra-step > div > div[data-status="complete"]:first-child {
+  border-color: #15523e;
+}
+
+.chakra-step__indicator[data-status="complete"] {
+  background-color: transparent !important;
+} */

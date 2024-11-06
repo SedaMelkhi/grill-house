@@ -1,51 +1,32 @@
 "use client";
-
-import {
-  Box,
-  Step,
-  StepDescription,
-  StepIcon,
-  StepIndicator,
-  StepNumber,
-  StepSeparator,
-  StepStatus,
-  StepTitle,
-  Stepper,
-  useSteps,
-} from "@chakra-ui/react";
-
-const steps = [
-  { title: "First", description: "Contact Info" },
-  { title: "Second", description: "Date & Time" },
-  { title: "Third", description: "Select Rooms" },
-];
+import { StepsItem, StepsList, StepsRoot } from "@/components/ui/steps";
 
 export const HeaderStepper = () => {
-  const { activeStep } = useSteps({
-    index: 1,
-    count: steps.length,
-  });
-
   return (
-    <Stepper index={activeStep}>
-      {steps.map((step, index) => (
-        <Step key={index}>
-          <StepIndicator borderColor="#ff0000">
-            <StepStatus
-              complete={<StepIcon borderColor="#ff0000" />}
-              incomplete={<StepNumber color="#AEB1B7" borderColor="#ff0000" />}
-              active={<StepNumber color="#15523E" borderColor="#ff0000" />}
-            />
-          </StepIndicator>
+    <StepsRoot defaultValue={1} count={3} className="w-[624px]">
+      <StepsList>
+        <StepsItem index={0} title="Корзина" />
+        <StepsItem index={1} title="Оформление заказа" />
+        <StepsItem index={2} title="Заказ принят" />
+      </StepsList>
 
-          <Box flexShrink="0">
-            <StepTitle color="#15523E">{step.title}</StepTitle>
-            <StepDescription>{step.description}</StepDescription>
-          </Box>
+      {/* <StepsContent index={0}>Step 1</StepsContent>
+      <StepsContent index={1}>Step 2</StepsContent>
+      <StepsContent index={2}>Step 3</StepsContent>
+      <StepsCompletedContent>All steps are complete!</StepsCompletedContent> */}
 
-          <StepSeparator />
-        </Step>
-      ))}
-    </Stepper>
+      {/* <Group>
+        <StepsPrevTrigger asChild>
+          <Button variant="outline" size="sm">
+            Prev
+          </Button>
+        </StepsPrevTrigger>
+        <StepsNextTrigger asChild>
+          <Button variant="outline" size="sm">
+            Next
+          </Button>
+        </StepsNextTrigger>
+      </Group> */}
+    </StepsRoot>
   );
 };
