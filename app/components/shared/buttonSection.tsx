@@ -82,7 +82,7 @@ export const ButtonSection = ({ value }: ButtonSectionProps) => {
               alt={""}
               width={1300}
               height={374}
-              className="rounded-[10px]  object-cover w-[100%] sm:w-[275px] lg:w-[331px] sm:h-[100%] "
+              className="rounded-[10px]  object-cover w-[100%] sm:w-[275px] lg:w-[331px] h-[289px] sm:h-[100%] "
             />
             <div className="flex flex-col justify-between  ">
               <div><h1 className="mt-[24px] sm:mt-0 text-[20px] sm:text-[27px] lg:text-[32px] font-[500] sm:font-[600] lg:font-[700] ">{product.title}</h1>
