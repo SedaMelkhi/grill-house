@@ -1,15 +1,15 @@
 "use client";
-import { Logo } from "./logo";
+import { Logo, ButtonAdd, Counter } from "../shared";
 import { MyHamburger } from "../layout";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { div } from "framer-motion/client";
-interface ButtonSectionProps {
+interface ButtonProps {
   value: string;
 }
 
-export const ButtonSection = ({ value }: ButtonSectionProps) => {
+export const Button = ({ value }: ButtonProps) => {
   const [product, setProduct] = useState({
     title:'Кимпаб', 
     weight:'300г', 
@@ -17,15 +17,8 @@ export const ButtonSection = ({ value }: ButtonSectionProps) => {
     price: 249});
   const [isOpen, setOpen] = useState(false);
   const router = useRouter();
-  const [count, setCount] = useState(1);
 
-  const handleIncrement = () => {
-    setCount((prevCount) => Math.min(prevCount + 1, 100));
-  };
 
-  const handleDecrement = () => {
-    setCount((prevCount) => Math.max(prevCount - 1, 1));
-  };
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden"; 
@@ -84,34 +77,20 @@ export const ButtonSection = ({ value }: ButtonSectionProps) => {
               height={374}
               className="rounded-[10px]  object-cover w-[100%] sm:w-[275px] lg:w-[331px] h-[289px] sm:h-[100%] "
             />
-            <div className="flex flex-col justify-between  ">
-              <div><h1 className="mt-[24px] sm:mt-0 text-[20px] sm:text-[27px] lg:text-[32px] font-[500] sm:font-[600] lg:font-[700] ">{product.title}</h1>
+            <div className="flex flex-col  justify-between  ">
+              <div><h1 className="mt-[24px] sm:mt-0 
+              text-[20px] sm:text-[27px] lg:text-[32px] 
+              font-[500] sm:font-[600] lg:font-[700] ">{product.title}</h1>
                 <p className="text-[var(--stroke-2)] mt-[12px] sm:mt-[10px]  lg:mt-[12px] mb-[14px] ">{product.weight}</p>
                 <p className="text-[var(--stroke-2)]  "> {product.description}</p>
                 <p className="sm:hidden block absolute right-0 mt-[24px] mr-[20px]  text-[20px] ">{product.price}₽</p></div>
                 
-                <div className="flex flex-col items-end justify-end ">
+                <div className="flex flex-col   items-end justify-end ">
                   <p className="hidden sm:block sm:mb-[14px] lg:mb-[20px] sm:text-[20px] lg:text-[24px] ">{product.price}₽</p>
-                <div className="p-[20px] sm:p-0 absolute bottom-0 left-0 right-0 sm:static flex justify-center gap-[12px] sm:gap-[15px] lg:gap-[20px]">
-                  <div className="flex sm:w-[89px] w-[30%] sm:h-[42px] lg:w-[105px] lg:h-[46px] py-[12px] px-[24px] sm:px-[18px] sm:py-[10px] lg:py-[12px] lg:px-[24px] 
-                  text-[var(--stroke-2)] bg-[#F3F2F8] items-center  rounded-[48px] ">
-                    <button onClick={handleDecrement}
-                    className="w-2 h-2 flex items-center justify-center  ">
-                      -
-                    </button>
-                    <input type="text"
-                      value={count}
-                      readOnly
-                      className="w-full text-center bg-[#F3F2F8] focus:outline-none" />
-                    <button onClick={handleIncrement}
-                      className="w-2 h-2 flex items-center justify-center   ">
-                      +
-                    </button>
-                    </div>
-                      <button className=" flex justify-center items-center 
-                      w-[67%] h-[46px]  sm:w-[144px] sm:h-[42px]  lg:w-[174px] lg:h-[46px] 
-                      rounded-[50px] bg-[var(--green)]
-                      text-[20px] sm:text-[14px] lg:text-[16px] text-white">Добавить</button>
+                <div className="p-[20px] w-full sm:p-0 absolute bottom-0  right-0 sm:static 
+                flex   gap-[12px] sm:gap-[15px] lg:gap-[20px]">
+                  <Counter/>
+                  <ButtonAdd />
                   </div>
                 </div>
               </div>

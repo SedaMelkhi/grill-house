@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Title, Container, ButtonSection } from "../shared";
+import { Title, Container} from "../shared";
+import { Button } from "./button";
 import Image from "next/image";
 
 
@@ -75,7 +76,7 @@ export const MenuSection = () => {
                   <p className="text-[9px] sm:text-[11px] lg:text-[15px] text-gray-600 mt-[5px] sm:mt-[7px] lg:mt-[10px]">{product.description}</p>
                   <div className="flex items-center justify-between mt-[21px] sm:mt-[28px] lg:mt-[40px]">
                     <p className="text-[12px] sm:text-[15px] lg:text-[21px] mt-1">от <b>{product.price} ₽</b></p>
-                    <ButtonSection value="Выбрать" />
+                    <Button value="Выбрать" />
                   </div>
                 </div>
               ))}
