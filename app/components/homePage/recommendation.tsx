@@ -17,8 +17,11 @@ export const Recommendation = () => {
       ]);
     
   return (
-    <div className="xl:w-[1300px] m-auto w-[98wv] text-[11px] sm:text-[16px]">
-      <h1 className="xl:font-normal font-medium ml-[20px] lg:ml-[28px] mt-[24px] mb-[16px] sm:mt-[32px] sm:mb-[24px] xl:ml-0 xl:mt-[60px] xl:mb-[32px] text-[15px] xl:text-[32px] sm:text-[28px] ">Часто заказывают</h1>
+    <div className="xl:w-[1300px] m-auto w-full text-[11px] sm:text-[16px]">
+      <h1 className="xl:font-normal font-medium 
+      ml-[20px] lg:ml-28px
+      mt-[24px] mb-[16px] sm:mt-[32px] sm:mb-[24px] xl:mt-[60px] 
+      xl:mb-[32px] text-[15px] xl:text-[32px] sm:text-[28px] ">Часто заказывают</h1>
         <div className="w-[100%]  rounded-[20px]">
         <Swiper
           slidesPerView='auto'
@@ -29,9 +32,11 @@ export const Recommendation = () => {
           }}
           className="mySwiper"
         >
-          {recomArr.map(({ img, name, price, id }) => (
-            <SwiperSlide className=' w-[auto!important] h-[auto!important] ' key={id}>
-                <div className="flex w-[213px] sm:w-[310px] h-[91px] sm:h-[132px] items-center justify-between gap-[8px] sm:gap-[14px] shadow-recom p-[6px] sm:p-[16px] rounded-[12px] "> 
+          {recomArr.map(({ img, name, price, id },index) => (
+            <SwiperSlide className={`w-[auto!important] h-[auto!important]
+            ${index === 0 ? "ml-[20px] lg:ml-28px" : ""}`} key={id}>
+                <div className="flex w-[213px] sm:w-[310px] h-[91px] sm:h-[132px] items-center justify-between gap-[8px] 
+                sm:gap-[14px] shadow-recom p-[11px] sm:p-[16px] rounded-[12px] "> 
                 <Image
                 src={img} 
                 alt=""
