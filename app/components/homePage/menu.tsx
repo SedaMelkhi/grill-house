@@ -153,7 +153,7 @@ export const MenuMobile = () => {
           : "transition-shadow duration-500 ease-in-out"
       }`}
       >
-        <div className="w-[98vw] rounded-[20px]  overflow-x-visible">
+        <div className="w-full rounded-[20px]  overflow-x-visible">
           <Swiper
             slidesPerView="auto"
             spaceBetween={8}
@@ -174,48 +174,6 @@ export const MenuMobile = () => {
             ))}
           </Swiper>
         </div>
-      </div>
-      <div>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
-        <h1 className="text-[50px]">1111111111111111111111</h1>
       </div>
     </div>
   );
