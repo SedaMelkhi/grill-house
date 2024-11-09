@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Container } from "../../shared";
-import { HeaderStepper } from "./";
+import { Container } from "../shared";
+import { HeaderStepper } from ".";
 
 export const Header = () => {
   return (
