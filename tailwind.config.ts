@@ -14,6 +14,10 @@ const config: Config = {
       //     xl: "1300px", // Указываем кастомный размер для xl
       //   },
       // },
+      fontFamily: {
+        raleway: ['Raleway'], 
+       
+      },
       backgroundImage: {
         'custom-gradient-left': 'linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.01) 100%)',
         'custom-gradient-right': "linear-gradient(270deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.01) 100%)",
@@ -33,6 +37,9 @@ const config: Config = {
         "stroke-2": "var(--stroke-2)",
         blue: "var(--blue)",
         light: "var(--light)",
+      },
+      boxShadow: {
+        'recom': '0px 4px 22px -6px rgba(6, 5, 50, 0.15)',
       },
     },
   },
