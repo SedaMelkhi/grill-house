@@ -1,23 +1,21 @@
-
 import {
   Header,
   MenuWhile,
   MenuMobile,
   MenuSection,
   SwiperHeader,
-                     Recommendation
+  Recommendation,
 } from "./components/homePage";
 
 const Home = () => {
   return (
     <main>
       <Header />
-      <SwiperHeader/>
       <MenuWhile />
       <SwiperHeader />
-      <Recommendation/>
+      <Recommendation />
       <MenuMobile />
-      <MenuSection/>
+      <MenuSection />
     </main>
   );
 };
