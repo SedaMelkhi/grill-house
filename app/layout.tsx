@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { Footer, Nav } from "./components/layout";
 import "./globals.css";
+import { Provider } from "./../components/ui/provider";
 
 const rubikSans = localFont({
   src: "./fonts/Rubik-VariableFont_wght.ttf",
@@ -20,11 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru" suppressHydrationWarning>
       <body className={`${rubikSans.variable} antialiased`}>
-        <Nav />
-        {children}
-        <Footer />
+        <Provider>
+          <>
+            <Nav />
+            {children}
+            <Footer />
+          </>
+        </Provider>
       </body>
     </html>
   );
