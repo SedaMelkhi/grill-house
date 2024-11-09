@@ -3,6 +3,7 @@ import {
   MenuWhile,
   MenuMobile,
   SwiperHeader,
+                     Recommendation
 } from "./components/homePage";
 
 const Home = () => {
@@ -10,9 +11,9 @@ const Home = () => {
     <main>
       <Header />
       <MenuWhile />
-      <MenuMobile />
       <SwiperHeader />
-      
+      <Recommendation/>
+      <MenuMobile />
     </main>
   );
 };

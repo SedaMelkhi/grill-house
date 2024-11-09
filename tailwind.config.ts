@@ -38,6 +38,9 @@ const config: Config = {
         blue: "var(--blue)",
         light: "var(--light)",
       },
+      boxShadow: {
+        'recom': '0px 4px 22px -6px rgba(6, 5, 50, 0.15)',
+      },
     },
   },
   plugins: [],
