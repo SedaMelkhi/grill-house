@@ -1,18 +1,16 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { useEffect, useState } from "react";
+import { BannersService, IBanner } from "@/services";
 
 export const SwiperHeader = () => {
-  const sliderImgs = [
-    { id: 0, img: "/swiperImg.png" },
-    { id: 0, img: "/swiperImg.png" },
-    { id: 0, img: "/swiperImg.png" },
-    { id: 0, img: "/swiperImg.png" },
-    { id: 0, img: "/swiperImg.png" },
-  ];
+  const [sliderImgs, setSilderImgs] = useState<IBanner[] | []>([]);
+  useEffect(() => {
+    BannersService.getBanners().then((res) => setSilderImgs(res));
+  }, []);
 
   return (
     <div className="relative z-0 w-[100%]  xl:h-[374px] lg:h-[278px] mt-[34px] mx-auto xl:mx-0 ">
@@ -38,13 +36,13 @@ export const SwiperHeader = () => {
         loop={true}
         className=""
       >
-        {sliderImgs.map(({ id, img }) => (
+        {sliderImgs.map(({ id, url }) => (
           <SwiperSlide
             className="xl:w-[auto!important] xl:h-[auto!important] px-[14px] xl:px-[0]"
             key={id}
           >
             <Image
-              src={img}
+              src={url}
               alt=""
               width={1300}
               height={374}
