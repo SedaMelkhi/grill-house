@@ -1,3 +1,4 @@
 export { Header } from "./header";
-export { MenuWhile, MenuMobile} from './menu';
+export { MenuWhile} from './menuWhile';
+export {MenuMobile} from './menuMobile';
 export {SwiperHeader} from './swiper'

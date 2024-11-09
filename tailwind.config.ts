@@ -14,6 +14,10 @@ const config: Config = {
       //     xl: "1300px", // Указываем кастомный размер для xl
       //   },
       // },
+      fontFamily: {
+        raleway: ['Raleway'], 
+       
+      },
       backgroundImage: {
         'custom-gradient-left': 'linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.01) 100%)',
         'custom-gradient-right': "linear-gradient(270deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.01) 100%)",
