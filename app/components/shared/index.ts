@@ -1,5 +1,5 @@
 export { Container } from "./container";
-
 export { Logo } from "./logo";
-export {Title} from './title'
-export {ButtonSection } from './buttonSection'
+export { Title } from "./title";
+export { ButtonAdd } from "./buttonAdd";
+export { Counter } from "./counter";
