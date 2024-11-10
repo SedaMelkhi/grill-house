@@ -4,21 +4,14 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { MenuService, IMenu } from "@/services";
 
 
 export const MenuMobile = () => {
-    const [menu] = useState([
-      { name: "Завтраки", id: 0 },
-      { name: "Салаты", id: 1 },
-      { name: "Брускетты", id: 2 },
-      { name: "Супы", id: 3 },
-      { name: "Горячие блюда", id: 4 },
-      { name: "Мангал и гриль", id: 5 },
-      { name: "Мангал и гриль", id: 6 },
-      { name: "Мангал и гриль", id: 7 },
-      { name: "Мангал и гриль", id: 8 },
-      { name: "Мангал и гриль", id: 9 },
-    ]);
+  const [menu, setMenu] = useState<IMenu[] | []>([]);
+  useEffect(() => {    
+    MenuService.getMenu().then((res) => setMenu(res));
+  }, []);
   
     const [isScrolled, setIsScrolled] = useState(false);
   
@@ -54,7 +47,7 @@ export const MenuMobile = () => {
               grabCursor={true}
               className=""
             >
-              {menu.map(({ id, name }, index) => (
+              {menu.map(({ id, title }, index) => (
                 <SwiperSlide
                   className={`w-[auto!important] h-[auto!important] pt-[8px] pr-[15px] pb-[8px] 
               pl-[15px] bg-[#F3F2F8] text-[#7B8290] text-[18px] hover:text-[#15523E] rounded-[20px]
@@ -62,8 +55,9 @@ export const MenuMobile = () => {
                  index === 0 ? "ml-[20px]" : ""
                }`}
                   key={id}
-                >
-                  <Link href={"#"}>{name}</Link>
+                > 
+                <a href=""></a>
+                  <Link href={`#завтраки`}>{title}</Link>
                 </SwiperSlide>
               ))}
             </Swiper>

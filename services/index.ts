@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const API_URL = "https://makhmudov.tech/api/";
+export const API = "https://makhmudov.tech/";
 export const API_DOMAIN = "https://jemmesgarden.com";
 
 axios.defaults.baseURL = API_URL;
@@ -10,6 +11,10 @@ export interface IBanner {
   url: string;
 }
 export interface IMenu {
+  id: number;
+  title: string;
+}
+export interface ISection {
   id: number;
   title: string;
   products: [];
@@ -28,6 +33,16 @@ export const BannersService = {
 };
 export const MenuService = {
   async getMenu(): Promise<IMenu[]> {
+    try {
+      const { data } = await axios.get("menu/");
+      return data;
+    } catch {
+      return [];
+    }
+  },
+};
+export const SectionService = {
+  async getSection(): Promise<ISection[]> {
     try {
       const { data } = await axios.get("menu/");
       return data;

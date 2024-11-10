@@ -50,13 +50,13 @@ export const MenuWhile = () => {
       >
         <div className="xl:flex  hidden justify-between items-center xl:w-[1300px] m-auto">
           <ul className="flex  justify-center items-center gap-2 rounded-[15px] h-[55px] bg-[#fafafa] transition-all duration-500 ease-in-out">
-            {menu.slice(0, 7).map(({ id, name }) => (
+            {menu.slice(0, 6).map(({ id, title }) => (
               <li
                 className="pt-[13px] pr-[24px] pb-[13px] pl-[24px] hover:text-red hover:bg-white rounded-[15px] 
             hover:shadow-[0px_4px_4px_rgba(0,0,0,0.05)] active:shadow-xl transition-color transition-shadow duration-300 ease-in-out"
                 key={id}
               >
-                <Link href={`#`}>{name}</Link>
+                <Link href={`#${title}`}>{title}</Link>
               </li>
             ))}
             <div
@@ -80,14 +80,14 @@ export const MenuWhile = () => {
 
               {isDropdownOpen && (
                 <div className="absolute z-10 w-[190px] mt-[15px] bg-[#fafafa] rounded-[8px] shadow-lg ">
-                  {menu.slice(7, 10).map(({ id, name }) => (
+                  {menu.slice(6, menu.length).map(({ id, title }) => (
                     <div
                       key={id}
-                      onClick={() => handleOptionClick(name)}
+                      onClick={() => handleOptionClick(title)}
                       className="px-4 py-2 cursor-pointer rounded-[8px] hover:text-red hover:bg-white 
             hover:shadow-[0px_4px_4px_rgba(0,0,0,0.05)]"
                     >
-                      <Link href={`#`}>{name}</Link>
+                      <Link href={`#`}>{title}</Link>
                     </div>
                   ))}
                 </div>
