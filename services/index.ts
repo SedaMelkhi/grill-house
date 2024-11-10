@@ -1,14 +1,25 @@
+import axios from "axios";
+import { log } from "console";
 
+export const API_URL = "https://makhmudov.tech/api/";
+export const API_DOMAIN = "https://jemmesgarden.com";
 
-// export const API_URL = '' ;
-// export const API_DOHAIN = '';
-// axios.defaults.baseURL - APT_URL; 
+axios.defaults.baseURL = API_URL;
 
-// export interface IBannor {
-//     id: number;
-//     url: string;
-// }  
-// export const async getBanners(): 16 const (data)- return data; catch ( return (); E
- 
-// "https://nakhnvdov.tech/ap1/"; https://-ennesgarden.con
-//  Bannorssorvico . Pronise<IBanner[]> t await axios.get("banner/=):
+export interface IBanner {
+  id: number;
+  url: string;
+}
+console.log(axios.get("banner/"));
+export const BannersService = {
+  async getBanners(): Promise<IBanner[]> {
+    try {
+      const { data } = await axios.get("banner/");
+      return data;
+    } catch {
+      return [];
+    }
+  },
+  
+  
+};
