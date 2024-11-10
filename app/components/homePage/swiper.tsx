@@ -10,7 +10,6 @@ export const SwiperHeader = () => {
   const [sliderImgs, setSilderImgs] = useState<IBanner[] | []>([]);
   useEffect(() => {
     BannersService.getBanners().then((res) => setSilderImgs(res));
-    
   }, []);
 
   return (
@@ -37,9 +36,7 @@ export const SwiperHeader = () => {
         loop={true}
         className=""
       >
-        {sliderImgs.map(({ id, url }) => (
-          
-          
+        {sliderImgs.map(({ id, img }) => (
           <SwiperSlide
             className="xl:w-[auto!important] xl:h-[auto!important] px-[14px] xl:px-[0]"
             key={id}
