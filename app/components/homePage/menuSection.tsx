@@ -1,5 +1,5 @@
-"use client";
-import { useState } from "react";
+
+
 import { Title, Container} from "../shared";
 import { Button } from "./button";
 import Image from "next/image";
@@ -18,7 +18,7 @@ interface Product {
   price: number;
 }
 export const MenuSection = () => {
-  const [section] = useState<Section[]>([
+  const section = [
     {
       title: 'Завтраки',
       products: [
@@ -54,8 +54,8 @@ export const MenuSection = () => {
         }
       ]
     }
-  ]);
-
+  ];
+  
   return (
     <div className="mt-[44px] sm:mt-9">
       <Container>

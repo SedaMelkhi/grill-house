@@ -3,28 +3,16 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import "swiper/css";
-
+import { MenuService, IMenu } from "@/services";
 import Image from "next/image";
 
-interface IMenu {
-  name: string;
-  id: number;
-}
-
 export const MenuWhile = () => {
-  const [menu] = useState<IMenu[]>([
-    { name: "Завтраки", id: 0 },
-    { name: "Салаты", id: 1 },
-    { name: "Брускетты", id: 2 },
-    { name: "Супы", id: 3 },
-    { name: "Горячие блюда", id: 4 },
-    { name: "Мангал и гриль", id: 5 },
-    { name: "Мангал и гриль", id: 6 },
-    { name: "Мангал и гриль", id: 7 },
-    { name: "Мангал и гриль", id: 8 },
-    { name: "Мангал и гриль", id: 9 },
-  ]);
-
+  
+  const [menu, setMenu] = useState<IMenu[] | []>([]);
+  useEffect(() => {    
+    MenuService.getMenu().then((res) => setMenu(res));
+  }, []);
+  
   const [selectedOption, setSelectedOption] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

@@ -8,9 +8,11 @@ import { BannersService, IBanner } from "@/services";
 
 export const SwiperHeader = () => {
   const [sliderImgs, setSilderImgs] = useState<IBanner[] | []>([]);
-  useEffect(() => {
+  useEffect(() => {    
     BannersService.getBanners().then((res) => setSilderImgs(res));
   }, []);
+  console.log(sliderImgs);
+  
 
   return (
     <div className="relative z-0 w-[100%]  xl:h-[374px] lg:h-[278px] mt-[34px] mx-auto xl:mx-0 ">
@@ -36,11 +38,11 @@ export const SwiperHeader = () => {
         loop={true}
         className=""
       >
-        {sliderImgs.map(({ id, img }) => (
+        {sliderImgs.map(({ id, url }) => (
           <SwiperSlide
             className="xl:w-[auto!important] xl:h-[auto!important] px-[14px] xl:px-[0]"
             key={id}
-          >
+          > 
             <Image
               src={url}
               alt=""
