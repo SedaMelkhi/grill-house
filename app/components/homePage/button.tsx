@@ -97,16 +97,27 @@ export const Button = ({ value }: ButtonProps) => {
                 </p>
               </div>
 
-              <div className="flex flex-col   items-end justify-end ">
-                <p className="hidden sm:block sm:mb-[14px] lg:mb-[20px] sm:text-[20px] lg:text-[24px] ">
+              <div className="flex flex-col  items-end justify-end sm:absolute sm:bottom-5  sm:right-5">
+                <p className="hidden sm:block  sm:mb-[14px] lg:mb-[20px] sm:text-[20px] lg:text-[24px] ">
                   {product.price}₽
                 </p>
                 <div
                   className="p-[20px] w-full sm:p-0 absolute bottom-0  right-0 sm:static 
-                flex   gap-[12px] sm:gap-[15px] lg:gap-[20px]"
+                "
                 >
-                  <Counter />
-                  <ButtonAdd />
+                  <div className="flex  gap-[12px] sm:gap-[15px] lg:gap-[20px]">
+                    <Counter />
+                  <ButtonAdd /></div>
+                  
+                  <button
+                  onClick={closeModal}
+                  className="block sm:hidden justify-center items-center 
+                    w-full h-[46px] rounded-[50px] mt-4
+                    bg-[rgba(91,164,140,0.3)]  hover:bg-[var(--green)] hover:text-white active:bg-[var(--green)] active:text-white
+                    text-[20px] text-[var(--green)]"
+                >
+                  Закрыть
+                </button>
                 </div>
               </div>
             </div>
