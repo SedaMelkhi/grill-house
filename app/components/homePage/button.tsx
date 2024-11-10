@@ -55,7 +55,7 @@ export const Button = ({ value }: ButtonProps) => {
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div
-            className="fixed inset-0 bg-black opacity-[0.8]"
+            className="fixed inset-0 bg-black opacity-[0.8] cursor-pointer"
             onClick={closeModal}
           ></div>
 
@@ -69,6 +69,9 @@ export const Button = ({ value }: ButtonProps) => {
               {" "}
               <Logo className="w-[103px]" /> <MyHamburger />{" "}
             </div>
+            <div onClick={closeModal} className="sm:flex hidden justify-center absolute top-2 right-3 
+             items-center h-10 w-10 
+            rounded-full text-[32px] text-black cursor-pointer" > x</div>
             <Image
               src={"/product.jpg"}
               alt={""}

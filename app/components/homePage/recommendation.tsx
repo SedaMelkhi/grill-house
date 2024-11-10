@@ -56,7 +56,7 @@ export const Recommendation = () => {
       >
         Часто заказывают
       </h1>
-      <div className="w-[100%]  rounded-[20px]">
+      <div className="w-[100%]  rounded-[20px] cursor-pointer">
         <Swiper
           slidesPerView="auto"
           spaceBetween={20}
