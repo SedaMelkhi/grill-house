@@ -57,10 +57,10 @@ export const MenuSection = () => {
   ]);
 
   return (
-    <div className="mt-8">
+    <div className="mt-[44px] sm:mt-9">
       <Container>
         {section.map(({ title, products }, index) => (
-          <div key={index} className="mt-[100px]">
+          <div key={index} >
             <Title value={title} />
             <div className="mt-[24px] sm:mt-[32px] lg:mt-[36px] grid grid-cols-2 sm:grid-cols-3 2xl:grid-cols-4 gap-[20px_15px] sm:gap-[32px_20px] lg:gap-[60px_20px]">
               {products.map((product, i) => (

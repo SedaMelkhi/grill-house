@@ -23,7 +23,11 @@ export const MenuMobile = () => {
     const [isScrolled, setIsScrolled] = useState(false);
   
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      if (window.innerWidth >= 640) {
+        setIsScrolled(window.scrollY > 600);
+      } else {
+        setIsScrolled(window.scrollY > 430);
+      }
     };
   
     useEffect(() => {
