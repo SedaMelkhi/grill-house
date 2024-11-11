@@ -25,7 +25,7 @@ export const MenuWhile = () => {
       setIsScrolled(window.scrollY > 30);
     }
   };
-
+  
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
