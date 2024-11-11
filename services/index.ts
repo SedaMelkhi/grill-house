@@ -19,12 +19,19 @@ export interface ISection {
   title: string;
   products: [];
 }
-
+export interface IProduct {
+  id: number;
+  name: string;
+  description:string ;
+  price: number;
+  weight: number;
+  image: string;
+}
 export const BannersService = {
   async getBanners(): Promise<IBanner[]> {
     try {
       const { data } = await axios.get("banner/");
-      console.log("Ответ от API:", data); 
+      
       return data;
     } catch {
       return [];
@@ -52,3 +59,15 @@ export const SectionService = {
   },
 };
 
+export const ProductService = {
+  async getProduct(productId: string): Promise<IProduct[]> {
+    try {
+      const { data } = await axios.get(`products/${productId}`);
+      
+      
+      return data;
+    } catch {
+      return [];
+    }
+  },
+};

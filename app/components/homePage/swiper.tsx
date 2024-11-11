@@ -11,7 +11,7 @@ export const SwiperHeader = () => {
   useEffect(() => {    
     BannersService.getBanners().then((res) => setSilderImgs(res));
   }, []);
-  console.log(sliderImgs);
+ 
   
 
   return (

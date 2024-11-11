@@ -3,17 +3,16 @@ import { Logo, ButtonAdd, Counter } from "../shared";
 import { MyHamburger } from "../layout";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-interface ButtonProps {
-  value: string;
-}
+import { ProductService, IProduct } from "@/services";
 
-export const Button = ({ value }: ButtonProps) => {
-  const [product, setProduct] = useState({
-    title: "Кимпаб",
-    weight: "300г",
-    description: `Обжаренным с капустой Кимчи, яичным блинчиком, редькой Такуан и морковью по-корейски. Подается c соевым соусом, посыпается кунжутом`,
-    price: 249,
-  });
+
+  
+export const Button = ({ value, id }: string) => {
+  const [product, setProduct] = useState<IProduct[] | []>([]);
+  useEffect(() => {
+    ProductService.getProduct(id).then((res) => setProduct(res));
+  }, []);
+  
   const [isOpen, setOpen] = useState(false);
   console.log(setProduct);
 
@@ -73,7 +72,7 @@ export const Button = ({ value }: ButtonProps) => {
              items-center h-10 w-10 
             rounded-full text-[32px] text-black cursor-pointer" > x</div>
             <Image
-              src={"/product.jpg"}
+              src={product.image}
               alt={""}
               width={1300}
               height={374}
@@ -86,7 +85,7 @@ export const Button = ({ value }: ButtonProps) => {
               text-[20px] sm:text-[27px] lg:text-[32px] 
               font-[500] sm:font-[600] lg:font-[700] "
                 >
-                  {product.title}
+                  {product.name}
                 </h1>
                 <p className="text-[var(--stroke-2)] mt-[12px] sm:mt-[10px]  lg:mt-[12px] mb-[14px] ">
                   {product.weight}
@@ -96,7 +95,7 @@ export const Button = ({ value }: ButtonProps) => {
                   {product.description}
                 </p>
                 <p className="sm:hidden block absolute right-0 mt-[24px] mr-[20px]  text-[20px] ">
-                  {product.price}₽
+                  {product.price} ₽
                 </p>
               </div>
 
