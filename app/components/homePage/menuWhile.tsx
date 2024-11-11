@@ -23,7 +23,7 @@ export const MenuWhile = () => {
       setIsScrolled(window.scrollY > 30);
     }
   };
-
+  
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -56,7 +56,7 @@ export const MenuWhile = () => {
             hover:shadow-[0px_4px_4px_rgba(0,0,0,0.05)] active:shadow-xl transition-color transition-shadow duration-300 ease-in-out"
                 key={id}
               >
-                <Link href={`#${title}`}>{title}</Link>
+                <Link href={`/#${title}`}>{title}</Link>
               </li>
             ))}
             <div

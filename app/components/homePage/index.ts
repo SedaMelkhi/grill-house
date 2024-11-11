@@ -4,3 +4,4 @@ export { MenuWhile} from './menuWhile';
 export {MenuMobile} from './menuMobile';
 export {SwiperHeader} from './swiper'
 export {MenuSection} from './menuSection'
+export {CardProduct} from './cardProduct'
