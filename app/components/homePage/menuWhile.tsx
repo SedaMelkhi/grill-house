@@ -59,40 +59,42 @@ export const MenuWhile = () => {
                 <Link href={`/#${title}`}>{title}</Link>
               </li>
             ))}
-            <div
-              className="relative p-4"
-              onMouseEnter={() => setIsDropdownOpen(true)}
-              onMouseLeave={() => setIsDropdownOpen(false)}
-            >
-              <button
-                onClick={toggleDropdown}
-                className="flex gap-[10px] p-2 bg-[#fafafa] text-gray-700 rounded-md focus:outline-none"
-              >
-                {selectedOption || "Ещё"}
-                <Image
-                  src={"/select.png"}
-                  alt=""
-                  width={22}
-                  height={22}
-                  className=" "
-                />
-              </button>
+            {menu.length >= 6 ? ' ' : (
+        <div
+          className="relative p-4"
+          onMouseEnter={() => setIsDropdownOpen(true)}
+          onMouseLeave={() => setIsDropdownOpen(false)}
+        >
+          <button
+            onClick={toggleDropdown}
+            className="flex gap-[10px] p-2 bg-[#fafafa] text-gray-700 rounded-md focus:outline-none"
+          >
+            {selectedOption || "Ещё"}
+            <Image
+              src={"/select.png"}
+              alt=""
+              width={22}
+              height={22}
+              className=" "
+            />
+          </button>
 
-              {isDropdownOpen && (
-                <div className="absolute z-10 w-[190px] mt-[15px] bg-[#fafafa] rounded-[8px] shadow-lg ">
-                  {menu.slice(6, menu.length).map(({ id, title }) => (
-                    <div
-                      key={id}
-                      onClick={() => handleOptionClick(title)}
-                      className="px-4 py-2 cursor-pointer rounded-[8px] hover:text-red hover:bg-white 
-            hover:shadow-[0px_4px_4px_rgba(0,0,0,0.05)]"
-                    >
-                      <Link href={`#`}>{title}</Link>
-                    </div>
-                  ))}
+          {isDropdownOpen && (
+            <div className="absolute z-10 w-[190px] mt-[15px] bg-[#fafafa] rounded-[8px] shadow-lg">
+              {menu.slice(6).map(({ id, title }) => (
+                <div
+                  key={id}
+                  onClick={() => handleOptionClick(title)}
+                  className="px-4 py-2 cursor-pointer rounded-[8px] hover:text-red hover:bg-white hover:shadow-[0px_4px_4px_rgba(0,0,0,0.05)]"
+                >
+                  <Link href={`#`}>{title}</Link>
                 </div>
-              )}
-            </div>
+        ))}
+      </div>
+    )}
+  </div>
+)}
+
           </ul>
           <button className="w-[113px] h-[43px] p-[12px] rounded-[50px] bg-[var(--green)] text-white">
             Корзина
