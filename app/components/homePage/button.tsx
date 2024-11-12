@@ -1,6 +1,5 @@
 "use client";
 import { Logo, ButtonAdd, Counter } from "../shared";
-import { MyHamburger } from "../layout";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ProductService, IProduct } from "@/services";
@@ -43,10 +42,10 @@ export const Button = ({ value, id }: string) => {
       <button
         onClick={openModal}
         className="flex justify-center items-center 
-          w-[64px] h-[24px] sm:w-[80px] sm:h-[30px] lg:w-[110px] lg:h-[42px] p-[12px] 
+          w-[76px] h-[29px] sm:w-[80px] sm:h-[30px] lg:w-[110px] lg:h-[42px] p-[12px] 
           rounded-[50px] bg-[rgba(91,164,140,0.3)]  
           hover:bg-[var(--green)] hover:text-white active:bg-[var(--green)] active:text-white
-          text-[9zpx] sm:text-[11px] lg:text-[15px] text-[var(--green)]"
+          text-[16px] sm:text-[11px] lg:text-[15px] text-[var(--green)]"
       >
         {value}
       </button>
@@ -61,24 +60,47 @@ export const Button = ({ value, id }: string) => {
           <div
             className="relative sm:flex  sm:mx-[28px] sm:[m-0] sm:gap-[20px] md:gap-[34px] lg:gap-[41px] bg-white 
           w-full sm:w-auto lg:w-[860px] h-screen sm:h-[317px] lg:h-[383px] 
-          p-[20px] sm:p-[15px] md:p-[20px] lg:p-[25px] 
+          py-[20px] sm:p-[15px] md:p-[20px] lg:p-[25px] 
           sm:rounded-[20px] lg:rounded-[25px] shadow-lg"
           >
-            <div className="flex sm:hidden justify-between items-center h-[68px] mb-[24px]">
-              {" "}
-              <Logo className="w-[103px]" /> <MyHamburger />{" "}
+          <div className="flex sm:hidden p-[20px] py-0 mb-[20px] justify-between items-center ">
+                <Image 
+                onClick={closeModal}
+                src={'/ago.svg'}
+                alt={""}
+                width={1300}
+                height={374}
+                className="object-cover cursor-pointer w-[28px] h-[28px]  "
+                />
+              <Logo className="w-[103px]" /> 
+               
+                <Image 
+                onClick={closeModal}
+                src={'/close.svg'}
+                alt={""}
+                width={1300}
+                height={374}
+                className="object-cover cursor-pointer w-[28px] h-[28px]  "
+                />
             </div>
-            <div onClick={closeModal} className="sm:flex hidden justify-center absolute top-2 right-3 
-             items-center h-10 w-10 
-            rounded-full text-[32px] text-black cursor-pointer" > x</div>
+            <div onClick={closeModal} className="sm:flex hidden  absolute top-5 right-5 " > 
+            <Image 
+            onClick={closeModal}
+            src={'/close.svg'}
+            alt={""}
+            width={1300}
+            height={374}
+            className="object-cover cursor-pointer w-[28px] h-[28px]  "
+            />
+            </div>
             <Image
               src={product.image}
               alt={""}
               width={1300}
               height={374}
-              className="rounded-[10px]  object-cover w-[100%] sm:w-[275px] lg:w-[331px] h-[289px] sm:h-[100%] "
+              className="sm:rounded-[10px] object-cover w-[100%] sm:w-[275px] lg:w-[331px] h-[289px] sm:h-[100%] "
             />
-            <div className="flex flex-col  justify-between  ">
+            <div className="flex px-[20px] flex-col  justify-between  ">
               <div>
                 <h1
                   className="mt-[24px] sm:mt-0 
@@ -111,15 +133,7 @@ export const Button = ({ value, id }: string) => {
                     <Counter />
                   <ButtonAdd /></div>
                   
-                  <button
-                  onClick={closeModal}
-                  className="block sm:hidden justify-center items-center 
-                    w-full h-[46px] rounded-[50px] mt-4
-                    bg-[rgba(91,164,140,0.3)]  hover:bg-[var(--green)] hover:text-white active:bg-[var(--green)] active:text-white
-                    text-[20px] text-[var(--green)]"
-                >
-                  Закрыть
-                </button>
+                  
                 </div>
               </div>
             </div>
