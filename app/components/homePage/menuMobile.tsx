@@ -32,14 +32,20 @@ export const MenuMobile = () => {
   return (
     <div>
       <div
-        className={`flex xl:hidden h-[55px] items-center ${
+        className={`flex xl:hidden h-[55px] items-center w-full  ${
           isScrolled
             ? "fixed z-10 bg-white top-0 ease-in-out shadow-lg"
             : "transition-shadow duration-500 ease-in-out"
         }`}
+        style={{ WebkitOverflowScrolling: "touch" }} // поддержка плавного скролла на iOS
       >
         <div className="w-full rounded-[20px] overflow-x-visible">
-          <Swiper slidesPerView="auto" spaceBetween={8} grabCursor={true} className="">
+          <Swiper 
+            slidesPerView="auto" 
+            spaceBetween={8} 
+            grabCursor={true} 
+            className="w-full"
+          >
             {menu.map(({ id, title }, index) => (
               <SwiperSlide
                 className={`w-[auto!important] h-[auto!important] pt-[8px] pr-[15px] pb-[8px] 
