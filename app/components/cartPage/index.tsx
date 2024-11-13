@@ -2,4 +2,8 @@ export { Header } from "./header";
 export { HeaderStepper } from "./headerStepper";
 export { Title } from "./title";
 export { CartItems } from "./cartItems";
+export { CartItem } from "./cartItem";
 export { CountBtn } from "./countBtn";
+export { Additionals } from "./additionals";
+export { Promocode } from "./promocode";
+export { Button } from "./button";

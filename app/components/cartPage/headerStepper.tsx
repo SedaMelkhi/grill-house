@@ -3,7 +3,7 @@ import { StepsItem, StepsList, StepsRoot } from "@/components/ui/steps";
 
 export const HeaderStepper = () => {
   return (
-    <StepsRoot defaultValue={1} count={3} className="w-[624px]">
+    <StepsRoot defaultValue={1} count={3} className="w-[624px] pr-10">
       <StepsList>
         <StepsItem index={0} title="Корзина" />
         <StepsItem index={1} title="Оформление заказа" />
