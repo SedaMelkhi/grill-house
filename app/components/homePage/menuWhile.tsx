@@ -50,7 +50,7 @@ export const MenuWhile = () => {
       >
         <div className="xl:flex  hidden justify-between items-center xl:w-[1300px] m-auto">
           <ul className="flex  justify-center items-center gap-2 rounded-[15px] h-[55px] bg-[#fafafa] transition-all duration-500 ease-in-out">
-            {menu.slice(0, 6).map(({ id, title }) => (
+            {menu.slice(0, 7).map(({ id, title }) => (
               <li
                 className="pt-[13px] pr-[24px] pb-[13px] pl-[24px] hover:text-red hover:bg-white rounded-[15px] 
             hover:shadow-[0px_4px_4px_rgba(0,0,0,0.05)] active:shadow-xl transition-color transition-shadow duration-300 ease-in-out"
@@ -59,7 +59,7 @@ export const MenuWhile = () => {
                 <Link href={`/#${title}`}>{title}</Link>
               </li>
             ))}
-            {menu.length >= 6 ? ' ' : (
+        {menu.length <= 7 ? ' ' : (
         <div
           className="relative p-4"
           onMouseEnter={() => setIsDropdownOpen(true)}
@@ -67,7 +67,7 @@ export const MenuWhile = () => {
         >
           <button
             onClick={toggleDropdown}
-            className="flex gap-[10px] p-2 bg-[#fafafa] text-gray-700 rounded-md focus:outline-none"
+            className="flex gap-[10px] p-2 bg-[#fafafa] items-center  text-gray-700 rounded-md focus:outline-none"
           >
             {selectedOption || "Ещё"}
             <Image
