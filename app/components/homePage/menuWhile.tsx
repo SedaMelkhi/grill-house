@@ -42,8 +42,8 @@ export const MenuWhile = () => {
             : "ease-in-out"
         }`}
       >
-        <div className="xl:flex  hidden justify-between items-center xl:w-[1300px] m-auto">
-          <ul className="flex  justify-center items-center gap-2 rounded-[15px] h-[55px] bg-[#fafafa] transition-all duration-500 ease-in-out">
+        <div className="xl:flex hidden justify-between items-center xl:w-[1300px] m-auto">
+          <ul className="flex justify-center items-center gap-2 rounded-[15px] h-[55px] bg-[#fafafa]">
             {menu.slice(0, 7).map(({ id, title }) => (
               <li
                 key={id}
@@ -56,42 +56,19 @@ export const MenuWhile = () => {
                 <Link href={`#section-${id}`}>{title}</Link>
               </li>
             ))}
-        {menu.length <= 7 ? ' ' : (
-        <div
-          className="relative p-4"
-          onMouseEnter={() => setIsDropdownOpen(true)}
-          onMouseLeave={() => setIsDropdownOpen(false)}
-        >
-          <button
-            onClick={toggleDropdown}
-            className="flex gap-[10px] p-2 bg-[#fafafa] items-center  text-gray-700 rounded-md focus:outline-none"
-          >
-            {selectedOption || "Ещё"}
-            <Image
-              src={"/select.png"}
-              alt=""
-              width={22}
-              height={22}
-              className=" "
-            />
-          </button>
-
-          {isDropdownOpen && (
-            <div className="absolute z-10 w-[190px] mt-[15px] bg-[#fafafa] rounded-[8px] shadow-lg">
-              {menu.slice(6).map(({ id, title }) => (
-                <div
-                  key={id}
-                  onClick={() => handleOptionClick(title)}
-                  className="px-4 py-2 cursor-pointer rounded-[8px] hover:text-red hover:bg-white hover:shadow-[0px_4px_4px_rgba(0,0,0,0.05)]"
+            {menu.length <= 7 ? (
+              ""
+            ) : (
+              <div className="relative p-4">
+                <button
+                  onClick={() => {}}
+                  className="flex gap-[10px] p-2 bg-[#fafafa] items-center text-gray-700 rounded-md focus:outline-none"
                 >
-                  <Link href={`#`}>{title}</Link>
-                </div>
-        ))}
-      </div>
-    )}
-  </div>
-)}
-
+                  {"Ещё"}
+                  <Image src={"/select.png"} alt="" width={22} height={22} />
+                </button>
+              </div>
+            )}
           </ul>
           <ButtonCart/>
         </div>
