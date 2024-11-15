@@ -34,11 +34,11 @@ export const SwiperHeader = () => {
           },
         }}
         centeredSlides={true}
-        initialSlide={2}
+        initialSlide={3}
         loop={true}
         className=""
       >
-        {sliderImgs.map(({ id, url }) => (
+        {Array(2).fill(sliderImgs).flat().map(({ id, url }) => (
           <SwiperSlide
             className="xl:w-[auto!important] xl:h-[auto!important] px-[14px] xl:px-[0]"
             key={id}
