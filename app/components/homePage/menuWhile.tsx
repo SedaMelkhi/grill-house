@@ -6,6 +6,7 @@ import "swiper/css";
 import { MenuService, IMenu } from "@/services";
 import { useSectionStore } from "@/store/section";
 import Image from "next/image";
+import { ButtonCart } from "../shared";
 
 export const MenuWhile = () => {
   const [menu, setMenu] = useState<IMenu[] | []>([]);
@@ -69,9 +70,7 @@ export const MenuWhile = () => {
               </div>
             )}
           </ul>
-          <button className="w-[113px] h-[43px] p-[12px] rounded-[50px] bg-[var(--green)] text-white">
-            Корзина
-          </button>
+          <ButtonCart/>
         </div>
       </div>
     </div>
