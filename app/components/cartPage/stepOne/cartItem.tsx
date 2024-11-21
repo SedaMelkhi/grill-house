@@ -3,12 +3,10 @@
 import Image from "next/image";
 import { CountBtn } from "./countBtn";
 import { useState } from "react";
-import { CartSvg, CloseSvg } from "../shared/svg";
+import { CartSvg, CloseSvg } from "../../shared/svg";
 
 export const CartItem = () => {
   const [count, setCount] = useState(1);
-  console.log(count);
-
   return (
     <div>
       <div className="md:py-5 py-3 border-t border-[#F3F3F7] flex justify-between items-center relative">

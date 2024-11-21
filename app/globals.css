@@ -154,6 +154,20 @@ ul {
   margin-bottom: 5px;
   gap: 20px;
 }
+
+.addressModal {
+  top: 0;
+}
+@media (min-width: 768px) {
+  .addressModal {
+    top: calc(50vh - 257px);
+  }
+}
+
+.chakra-segment-group__item::before {
+  display: none;
+}
+
 /* .chakra-step > div > div:first-child {
   border-width: 1px;
 }

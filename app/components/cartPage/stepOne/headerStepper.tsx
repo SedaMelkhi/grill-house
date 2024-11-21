@@ -1,15 +1,14 @@
 "use client";
-import { StepsItem, StepsList, StepsRoot } from "@/components/ui/steps";
+import { StepsItem, StepsList } from "@/components/ui/steps";
 
 export const HeaderStepper = () => {
   return (
-    <StepsRoot defaultValue={1} count={3} className="w-[624px] pr-10">
+    <div className="w-[624px] pr-10">
       <StepsList>
         <StepsItem index={0} title="Корзина" />
         <StepsItem index={1} title="Оформление заказа" />
         <StepsItem index={2} title="Заказ принят" />
       </StepsList>
-
       {/* <StepsContent index={0}>Step 1</StepsContent>
       <StepsContent index={1}>Step 2</StepsContent>
       <StepsContent index={2}>Step 3</StepsContent>
@@ -27,6 +26,6 @@ export const HeaderStepper = () => {
           </Button>
         </StepsNextTrigger>
       </Group> */}
-    </StepsRoot>
+    </div>
   );
 };

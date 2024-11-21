@@ -1,6 +1,6 @@
 "use client";
 
-import { CartItem } from "./";
+import { CartItem } from "..";
 
 export const CartItems = () => {
   return (

@@ -1,4 +1,4 @@
-import { CartSvg } from "../shared/svg";
+import { CartSvg } from "../../shared/svg";
 
 export const Title = () => {
   return (
