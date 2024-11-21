@@ -4,16 +4,20 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ProductService, IProduct } from "@/services";
 
-
+interface ButtonProps {
+  value: string;
+  id: number;
+}
   
-export const Button = ({ value, id }: string) => {
+export const Button: React.FC<ButtonProps> = ({ value, id }) => {
   const [product, setProduct] = useState<IProduct[] | []>([]);
   useEffect(() => {
     ProductService.getProduct(id).then((res) => setProduct(res));
   }, []);
+  console.log(setProduct);
   
   const [isOpen, setOpen] = useState(false);
-  console.log(setProduct);
+  
 
   useEffect(() => {
     if (isOpen) {
