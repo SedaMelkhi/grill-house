@@ -22,16 +22,16 @@ export interface ISection {
 export interface IProduct {
   id: number;
   name: string;
-  description:string ;
+  description: string;
   price: number;
-  weight: number;
+  weight?: number;
   image: string;
 }
 export const BannersService = {
   async getBanners(): Promise<IBanner[]> {
     try {
       const { data } = await axios.get("banner/");
-      
+
       return data;
     } catch {
       return [];
@@ -60,14 +60,13 @@ export const SectionService = {
 };
 
 export const ProductService = {
-  async getProduct(productId: string): Promise<IProduct[]> {
+  async getProduct(productId: number): Promise<IProduct | null> {
     try {
       const { data } = await axios.get(`products/${productId}`);
-      
-      
+
       return data;
     } catch {
-      return [];
+      return null;
     }
   },
 };

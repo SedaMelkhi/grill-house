@@ -8,16 +8,16 @@ interface ButtonProps {
   value: string;
   id: number;
 }
-  
+
 export const Button: React.FC<ButtonProps> = ({ value, id }) => {
-  const [product, setProduct] = useState<IProduct[] | []>([]);
+  const [product, setProduct] = useState<IProduct | null>(null);
   useEffect(() => {
     ProductService.getProduct(id).then((res) => setProduct(res));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(setProduct);
-  
+
   const [isOpen, setOpen] = useState(false);
-  
 
   useEffect(() => {
     if (isOpen) {
@@ -54,7 +54,7 @@ export const Button: React.FC<ButtonProps> = ({ value, id }) => {
         {value}
       </button>
 
-      {isOpen && (
+      {isOpen && product && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div
             className="fixed inset-0 bg-black opacity-[0.8] cursor-pointer"
@@ -67,35 +67,38 @@ export const Button: React.FC<ButtonProps> = ({ value, id }) => {
           py-[20px] sm:p-[15px] md:p-[20px] lg:p-[25px] 
           sm:rounded-[20px] lg:rounded-[25px] shadow-lg"
           >
-          <div className="flex sm:hidden p-[20px] py-0 mb-[20px] justify-between items-center ">
-                <Image 
+            <div className="flex sm:hidden p-[20px] py-0 mb-[20px] justify-between items-center ">
+              <Image
                 onClick={closeModal}
-                src={'/ago.svg'}
+                src={"/ago.svg"}
                 alt={""}
                 width={1300}
                 height={374}
                 className="object-cover cursor-pointer w-[28px] h-[28px]  "
-                />
-              <Logo className="w-[103px]" /> 
-               
-                <Image 
+              />
+              <Logo className="w-[103px]" />
+
+              <Image
                 onClick={closeModal}
-                src={'/close.svg'}
+                src={"/close.svg"}
                 alt={""}
                 width={1300}
                 height={374}
                 className="object-cover cursor-pointer w-[28px] h-[28px]  "
-                />
+              />
             </div>
-            <div onClick={closeModal} className="sm:flex hidden  absolute top-5 right-5 " > 
-            <Image 
-            onClick={closeModal}
-            src={'/close.svg'}
-            alt={""}
-            width={1300}
-            height={374}
-            className="object-cover cursor-pointer w-[28px] h-[28px]  "
-            />
+            <div
+              onClick={closeModal}
+              className="sm:flex hidden  absolute top-5 right-5 "
+            >
+              <Image
+                onClick={closeModal}
+                src={"/close.svg"}
+                alt={""}
+                width={1300}
+                height={374}
+                className="object-cover cursor-pointer w-[28px] h-[28px]  "
+              />
             </div>
             <Image
               src={product.image}
@@ -117,7 +120,6 @@ export const Button: React.FC<ButtonProps> = ({ value, id }) => {
                   {product.weight}
                 </p>
                 <p className="text-[var(--stroke-2)]  ">
-                  {" "}
                   {product.description}
                 </p>
                 <p className="sm:hidden block absolute right-0 mt-[24px] mr-[20px]  text-[20px] ">
@@ -135,9 +137,8 @@ export const Button: React.FC<ButtonProps> = ({ value, id }) => {
                 >
                   <div className="flex  gap-[12px] sm:gap-[15px] lg:gap-[20px]">
                     <Counter />
-                  <ButtonAdd /></div>
-                  
-                  
+                    <ButtonAdd />
+                  </div>
                 </div>
               </div>
             </div>
