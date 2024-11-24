@@ -69,6 +69,10 @@ select {
   color: inherit;
 }
 
+input:focus {
+  outline: none;
+}
+
 button {
   background: none;
   border: none;
@@ -139,11 +143,68 @@ ul {
 }
 .chakra-steps__separator {
   height: 2px;
-  background: url("/line.svg") center/contain repeat-x;
+  background: url("/line.svg") center/100% repeat-x;
   transition: 0.2s;
 }
 .chakra-steps__separator[data-complete] {
-  background: url("/line-green.svg") center/contain repeat-x;
+  background: url("/line-green.svg") center/100% repeat-x;
+}
+
+.dop .swiper-wrapper {
+  margin-bottom: 5px;
+  gap: 20px;
+}
+
+.addressModal {
+  top: 0;
+}
+
+.chakra-segment-group__item::before {
+  display: none;
+}
+
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
+  background-color: transparent !important;
+}
+.react-tel-input .selected-flag .arrow {
+  display: none;
+}
+.react-tel-input .selected-flag {
+  padding: 0 0 0 12px !important;
+}
+
+.selected-flag::before {
+  content: "";
+  display: block;
+  position: relative;
+  left: 28px;
+  top: 12px;
+  width: 1px;
+  height: 19px;
+  background-color: #e5e4ea;
+}
+
+.margin {
+  margin-bottom: calc(100dvh - 514px);
+}
+
+@media (min-width: 768px) {
+  .addressModal {
+    top: calc(50vh - 257px);
+  }
+  .margin {
+    margin-bottom: calc(100dvh - 598px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .addressModal {
+    top: calc(50vh - 257px);
+  }
+  .margin {
+    margin-bottom: calc(100dvh - 726px);
+  }
 }
 /* .chakra-step > div > div:first-child {
   border-width: 1px;

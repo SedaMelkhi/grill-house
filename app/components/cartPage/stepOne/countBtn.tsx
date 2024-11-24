@@ -15,7 +15,7 @@ export const CountBtn: FC<{
   return (
     <div
       className={cn(
-        "flex md:gap-5 gap-4 items-center justify-center bg-background rounded-full bg-[#F3F2F8] md:py-1.5 py-1 md:px-[14px] px-2 text-[#7B8290] md:text-base text-[14px]",
+        "flex gap-5 items-center justify-center bg-background rounded-full bg-[#F3F2F8] md:py-1.5 py-1 px-[14px] text-[#7B8290] text-base",
         className
       )}
     >
