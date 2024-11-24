@@ -24,3 +24,6 @@ export { Pickup } from "./stepTwo/pickup";
 export { MyDrawer } from "./stepTwo/myDrawer";
 export { Radio } from "./stepTwo/radio";
 export { MyButton } from "./stepTwo/myButton";
+export { StepTwo } from "./stepTwo/stepTwo";
+export { PhoneNumber } from "./stepTwo/phoneNumber";
+export { StepThree } from "./stepThree/stepThree";

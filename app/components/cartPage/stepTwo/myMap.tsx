@@ -1,3 +1,5 @@
+"use client";
+
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import { useEffect, useState } from "react";
 import { AddressData } from "./addressModal";
@@ -14,6 +16,11 @@ export const MyMap = ({
 
   useEffect(() => {
     if (selectedAddress?.data?.geo_lat && selectedAddress?.data?.geo_lon) {
+      console.log(
+        "Selected Address:",
+        selectedAddress.data.geo_lat,
+        selectedAddress.data.geo_lon
+      );
       setMapState({
         center: [+selectedAddress.data.geo_lat, +selectedAddress.data.geo_lon],
         zoom: 16, // Более высокий уровень масштабирования для подробного адреса
@@ -24,7 +31,7 @@ export const MyMap = ({
   return (
     <div className="">
       <YMaps>
-        <div className="h-full w-[54%] right-0 md:absolute top-0">
+        <div className="md:h-full h-[100%] md:w-[54%] w-full right-0 absolute top-0 map">
           <Map state={mapState} width="100%" height="100%">
             {selectedAddress?.data?.geo_lat &&
               selectedAddress?.data?.geo_lon && (

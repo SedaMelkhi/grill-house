@@ -5,15 +5,18 @@ import { LeftSvg, RightSvg } from "../../shared/svg";
 import { StepsNextTrigger, StepsPrevTrigger } from "@/components/ui/steps";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
+import { cn } from "@/lib/utils";
 
 export const Button = ({
   text,
   link,
   arrow,
+  bgGreen,
 }: {
   text: string;
   link: string;
   arrow: string;
+  bgGreen?: boolean;
 }) => {
   const params = useParams();
   useEffect(() => {
@@ -25,22 +28,50 @@ export const Button = ({
     <StepsNextTrigger asChild>
       <Link
         href={link || "/"}
-        className="flex md:gap-[21px] gap-[12px] items-center bg-[#5BA48C4D] md:w-[269px] w-full md:h-[48px] h-[38px] justify-center rounded-full group hover:bg-green transition-colors duration-200 min-w-[167px]"
+        className={cn(
+          "flex md:gap-[21px] gap-[12px] items-center bg-[#5BA48C4D] w-full md:h-[48px] h-[38px] justify-center rounded-full group hover:bg-green transition-colors duration-200 min-w-[167px]",
+          bgGreen && "bg-[#15523E]"
+        )}
       >
-        <div className="md:text-xl text-base text-green group-hover:text-white transition-colors duration-200">
+        <div
+          className={cn(
+            "md:text-xl text-base text-green group-hover:text-white transition-colors duration-200",
+            bgGreen && "text-white"
+          )}
+        >
           {text}
         </div>
-        <RightSvg className="group-hover:stroke-white stroke-green transition-colors duration-200 md:w-auto w-[8px]" />
+        <RightSvg
+          className={cn(
+            "group-hover:stroke-white stroke-green transition-colors duration-200 md:w-auto w-[8px]",
+            bgGreen && "stroke-white"
+          )}
+        />
       </Link>
     </StepsNextTrigger>
   ) : (
     <StepsPrevTrigger asChild>
       <Link
         href={link || "/"}
-        className="flex md:gap-[21px] gap-[12px] items-center bg-[#5BA48C4D] md:w-[269px] w-full md:h-[48px] h-[38px] justify-center rounded-full group hover:bg-green transition-colors duration-200 min-w-[167px]"
+        className={cn(
+          "flex md:gap-[21px] gap-[12px] items-center bg-[#5BA48C4D]  w-full md:h-[48px] h-[38px] justify-center rounded-full group hover:bg-green transition-colors duration-200 min-w-[167px]",
+          bgGreen && "bg-[#15523E]"
+        )}
       >
-        <LeftSvg className="group-hover:stroke-white stroke-green transition-colors duration-200 md:w-auto w-[8px]" />
-        <div className="md:text-xl text-base text-green group-hover:text-white transition-colors duration-200">
+        {arrow && (
+          <LeftSvg
+            className={cn(
+              "group-hover:stroke-white stroke-green transition-colors duration-200 md:w-auto w-[8px]",
+              bgGreen && "stroke-white"
+            )}
+          />
+        )}
+        <div
+          className={cn(
+            "md:text-xl text-base text-green group-hover:text-white transition-colors duration-200",
+            bgGreen && "text-white"
+          )}
+        >
           {text}
         </div>
       </Link>

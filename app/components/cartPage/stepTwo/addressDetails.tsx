@@ -24,7 +24,7 @@ export const AddressDetails: React.FC<AddressDetailsProps> = ({
 }) => {
   const inputStyles = {
     className:
-      "border rounded-md p-3 text-sm focus:border-green placeholder-[#7B8290] text-green min-h-[43px]",
+      "border rounded-md p-3 text-base focus:border-green placeholder-[#7B8290] text-green min-h-[43px]",
   };
 
   return (

@@ -158,16 +158,54 @@ ul {
 .addressModal {
   top: 0;
 }
-@media (min-width: 768px) {
-  .addressModal {
-    top: calc(50vh - 257px);
-  }
-}
 
 .chakra-segment-group__item::before {
   display: none;
 }
 
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
+  background-color: transparent !important;
+}
+.react-tel-input .selected-flag .arrow {
+  display: none;
+}
+.react-tel-input .selected-flag {
+  padding: 0 0 0 12px !important;
+}
+
+.selected-flag::before {
+  content: "";
+  display: block;
+  position: relative;
+  left: 28px;
+  top: 12px;
+  width: 1px;
+  height: 19px;
+  background-color: #e5e4ea;
+}
+
+.margin {
+  margin-bottom: calc(100dvh - 514px);
+}
+
+@media (min-width: 768px) {
+  .addressModal {
+    top: calc(50vh - 257px);
+  }
+  .margin {
+    margin-bottom: calc(100dvh - 598px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .addressModal {
+    top: calc(50vh - 257px);
+  }
+  .margin {
+    margin-bottom: calc(100dvh - 726px);
+  }
+}
 /* .chakra-step > div > div:first-child {
   border-width: 1px;
 }

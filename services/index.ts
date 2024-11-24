@@ -38,6 +38,7 @@ export const DadataService = {
         DADATA_API_URL,
         {
           query,
+          count: 5,
           locations: [
             {
               region_fias_id: "de67dc49-b9ba-48a3-a4cc-c2ebfeca6c5e",

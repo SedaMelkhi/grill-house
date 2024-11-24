@@ -1,25 +1,29 @@
 import React from "react";
-import { Button } from "@chakra-ui/react";
+import { MyButton } from "./myButton";
 
-export const Pickup = () => {
+export const Pickup = ({
+  setAddressModalOpen,
+}: {
+  setAddressModalOpen: (prev: boolean) => void;
+}) => {
   return (
     <div>
-      <div className="border border-green rounded-[10px] p-2.5 pl-7">
+      <h2 className="md:hidden block mb-3">Грозный</h2>
+      <div className="md:border md:border-green md:rounded-[10px] md:p-2.5 md:pl-7">
         <div className="cursor-pointer">
-          <div className="text-sm mb-1">
+          <div className="text-sm mb-1 md:text-black text-[#7B8290]">
             Грозный, пр. Махмуда А. Эсамбаева, 11
           </div>
-          <div className="text-[#7B8290] text-xs">Пн-Вс: 11:00 - 23:30</div>
+          <div className="text-[#7B8290] text-xs md:block hidden">
+            Пн-Вс: 11:00 - 23:30
+          </div>
         </div>
       </div>
-      <div className="mt-[260px]">
-        <Button
-          type="submit"
-          mt={4}
-          className="h-[46px] rounded-[48px] bg-green text-white w-full "
-        >
-          Выбрать
-        </Button>
+      <div
+        className="md:mt-[260px] mt-[28px]"
+        onClick={() => setAddressModalOpen(false)}
+      >
+        <MyButton value="Заберу здесь" />
       </div>
     </div>
   );

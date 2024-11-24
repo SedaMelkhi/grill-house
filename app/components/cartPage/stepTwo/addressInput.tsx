@@ -13,7 +13,7 @@ const AddressInput = forwardRef<HTMLInputElement, AddressInputProps>(
     <Input
       ref={ref}
       placeholder="Город, улица и дом"
-      className="border rounded-md p-3 text-sm focus:border-green placeholder-[#7B8290] text-green overflow-auto whitespace-nowrap"
+      className="border rounded-md p-3 text-base focus:border-green placeholder-[#7B8290] text-green overflow-auto whitespace-nowrap"
       autoComplete="off"
       value={value.replace("Чеченская Респ,", "")}
       onChange={onChange}
