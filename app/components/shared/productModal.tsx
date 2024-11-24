@@ -13,13 +13,19 @@ interface ProductModalProps {
 export const ProductModal: React.FC<ProductModalProps> = ({ id }) => {
   const [product, setProduct] = useState<IProduct | null>(null);
   const router = useRouter();
+  const isOpen = false
 
   useEffect(() => {
     if (id) {
       ProductService.getProduct(id).then((res) => setProduct(res));
     }
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [id]);
-  console.log(id)
+  
   const closeModal = () => {
     router.push("/"); 
   };
@@ -34,8 +40,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({ id }) => {
           ></div>
 
           <div
-            className="relative sm:flex  sm:mx-[28px] sm:[m-0] sm:gap-[20px] md:gap-[34px] lg:gap-[41px] bg-white 
-          w-full sm:w-auto lg:w-[860px] h-screen sm:h-[317px] lg:h-[383px] 
+            className=" relative sm:flex  sm:mx-[28px] sm:[m-0] sm:gap-[20px] md:gap-[34px] lg:gap-[41px] bg-white 
+          w-full sm:w-auto lg:w-[860px] h-[100dvh] sm:h-[317px] lg:h-[383px] 
           py-[20px] sm:p-[15px] md:p-[20px] lg:p-[25px] 
           sm:rounded-[20px] lg:rounded-[25px] shadow-lg"
           >
