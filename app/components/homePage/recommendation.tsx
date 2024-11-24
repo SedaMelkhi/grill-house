@@ -47,7 +47,7 @@ export const Recommendation = () => {
   ]);
 
   return (
-    <div className="xl:w-[1300px] m-auto w-full text-[11px] sm:text-[16px] mb-[24px] sm:mb-8 xl:mb-[70px]">
+    <div className="xl:w-[1300px]  m-auto w-full text-[11px] sm:text-[16px] mb-[-4px] sm:mb-[4px] xl:mb-[42px]">
       <h1
         className="xl:font-normal font-medium 
       ml-[20px] lg:ml-28px
@@ -67,7 +67,7 @@ export const Recommendation = () => {
         >
           {recomArr.map(({ img, name, price, id }, index) => (
             <SwiperSlide
-              className={`w-[auto!important] h-[auto!important]
+              className={`w-[auto!important] h-[auto!important] pb-[28px]
             ${index === 0 ? "ml-[20px] lg:ml-28px" : ""}`}
               key={id}
             >
