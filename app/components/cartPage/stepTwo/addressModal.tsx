@@ -86,7 +86,7 @@ export const AddressModal = ({
       >
         <Link href={"/cart"} className="absolute top-6 right-6 z-[2]">
           <Image
-            src="/close.svg"
+            src="/closeCart.svg"
             width={24}
             height={24}
             alt="close"
