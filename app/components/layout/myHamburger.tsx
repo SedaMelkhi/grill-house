@@ -1,9 +1,20 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Hamburger from "hamburger-react";
 
 export const MyHamburger = () => {
   const [isOpen, setOpen] = useState(false);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"; // Убирает прокрутку
+    } else {
+      document.body.style.overflow = "auto"; // Возвращает прокрутку
+    }
+  
+    return () => {
+      document.body.style.overflow = "auto"; // Очистка при размонтировании
+    };
+  }, [isOpen]);
   return (
     <div className="xl:hidden block">
       <div className="z-20 relative right-[-12px]">
