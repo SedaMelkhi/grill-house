@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { MenuService, IMenu } from "@/services";
 import { useSectionStore } from "@/store/section";
-
+import { ButtonCart } from "../shared";
 
   
 export const MenuMobile = () => {
@@ -67,6 +67,7 @@ export const MenuMobile = () => {
           </Swiper>
         </div>
       </div>
+      <ButtonCart/>
     </div>
   );
 };
