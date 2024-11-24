@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import {  ProductModal } from "../shared";
-import { useRouter } from "next/navigation"; 
+import { ProductModal } from "../shared";
+import { useRouter } from "next/navigation";
 interface ButtonProps {
   value: string;
   id: number;
@@ -11,7 +11,8 @@ export const Button: React.FC<ButtonProps> = ({ value, id }) => {
   const router = useRouter();
   const [isOpen, setOpen] = useState(false);
 
-  
+  console.log(setOpen);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -25,17 +26,16 @@ export const Button: React.FC<ButtonProps> = ({ value, id }) => {
   }, [isOpen]);
 
   const openModal = (id: number) => {
-    const currentPath = window.location.pathname; 
-    router.push(`${currentPath}?modal=${id}`); 
+    const currentPath = window.location.pathname;
+    router.push(`${currentPath}?modal=${id}`);
   };
-  
+
   const closeModal = () => {
-    const currentPath = window.location.pathname; 
-    router.replace(currentPath); 
+    const currentPath = window.location.pathname;
+    router.replace(currentPath);
   };
   return (
     <div>
-      
       <button
         onClick={() => openModal(id)}
         className="flex justify-center items-center 
@@ -47,10 +47,7 @@ export const Button: React.FC<ButtonProps> = ({ value, id }) => {
         {value}
       </button>
 
-      
-      {isOpen && (
-        <ProductModal id={id} onClose={closeModal} />
-      )}
+      {isOpen && <ProductModal id={id} onClose={closeModal} />}
     </div>
   );
 };
