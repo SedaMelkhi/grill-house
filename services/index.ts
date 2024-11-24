@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const API_URL = "https://makhmudov.tech/api/";
+export const API = "https://makhmudov.tech/";
 export const API_DOMAIN = "https://jemmesgarden.com";
 export const DADATA_API_URL =
   "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
@@ -13,16 +14,39 @@ export interface IBanner {
   url: string;
 }
 
-// export interface ISuggestion {
-//   value: string;
-//   unrestricted_value: string;
-//   data: Record<string, any>;
-// }
+export interface IMenu {
+  id: number;
+  title: string;
+}
+export interface ISection {
+  id: number;
+  title: string;
+  products: [];
+}
+export interface IProduct {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  weight?: number;
+  image: string;
+}
 
 export const BannersService = {
   async getBanners(): Promise<IBanner[]> {
     try {
       const { data } = await axios.get("banner/");
+
+      return data;
+    } catch {
+      return [];
+    }
+  },
+};
+export const MenuService = {
+  async getMenu(): Promise<IMenu[]> {
+    try {
+      const { data } = await axios.get("menu/");
       return data;
     } catch (error) {
       console.error("Error fetching banners", error);
@@ -57,6 +81,28 @@ export const DadataService = {
     } catch (error) {
       console.error("Error fetching address suggestions", error);
       return [];
+    }
+  },
+};
+export const SectionService = {
+  async getSection(): Promise<ISection[]> {
+    try {
+      const { data } = await axios.get("menu/");
+      return data;
+    } catch {
+      return [];
+    }
+  },
+};
+
+export const ProductService = {
+  async getProduct(productId: number): Promise<IProduct | null> {
+    try {
+      const { data } = await axios.get(`products/${productId}`);
+
+      return data;
+    } catch {
+      return null;
     }
   },
 };

@@ -47,20 +47,19 @@ export const Recommendation = () => {
   ]);
 
   return (
-    <div className="xl:w-[1300px] m-auto w-full text-[11px] sm:text-[16px]">
+    <div className="xl:w-[1300px] m-auto w-full text-[11px] sm:text-[16px] mb-[24px] sm:mb-8 xl:mb-[70px]">
       <h1
         className="xl:font-normal font-medium 
       ml-[20px] lg:ml-28px
       mt-[24px] mb-[16px] sm:mt-[32px] sm:mb-[24px] xl:mt-[60px] 
-      xl:mb-[32px] text-[15px] xl:text-[32px] sm:text-[28px] "
+      xl:mb-[32px] text-[18px] xl:text-[32px] sm:text-[28px] "
       >
         Часто заказывают
       </h1>
-      <div className="w-[100%]  rounded-[20px]">
+      <div className="w-[100%]  rounded-[20px] cursor-pointer">
         <Swiper
           slidesPerView="auto"
           spaceBetween={20}
-          grabCursor={true}
           pagination={{
             clickable: true,
           }}
@@ -74,7 +73,7 @@ export const Recommendation = () => {
             >
               <div
                 className="flex w-[213px] sm:w-[310px] h-[91px] sm:h-[132px] items-center justify-between gap-[8px] 
-                sm:gap-[14px] shadow-recom p-[11px] sm:p-[16px] rounded-[12px] "
+                sm:gap-[14px] shadow-recom hover:shadow-lg active:shadow-lg p-[11px] sm:p-[16px] rounded-[12px] "
               >
                 <Image
                   src={img}

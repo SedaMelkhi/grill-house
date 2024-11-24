@@ -4,13 +4,15 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useEffect, useState } from "react";
-import { BannersService, IBanner } from "@/services";
+import { BannersService, IBanner} from "@/services";
 
 export const SwiperHeader = () => {
   const [sliderImgs, setSilderImgs] = useState<IBanner[] | []>([]);
-  useEffect(() => {
+  useEffect(() => {    
     BannersService.getBanners().then((res) => setSilderImgs(res));
   }, []);
+ 
+  
 
   return (
     <div className="relative z-0 w-[100%]  xl:h-[374px] lg:h-[278px] mt-[34px] mx-auto xl:mx-0 ">
@@ -32,15 +34,15 @@ export const SwiperHeader = () => {
           },
         }}
         centeredSlides={true}
-        initialSlide={2}
+        initialSlide={3}
         loop={true}
         className=""
       >
-        {sliderImgs.map(({ id, url }) => (
+        {Array(2).fill(sliderImgs).flat().map(({ id, url }) => (
           <SwiperSlide
             className="xl:w-[auto!important] xl:h-[auto!important] px-[14px] xl:px-[0]"
             key={id}
-          >
+          > 
             <Image
               src={url}
               alt=""
