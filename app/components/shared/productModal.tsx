@@ -7,7 +7,7 @@ import { Logo, ButtonAdd, Counter } from "../shared";
 
 interface ProductModalProps {
     id: number;
-    onClose: () => void; // Добавляем метод onClose
+    onClose: () => void; 
   }
 
 export const ProductModal: React.FC<ProductModalProps> = ({ id }) => {
@@ -19,13 +19,12 @@ export const ProductModal: React.FC<ProductModalProps> = ({ id }) => {
       ProductService.getProduct(id).then((res) => setProduct(res));
     }
   }, [id]);
-
+  console.log(id)
   const closeModal = () => {
-    router.push("/"); // Убираем параметр из URL
+    router.push("/"); 
   };
 
-  if (!product) return null; // Ждем, пока данные загрузятся
-
+  if (!product) return null; 
   return (
     
       <div className="fixed inset-0 flex items-center justify-center z-50">

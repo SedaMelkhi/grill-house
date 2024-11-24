@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useSearchParams, useRouter } from "next/navigation"; // Для работы с URL
+import { useSearchParams, useRouter } from "next/navigation"; 
 import { Title, Container, ProductModal } from "../shared";
 import { SectionService, ISection, API } from "@/services";
 import { CardProduct } from "./cardProduct";
@@ -16,7 +16,7 @@ export const MenuSection = () => {
   const modalId = searchParams.get("modal");
   const router = useRouter();
 
-  // Fetch sections from the server
+  
   useEffect(() => {
     SectionService.getSection().then((res) => setSections(res));
   }, []);
@@ -45,57 +45,64 @@ export const MenuSection = () => {
   }, [setActiveId]);
 
   const openModal = (id: number) => {
-    const currentPath = window.location.pathname; // Текущий путь
-    router.push(`${currentPath}?modal=${id}`); // Добавляем параметр в URL
+    const currentPath = window.location.pathname; 
+    router.push(`${currentPath}?modal=${id}`); 
   };
   
   const closeModal = () => {
-    const currentPath = window.location.pathname; // Текущий путь
-    router.replace(currentPath); // Убираем параметр modal из URL
+    const currentPath = window.location.pathname; 
+    router.replace(currentPath); 
   };
 
+  console.log(modalId);
+  
   return (
     <div className="menu-section">
       <Container>
         <div className="mt-[24px] sm:mt-[32px]">
           {sectionRefs &&
-            sections.map(({ id, title, products }, index) => (
-              <div
-                onClick={() => openModal(id)}
-                key={id}
-                id={`section-${id}`}
-                ref={(el) => {
-                  sectionRefs.current[id] = el;
-                }}
-                className={`${
-                  index === 0
-                    ? "mt-[0px]"
-                    : "mt-[32px] sm:mt-[70px] xl:mt-[100px]"
-                } ${activeId === id ? "active-section" : ""}`}
-              >
-                <Title value={title} />
-                <div className="mt-[24px] sm:mt-[32px] lg:mt-[36px] grid grid-cols-1 sm:grid-cols-3 2xl:grid-cols-4 gap-[20px_15px] sm:gap-[32px_20px] lg:gap-[60px_20px]">
-                  {products.map(({ id, name, image, description, price }) => (
-                    <div key={id}>
-                      <CardProduct
-                        id={id}
-                        name={name}
-                        image={API + image}
-                        description={description}
-                        price={price}
-                      />
+            sections.map(({ id, title, products }, index) => {
+              console.log(`Section: ID=${id}, Title=${title}`);
+              
+              return (
+                <div
+                  key={id}
+                  id={`section-${id}`}
+                  ref={(el) => {
+                    sectionRefs.current[id] = el;
+                  }}
+                  className={`${
+                    index === 0
+                      ? "mt-[0px]"
+                      : "mt-[32px] sm:mt-[70px] xl:mt-[100px]"
+                  } ${activeId === id ? "active-section" : ""}`}
+                >
+                  <Title value={title} />
+                  <div className="mt-[24px] sm:mt-[32px] lg:mt-[36px] grid grid-cols-1 sm:grid-cols-3 2xl:grid-cols-4 gap-[20px_15px] sm:gap-[32px_20px] lg:gap-[60px_20px]">
+                    {products.map(({ id: productId, name, image, description, price }) => {
+                      console.log(`Product in Section ${title}: ID=${productId}, Name=${name}`);
                       
-                    </div>
-                  ))}
+                      return (
+                        <div key={productId} onClick={() => openModal(productId)}>
+                          <CardProduct
+                            id={productId}
+                            name={name}
+                            image={API + image}
+                            description={description}
+                            price={price}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
         </div>
       </Container>
-
-      {/* Модальное окно для продукта */}
+  
+      
       {modalId && <ProductModal id={parseInt(modalId)} onClose={closeModal} />}
     </div>
   );
 };
-

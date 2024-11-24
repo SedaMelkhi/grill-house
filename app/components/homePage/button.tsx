@@ -9,7 +9,7 @@ interface ButtonProps {
 
 export const Button: React.FC<ButtonProps> = ({ value, id }) => {
   const router = useRouter();
-  const [isOpen, setOpen] = useState(false); // Состояние для управления модальным окном
+  const [isOpen, setOpen] = useState(false);
 
   
   useEffect(() => {
@@ -25,17 +25,17 @@ export const Button: React.FC<ButtonProps> = ({ value, id }) => {
   }, [isOpen]);
 
   const openModal = (id: number) => {
-    const currentPath = window.location.pathname; // Текущий путь
-    router.push(`${currentPath}?modal=${id}`); // Добавляем параметр в URL
+    const currentPath = window.location.pathname; 
+    router.push(`${currentPath}?modal=${id}`); 
   };
   
   const closeModal = () => {
-    const currentPath = window.location.pathname; // Текущий путь
-    router.replace(currentPath); // Убираем параметр modal из URL
+    const currentPath = window.location.pathname; 
+    router.replace(currentPath); 
   };
   return (
     <div>
-      {/* Кнопка для открытия модального окна */}
+      
       <button
         onClick={() => openModal(id)}
         className="flex justify-center items-center 
@@ -47,11 +47,10 @@ export const Button: React.FC<ButtonProps> = ({ value, id }) => {
         {value}
       </button>
 
-      {/* Модальное окно */}
+      
       {isOpen && (
         <ProductModal id={id} onClose={closeModal} />
       )}
     </div>
   );
 };
-
