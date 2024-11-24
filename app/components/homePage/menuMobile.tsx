@@ -66,8 +66,9 @@ export const MenuMobile = () => {
             ))}
           </Swiper>
         </div>
+        <ButtonCart/>
       </div>
-      <ButtonCart/>
+      
     </div>
   );
 };

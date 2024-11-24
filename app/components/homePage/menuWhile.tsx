@@ -10,7 +10,7 @@ import { ButtonCart } from "../shared";
 
 export const MenuWhile = () => {
   const [menu, setMenu] = useState<IMenu[] | []>([]);
-  const { activeId, setActiveId } = useSectionStore(); // Получаем activeId и setActiveId
+  const { activeId, setActiveId } = useSectionStore(); 
 
   useEffect(() => {
     MenuService.getMenu().then((res) => setMenu(res));

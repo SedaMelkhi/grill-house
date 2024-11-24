@@ -61,61 +61,55 @@ export const MenuSection = () => {
     router.replace(currentPath);
   };
 
-  console.log(modalId);
-
-  return (
-    <div className="menu-section">
-      <Container>
-        <div className="mt-[24px] sm:mt-[32px]">
-          {sectionRefs &&
-            sections.map(({ id, title, products }, index) => {
-              // console.log(`Section: ID=${id}, Title=${title}`);
-
-              return (
-                <div
-                  key={id}
-                  id={`section-${id}`}
-                  ref={(el) => {
-                    sectionRefs.current[id] = el;
-                  }}
-                  className={`${
-                    index === 0
-                      ? "mt-[0px]"
-                      : "mt-[32px] sm:mt-[70px] xl:mt-[100px]"
-                  } ${activeId === id ? "active-section" : ""}`}
-                >
-                  <Title value={title} />
-                  <div className="mt-[24px] sm:mt-[32px] lg:mt-[36px] grid grid-cols-1 sm:grid-cols-3 2xl:grid-cols-4 gap-[20px_15px] sm:gap-[32px_20px] lg:gap-[60px_20px]">
-                    {products.map(
-                      ({ id: productId, name, image, description, price }) => {
-                        // console.log(
-                        //   `Product in Section ${title}: ID=${productId}, Name=${name}`
-                        // );
-
-                        return (
-                          <div
-                            key={productId}
-                            onClick={() => openModal(productId)}
-                          >
-                            <CardProduct
-                              id={productId}
-                              name={name}
-                              image={API + image}
-                              description={description}
-                              price={price}
-                            />
-                          </div>
-                        );
-                      }
-                    )}
+  return(
+  <div className="menu-section">
+    <Container>
+      <div className="mt-[24px] sm:mt-[32px]">
+        {sectionRefs &&
+          sections.map(({ id, title, products }, index) => (
+            <div
+              key={id}
+              className={`${
+                index === 0
+                  ? " mt-[-50px]"
+                  : "mt-[-18px] sm:mt-[20px] xl:mt-[50px]"
+              } ${activeId === id ? "active-section" : ""}`}
+            >
+              <div
+              key={id}
+                id={`section-${id}`}
+                ref={(el) => {
+                  sectionRefs.current[id] = el;
+                }}
+                className="pt-[50px]" 
+              >
+                
+               <Title value={title} /></div>
+              
+  
+              <div className="mt-[24px] sm:mt-[32px] lg:mt-[36px] grid grid-cols-1 
+              sm:grid-cols-3 2xl:grid-cols-4 gap-[20px_15px] sm:gap-[32px_20px] lg:gap-[60px_20px]">
+                {products.map(({ id: productId, name, image, description, price }) => (
+                  <div key={productId} onClick={() => openModal(productId)}>
+                    <CardProduct
+                      id={productId}
+                      name={name}
+                      image={API + image}
+                      description={description}
+                      price={price}
+                    />
                   </div>
-                </div>
-              );
-            })}
-        </div>
-      </Container>
+                ))}
+              </div>
+            </div>
+          ))}
+      </div>
+    </Container>
+  
+    {modalId && <ProductModal id={parseInt(modalId)} onClose={closeModal} />}
+  </div>
 
-      {modalId && <ProductModal id={parseInt(modalId)} onClose={closeModal} />}
-    </div>
-  );
+  )
+
+  
 };
