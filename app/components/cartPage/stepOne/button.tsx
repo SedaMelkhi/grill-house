@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { LeftSvg, RightSvg } from "../../shared/svg";
 import { StepsNextTrigger, StepsPrevTrigger } from "@/components/ui/steps";
-import { useParams } from "next/navigation";
-import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 export const Button = ({
@@ -18,12 +16,6 @@ export const Button = ({
   arrow: string;
   bgGreen?: boolean;
 }) => {
-  const params = useParams();
-  useEffect(() => {
-    if (!window.location.search) {
-      console.log();
-    }
-  }, [params]);
   return arrow === "right" ? (
     <StepsNextTrigger asChild>
       <Link
