@@ -9,9 +9,8 @@ interface ButtonProps {
 
 export const Button: React.FC<ButtonProps> = ({ value, id }) => {
   const router = useRouter();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isOpen, setOpen] = useState(false);
-
-  console.log(setOpen);
 
   useEffect(() => {
     if (isOpen) {

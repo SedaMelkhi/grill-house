@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Footer, Nav } from "./components/layout";
 import "./globals.css";
 import { Provider } from "./../components/ui/provider";
+import ProgressBar from "./components/progressBar";
 
 const rubikSans = localFont({
   src: "./fonts/Rubik-VariableFont_wght.ttf",
@@ -26,6 +27,7 @@ export default function RootLayout({
         <Provider>
           <>
             <Nav />
+            <ProgressBar />
             {children}
             <Footer />
           </>

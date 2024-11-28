@@ -16,11 +16,6 @@ export const MyMap = ({
 
   useEffect(() => {
     if (selectedAddress?.data?.geo_lat && selectedAddress?.data?.geo_lon) {
-      console.log(
-        "Selected Address:",
-        selectedAddress.data.geo_lat,
-        selectedAddress.data.geo_lon
-      );
       setMapState({
         center: [+selectedAddress.data.geo_lat, +selectedAddress.data.geo_lon],
         zoom: 16, // Более высокий уровень масштабирования для подробного адреса

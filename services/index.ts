@@ -31,7 +31,10 @@ export interface IProduct {
   weight?: number;
   image: string;
 }
-
+export interface ICart {
+  items: IProduct[];
+  total_price: number;
+}
 export const BannersService = {
   async getBanners(): Promise<IBanner[]> {
     try {
@@ -100,6 +103,29 @@ export const ProductService = {
     try {
       const { data } = await axios.get(`products/${productId}`);
 
+      return data;
+    } catch {
+      return null;
+    }
+  },
+};
+
+export const CartService = {
+  async getCart(): Promise<ICart | null> {
+    try {
+      const { data } = await axios.get("cart/", {
+        withCredentials: true,
+      });
+      return data;
+    } catch {
+      return null;
+    }
+  },
+  async addProductToCart(product: { product_id: number; quantity: number }) {
+    try {
+      const { data } = await axios.post("cart/add/", product, {
+        withCredentials: true,
+      });
       return data;
     } catch {
       return null;

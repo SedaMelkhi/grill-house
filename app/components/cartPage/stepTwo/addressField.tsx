@@ -44,7 +44,6 @@ export const AddressField: React.FC<AddressFieldProps> = ({
       input.scrollLeft = input.scrollWidth + 10;
       // Устанавливаем курсор в конец текста
       input.setSelectionRange(length, length);
-      console.log(input);
     }
   };
 

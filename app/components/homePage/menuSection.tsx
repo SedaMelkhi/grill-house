@@ -61,8 +61,6 @@ export const MenuSection = () => {
     router.replace(currentPath);
   };
 
-  console.log(modalId);
-
   return (
     <div className="menu-section">
       <Container>
