@@ -25,7 +25,7 @@ export const MenuWhile = () => {
       setIsScrolled(window.scrollY > 30);
     }
   };
-  
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -47,11 +47,13 @@ export const MenuWhile = () => {
             {menu.slice(0, 7).map(({ id, title }) => (
               <li
                 key={id}
-                onClick={() => setActiveId(id)} 
+                onClick={() => setActiveId(id)}
                 className={`pt-[13px] pr-[24px] pb-[13px] pl-[24px] rounded-[15px]  hover:text-red hover:bg-white 
                 hover:shadow-[0px_4px_4px_rgba(0,0,0,0.05)] active:shadow-xl transition-color transition-shadow duration-300 ease-in-out ${
-                  activeId === id ? "text-red bg-white shadow-[0px_4px_4px_rgba(0,0,0,0.05)]" : ""
-                }`} 
+                  activeId === id
+                    ? "text-red bg-white shadow-[0px_4px_4px_rgba(0,0,0,0.05)]"
+                    : ""
+                }`}
               >
                 <Link href={`#section-${id}`}>{title}</Link>
               </li>
@@ -70,10 +72,9 @@ export const MenuWhile = () => {
               </div>
             )}
           </ul>
-          <ButtonCart/>
+          <ButtonCart />
         </div>
       </div>
     </div>
   );
 };
-

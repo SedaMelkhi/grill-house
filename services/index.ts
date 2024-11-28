@@ -113,7 +113,19 @@ export const ProductService = {
 export const CartService = {
   async getCart(): Promise<ICart | null> {
     try {
-      const { data } = await axios.get("cart/");
+      const { data } = await axios.get("cart/", {
+        withCredentials: true,
+      });
+      return data;
+    } catch {
+      return null;
+    }
+  },
+  async addProductToCart(product: { product_id: number; quantity: number }) {
+    try {
+      const { data } = await axios.post("cart/add/", product, {
+        withCredentials: true,
+      });
       return data;
     } catch {
       return null;

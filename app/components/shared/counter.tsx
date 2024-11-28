@@ -1,16 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch } from "react";
 
-export const Counter = () => {
-  const [count, setCount] = useState(1);
-
+export const Counter = ({
+  count,
+  setCount,
+}: {
+  count: number;
+  setCount: Dispatch<React.SetStateAction<number>>;
+}) => {
   const handleIncrement = () => {
-    setCount((prevCount) => Math.min(prevCount + 1, 100));
+    setCount((prevCount: number) => Math.min(prevCount + 1, 100));
   };
 
   const handleDecrement = () => {
-    setCount((prevCount) => Math.max(prevCount - 1, 1));
+    setCount((prevCount: number) => Math.max(prevCount - 1, 1));
   };
 
   return (
@@ -32,13 +36,11 @@ export const Counter = () => {
         type="text"
         value={count}
         readOnly
-        className='w-4 mx-2 text-center bg-[#F3F2F8] focus:outline-none'
-          
+        className="w-4 mx-2 text-center bg-[#F3F2F8] focus:outline-none"
       />
       <button
         onClick={handleIncrement}
-        className='w-4 flex items-center justify-center '
-         
+        className="w-4 flex items-center justify-center "
       >
         +
       </button>

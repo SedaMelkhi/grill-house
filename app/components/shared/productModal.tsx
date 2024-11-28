@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { ProductService, IProduct } from "@/services";
+import { ProductService, IProduct, CartService } from "@/services";
 import { Logo, ButtonAdd, Counter } from "../shared";
 
 interface ProductModalProps {
@@ -12,6 +12,7 @@ interface ProductModalProps {
 
 export const ProductModal: React.FC<ProductModalProps> = ({ id }) => {
   const [product, setProduct] = useState<IProduct | null>(null);
+  const [count, setCount] = useState<number>(1);
   const router = useRouter();
 
   useEffect(() => {
@@ -23,7 +24,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({ id }) => {
   const closeModal = () => {
     router.push("/");
   };
-
+  const addProductToCart = () => {
+    CartService.addProductToCart({ product_id: id, quantity: count });
+  };
   if (!product) return null;
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -105,8 +108,10 @@ export const ProductModal: React.FC<ProductModalProps> = ({ id }) => {
                 "
             >
               <div className="flex  gap-[12px] sm:gap-[15px] lg:gap-[20px]">
-                <Counter />
-                <ButtonAdd />
+                <Counter count={count} setCount={setCount} />
+                <div onClick={addProductToCart}>
+                  <ButtonAdd />
+                </div>
               </div>
             </div>
           </div>
