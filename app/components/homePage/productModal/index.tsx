@@ -5,4 +5,3 @@ export { ProductPrice } from "./productPrice";
 export { ModalHeader } from "./modalHeader";
 export { ModalActions } from "./modalActions";
 export { ClosePc } from "./closePc";
-export { Modal } from "./modal";
