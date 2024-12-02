@@ -3,7 +3,7 @@
 export const ButtonAdd = ({ onClick }: { onClick: () => void }) => {
   return (
     <div
-      className="xl:w-[174px] md:w-[144px] w-full xl:h-[46px] md:h-[42px] h-[46px]"
+      className="xl:w-[174px] md:w-[144px] w-full xl:h-[46px] md:h-[42px] h-[46px] cursor-pointer"
       onClick={onClick}
     >
       <div
