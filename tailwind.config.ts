@@ -18,6 +18,7 @@ const config: Config = {
         cartHeader: "0px 1.67px 5.01px 0px rgba(0, 0, 0, 0.1)",
         recom: "0px 4px 22px -6px rgba(6, 5, 50, 0.15)",
         dop: "0px 4px 22px -6px #06053226",
+        menuShadow: "0px 4px 4px 0px #00000040",
       },
       fontFamily: {
         raleway: ["Raleway"],

@@ -73,11 +73,32 @@ export const MenuPC = () => {
               <div className="relative p-4">
                 <button
                   onClick={() => {}}
-                  className="flex gap-[10px] p-2 bg-[#fafafa] items-center text-gray-700 rounded-md focus:outline-none"
+                  className="peer flex gap-1 p-2 bg-[#fafafa] items-center rounded-md focus:outline-none"
                 >
-                  {"Ещё"}
-                  <Image src={"/select.png"} alt="" width={22} height={22} />
+                  Ещё
+                  <Image
+                    src={"/select.png"}
+                    alt=""
+                    width={22}
+                    height={22}
+                    className="pt-[2px]"
+                  />
                 </button>
+                <div className="absolute opacity-0 pointer-events-none translate-y-2 peer-hover:opacity-100 hover:opacity-100 peer-hover:translate-y-0 hover:translate-y-0 peer-hover:pointer-events-auto hover:pointer-events-auto pt-5 z-10 min-w-[190px] transition-all delay-100">
+                  <div className="bg-white shadow-menuShadow ">
+                    {menu
+                      .filter((item, i) => i >= 7)
+                      .map(({ id, title }) => (
+                        <div
+                          key={id}
+                          onClick={() => handleAnchorClick(id)}
+                          className="p-2.5 hover:bg-[#FAFAFA] transition-colors delay-75 cursor-pointer"
+                        >
+                          {title}
+                        </div>
+                      ))}
+                  </div>
+                </div>
               </div>
             )}
           </ul>
