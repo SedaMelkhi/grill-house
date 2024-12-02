@@ -1,52 +1,20 @@
 "use client";
-import { useState, useEffect } from "react";
-import { ProductModal } from "../shared";
-import { useRouter } from "next/navigation";
 interface ButtonProps {
   value: string;
-  id: number;
 }
 
-export const Button: React.FC<ButtonProps> = ({ value, id }) => {
-  const router = useRouter();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isOpen, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isOpen]);
-
-  const openModal = (id: number) => {
-    const currentPath = window.location.pathname;
-    router.push(`${currentPath}?modal=${id}`);
-  };
-
-  const closeModal = () => {
-    const currentPath = window.location.pathname;
-    router.replace(currentPath);
-  };
+export const Button: React.FC<ButtonProps> = ({ value }) => {
   return (
     <div>
       <button
-        onClick={() => openModal(id)}
         className="flex justify-center items-center 
-          w-[76px] h-[29px] sm:w-[80px] sm:h-[30px] lg:w-[110px] lg:h-[42px] p-[12px] 
+          w-[76px] h-[29px] md:w-[80px] md:h-[30px] xl:w-[110px] xl:h-[42px] p-[12px] 
           rounded-[50px] bg-[rgba(91,164,140,0.3)]  
           hover:bg-[var(--green)] hover:text-white active:bg-[var(--green)] active:text-white
-          text-[16px] sm:text-[11px] lg:text-[15px] text-[var(--green)]"
+          text-[16px] md:text-[11px] xl:text-[15px] text-[var(--green)]"
       >
         {value}
       </button>
-
-      {isOpen && <ProductModal id={id} onClose={closeModal} />}
     </div>
   );
 };

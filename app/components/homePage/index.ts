@@ -1,7 +1,10 @@
 export { Header } from "./header";
-export {Recommendation } from './recommendation';
-export { MenuWhile} from './menuWhile';
-export {MenuMobile} from './menuMobile';
-export {SwiperHeader} from './swiper'
-export {MenuSection} from './menuSection'
-export {CardProduct} from './cardProduct'
+export { Recommendation } from "./recommendation";
+export { MenuPC } from "./menuPC";
+export { MenuMobile } from "./menuMobile";
+export { SwiperHeader } from "./swiper";
+export { MenuSection } from "./menuSection";
+export { CardProduct } from "./cardProduct";
+export { ProductsGroupList } from "./products-group-list";
+export { MenuMobileSlider } from "./menu-mobile-slider";
+export { ProductModal } from "./productModal/productModal";

@@ -9,7 +9,13 @@ export const Header = () => {
       <Container>
         <div className="flex justify-between">
           <Link href="/">
-            <Image src="/logo.png" alt="grill_house" width={228} height={84} />
+            <Image
+              src="/logo.png"
+              alt="grill_house"
+              width={228}
+              height={84}
+              priority
+            />
           </Link>
           <HeaderStepper />
         </div>

@@ -1,23 +1,32 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
-import "swiper/css";
 import { MenuService, IMenu } from "@/services";
 import { useSectionStore } from "@/store/section";
 import Image from "next/image";
 import { ButtonCart } from "../shared";
 
-export const MenuWhile = () => {
+import "swiper/css";
+
+export const MenuPC = () => {
   const [menu, setMenu] = useState<IMenu[] | []>([]);
-  const { activeId, setActiveId } = useSectionStore(); // Получаем activeId и setActiveId
+  const { activeCategoryId, setIsManualClick, setActiveCategoryId } =
+    useSectionStore();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     MenuService.getMenu().then((res) => setMenu(res));
   }, []);
 
-  const [isScrolled, setIsScrolled] = useState(false);
-
+  const handleAnchorClick = (id: number) => {
+    const section = document.getElementById(`section-${id}`);
+    if (section) {
+      setIsManualClick(true);
+      setTimeout(() => setIsManualClick(false), 1000);
+      setActiveCategoryId(id);
+      section.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
   const handleScroll = () => {
     if (window.innerWidth >= 1280) {
       setIsScrolled(window.scrollY > 195);
@@ -47,15 +56,15 @@ export const MenuWhile = () => {
             {menu.slice(0, 7).map(({ id, title }) => (
               <li
                 key={id}
-                onClick={() => setActiveId(id)}
-                className={`pt-[13px] pr-[24px] pb-[13px] pl-[24px] rounded-[15px]  hover:text-red hover:bg-white 
+                onClick={() => handleAnchorClick(id)}
+                className={`cursor-pointer pt-[13px] pr-[24px] pb-[13px] pl-[24px] rounded-[15px]  hover:text-red hover:bg-white 
                 hover:shadow-[0px_4px_4px_rgba(0,0,0,0.05)] active:shadow-xl transition-color transition-shadow duration-300 ease-in-out ${
-                  activeId === id
+                  activeCategoryId === id
                     ? "text-red bg-white shadow-[0px_4px_4px_rgba(0,0,0,0.05)]"
                     : ""
                 }`}
               >
-                <Link href={`#section-${id}`}>{title}</Link>
+                {title}
               </li>
             ))}
             {menu.length <= 7 ? (

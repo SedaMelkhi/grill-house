@@ -20,30 +20,26 @@ export const Counter = ({
   return (
     <div
       className="flex items-center justify-between rounded-[48px]
-      w-[40%] sm:w-[89px] lg:w-[105px] 
-      sm:h-[42px]  lg:h-[46px] 
-      py-[12px] px-[24px] sm:px-[18px] sm:py-[10px] lg:py-[12px] lg:px-[24px] 
+      xl:w-[105px] md:w-[89px] w-[125px]
+      md:h-[42px]  xl:h-[46px] 
+      py-[12px] px-[24px] md:px-[18px] md:py-[10px] xl:py-[12px] xl:px-[24px] 
       text-[var(--stroke-2)] bg-[#F3F2F8]  "
     >
-      <button
+      <div
         onClick={handleDecrement}
         className={`w-4 flex items-center justify-center 
           ${count === 1 ? "opacity-[0.6]" : ""}`}
       >
         -
-      </button>
-      <input
-        type="text"
-        value={count}
-        readOnly
-        className="w-4 mx-2 text-center bg-[#F3F2F8] focus:outline-none"
-      />
-      <button
+      </div>
+      <span className="w-4 mx-2 text-center bg-[#F3F2F8]">{count}</span>
+
+      <div
         onClick={handleIncrement}
         className="w-4 flex items-center justify-center "
       >
         +
-      </button>
+      </div>
     </div>
   );
 };

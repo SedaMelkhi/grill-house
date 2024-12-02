@@ -9,6 +9,7 @@ export const Logo = ({ className }: { className?: string }) => {
       width={228}
       height={84}
       className={cn("w-full", className)}
+      priority
     />
   );
 };

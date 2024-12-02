@@ -14,7 +14,7 @@ export const ButtonCart = () => {
 
   useEffect(() => {
     getCart();
-  });
+  }, []);
 
   return (
     <Link href={"/cart"}>

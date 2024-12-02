@@ -13,16 +13,13 @@ export const SwiperHeader = () => {
   }, []);
 
   return (
-    <div className="relative z-0 w-[100%]  xl:h-[374px] lg:h-[278px] mt-[34px] mx-auto xl:mx-0 ">
+    <div className="relative z-0 w-[100%]  xl:h-[374px] md:h-[278px] h-[162px] mt-[34px] mx-auto xl:mx-0 ">
       <div className="none xl:block  pointer-events-none absolute z-10  bg-custom-gradient-left left-0 t-0 w-custom-width h-[374px]"></div>
       <div className="none xl:block  pointer-events-none absolute z-10 bg-custom-gradient-right right-0 t-0 w-custom-width h-[374px]"></div>
       <Swiper
         slidesPerView="auto"
-        spaceBetween={0}
+        spaceBetween={10}
         breakpoints={{
-          640: {
-            spaceBetween: 0,
-          },
           1000: {
             slidesPerView: 1,
           },
@@ -33,20 +30,20 @@ export const SwiperHeader = () => {
         }}
         centeredSlides={true}
         initialSlide={3}
-        loop={true}
-        className=""
+        className="h-full"
       >
-        {sliderImgs.map(({ id, url }) => (
+        {[...sliderImgs, ...sliderImgs].map(({ id, url }, i) => (
           <SwiperSlide
-            className="xl:w-[auto!important] xl:h-[auto!important] px-[14px] xl:px-[0]"
-            key={id}
+            className="xl:w-[auto!important] w-full h-full px-[14px] xl:px-[0]"
+            key={id + " " + i}
           >
             <Image
               src={url}
               alt=""
               width={1300}
               height={374}
-              className="rounded-[20px] object-cover w-100% sm:w-auto lg:w-[1300px] h-[153px] xl:h-[374px] sm:h-[278px] "
+              className="rounded-[20px] object-cover xl:w-[1300px] w-full h-full"
+              priority
             />
           </SwiperSlide>
         ))}

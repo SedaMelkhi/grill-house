@@ -1,7 +1,7 @@
 "use client";
 import {
   Header,
-  MenuWhile,
+  MenuPC,
   MenuMobile,
   MenuSection,
   SwiperHeader,
@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <main>
       <Header />
-      <MenuWhile />
+      <MenuPC />
       <SwiperHeader />
       <Recommendation />
       <MenuMobile />

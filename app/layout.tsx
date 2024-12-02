@@ -4,6 +4,7 @@ import { Footer, Nav } from "./components/layout";
 import "./globals.css";
 import { Provider } from "./../components/ui/provider";
 import ProgressBar from "./components/progressBar";
+import { Suspense } from "react";
 
 const rubikSans = localFont({
   src: "./fonts/Rubik-VariableFont_wght.ttf",
@@ -18,8 +19,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
@@ -29,6 +32,8 @@ export default function RootLayout({
             <Nav />
             <ProgressBar />
             {children}
+            <Suspense>{modal}</Suspense>
+
             <Footer />
           </>
         </Provider>

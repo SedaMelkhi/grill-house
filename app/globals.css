@@ -20,6 +20,10 @@
   font-weight: 400;
   font-style: normal;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--text-black);
@@ -217,6 +221,10 @@ ul {
 
 #nprogress .spinner {
   display: none; /* Отключить индикатор вращения */
+}
+
+.chakra-dialog__content {
+  background-color: #fff0 !important;
 }
 
 @media (min-width: 768px) {

@@ -17,7 +17,13 @@ export const Header = () => {
               </span>
               <div className="flex items-center gap-0.5">
                 4.85
-                <Image src="/star.svg" alt="*" width={16} height={16} />
+                <Image
+                  src="/star.svg"
+                  alt="*"
+                  width={16}
+                  height={16}
+                  className="w-4 h-4"
+                />
               </div>
             </div>
           </div>

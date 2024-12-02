@@ -1,21 +1,18 @@
 "use client";
 
-//import { useState } from "react";
-
-export const ButtonAdd = () => {
-  //const [isAdd, setAdd] = useState(false);
-
+export const ButtonAdd = ({ onClick }: { onClick: () => void }) => {
   return (
-    <div className="w-full ">
-      <button
-        className=" flex justify-center items-center 
-          w-[100%] h-[46px]  sm:w-[144px] sm:h-[42px]  lg:w-[174px] lg:h-[46px] 
-          rounded-[50px] bg-[rgba(91,164,140,0.3)]  
-          hover:bg-[var(--green)] hover:text-white active:bg-[var(--green)] active:text-white
-          text-[20px] sm:text-[14px] lg:text-[16px] text-[var(--green)]"
+    <div
+      className="xl:w-[174px] md:w-[144px] w-full xl:h-[46px] md:h-[42px] h-[46px]"
+      onClick={onClick}
+    >
+      <div
+        className="flex justify-center items-center w-full h-full rounded-[50px] bg-[rgba(91,164,140,0.3)]  
+          hover:bg-green hover:text-white active:bg-green active:text-white
+          text-[20px] md:text-[14px] xl:text-[16px] text-green"
       >
         Добавить
-      </button>
+      </div>
     </div>
   );
 };
