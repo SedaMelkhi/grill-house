@@ -7,9 +7,9 @@ interface State {
   setIsManualClick: (isManual: boolean) => void; // Функция для изменения флага
 }
 
-interface ModalState {
-  isModalOpen: boolean;
-  setIsModalOpen: (isModalOpen: boolean) => void;
+interface CartState {
+  cartItemsCount: number;
+  setCartItemsCount: (cartItemsCount: number) => void;
 }
 
 export const useSectionStore = create<State>()((set) => ({
@@ -19,7 +19,7 @@ export const useSectionStore = create<State>()((set) => ({
   setIsManualClick: (isManual: boolean) => set({ isManualClick: isManual }), // Функция для изменения флага
 }));
 
-export const useModalStore = create<ModalState>()((set) => ({
-  isModalOpen: false,
-  setIsModalOpen: (isModalOpen: boolean) => set({ isModalOpen: isModalOpen }),
+export const useCartStore = create<CartState>()((set) => ({
+  cartItemsCount: 0,
+  setCartItemsCount: (cartItemsCount) => set({ cartItemsCount }),
 }));

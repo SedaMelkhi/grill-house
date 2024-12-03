@@ -10,9 +10,9 @@ export const ProductImage: React.FC<ProductImageProps> = ({ src, alt }) => {
     <Image
       src={src}
       alt={alt}
-      width={1300}
+      width={331}
       height={374}
-      className="md:rounded-[10px] object-cover w-[100%] md:w-[275px] xl:w-[331px] h-[289px] md:h-[100%] "
+      className="md:rounded-[10px] object-cover xl:w-[331px] md:w-[275px] w-full md:h-full h-[289px]"
     />
   );
 };

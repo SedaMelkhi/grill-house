@@ -109,6 +109,18 @@ export const ProductService = {
     }
   },
 };
+function getCookie(name: string): string | null {
+  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+  return match ? match[2] : null;
+}
+function clearCsrfCookie() {
+  const csrfToken = getCookie("csrftoken"); // Получаем текущий CSRF-токен
+
+  if (csrfToken) {
+    // Удаляем куку с CSRF-токеном
+    document.cookie = `csrftoken=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+  }
+}
 
 export const CartService = {
   async getCart(): Promise<ICart | null> {
@@ -127,7 +139,9 @@ export const CartService = {
         withCredentials: true,
       });
       return data;
-    } catch {
+    } catch (error) {
+      clearCsrfCookie();
+      console.error("Ошибка при добавлении товара в корзину:", error);
       return null;
     }
   },

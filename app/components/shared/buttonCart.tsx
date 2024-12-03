@@ -1,19 +1,23 @@
 "use client";
 
 import { CartService } from "@/services";
+import { useCartStore } from "@/store/section";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+
+export const getCart = async (
+  setCartItemsCount: (cartItemsCount: number) => void
+) => {
+  const cartItems = await CartService.getCart();
+  if (cartItems) setCartItemsCount(cartItems.items.length);
+};
 
 export const ButtonCart = () => {
-  const [cartItemsCount, setCartItemsCount] = useState<number>(0);
-
-  const getCart = async () => {
-    const cartItems = await CartService.getCart();
-    if (cartItems) setCartItemsCount(cartItems.items.length);
-  };
+  const { cartItemsCount, setCartItemsCount } = useCartStore();
 
   useEffect(() => {
-    getCart();
+    getCart(setCartItemsCount);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

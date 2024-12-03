@@ -21,13 +21,13 @@ export const Counter = ({
     <div
       className="flex items-center justify-between rounded-[48px]
       xl:w-[105px] md:w-[89px] w-[125px]
-      md:h-[42px]  xl:h-[46px] 
-      py-[12px] px-[24px] md:px-[18px] md:py-[10px] xl:py-[12px] xl:px-[24px] 
+      md:h-[42px]  xl:h-[46px] xl:py-[12px] xl:px-[24px] 
+      md:px-[18px] md:py-[10px] py-[12px] px-[24px]
       text-[var(--stroke-2)] bg-[#F3F2F8]  "
     >
       <div
         onClick={handleDecrement}
-        className={`w-4 flex items-center justify-center 
+        className={`w-4 flex items-center justify-center cursor-pointer
           ${count === 1 ? "opacity-[0.6]" : ""}`}
       >
         -
@@ -36,7 +36,7 @@ export const Counter = ({
 
       <div
         onClick={handleIncrement}
-        className="w-4 flex items-center justify-center "
+        className="w-4 flex items-center justify-center cursor-pointer"
       >
         +
       </div>

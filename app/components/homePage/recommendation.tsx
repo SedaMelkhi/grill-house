@@ -47,7 +47,7 @@ export const Recommendation = () => {
   ]);
 
   return (
-    <div className="xl:w-[1340px] m-auto w-full text-[11px] md:text-[16px]">
+    <div className="2xl:w-[1340px] m-auto w-full text-[11px] md:text-[16px]">
       <h1
         className="xl:font-normal font-medium 
       ml-[20px] xl:ml-28px

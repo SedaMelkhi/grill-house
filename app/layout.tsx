@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body className={`${rubikSans.variable} antialiased`}>
+      <body className={`${rubikSans.variable} antialiased text-black`}>
         <Provider>
           <>
             <Nav />

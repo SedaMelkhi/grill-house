@@ -8,3 +8,6 @@ export { CardProduct } from "./cardProduct";
 export { ProductsGroupList } from "./products-group-list";
 export { MenuMobileSlider } from "./menu-mobile-slider";
 export { ProductModal } from "./productModal/productModal";
+export { MenuList } from "./menuList";
+export { MenuItem } from "./menuItem";
+export { MoreMenu } from "./moreMenu";
