@@ -40,7 +40,7 @@ export const Recommendation = () => {
     },
     {
       img: "/swiperImg.png",
-      name: "Салат с говядиной по-корейски.",
+      name: "Салат с говядиной по-корейски",
       price: 100,
       id: 5,
     },
