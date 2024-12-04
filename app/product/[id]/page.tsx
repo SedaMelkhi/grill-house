@@ -1,4 +1,4 @@
-import { ProductModal } from "@/app/components/homePage";
+import ProductModalClient from "@/app/components/homePage/productModal/productModalClient";
 import Home from "@/app/page";
 
 export default async function ProductPage({
@@ -9,7 +9,7 @@ export default async function ProductPage({
   return (
     <div>
       <div className="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-50">
-        <ProductModal id={+id} />
+        <ProductModalClient id={+id} />
       </div>
       <Home />
     </div>

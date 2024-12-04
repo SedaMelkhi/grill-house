@@ -9,11 +9,10 @@ const config: Config = {
 
   theme: {
     extend: {
-      // container: {
-      //   screens: {
-      //     xl: "1300px", // Указываем кастомный размер для xl
-      //   },
-      // },
+      screens: {
+        wrapper: "1380px",
+        xl: "1300px", // Указываем кастомный размер для xl
+      },
       boxShadow: {
         cartHeader: "0px 1.67px 5.01px 0px rgba(0, 0, 0, 0.1)",
         recom: "0px 4px 22px -6px rgba(6, 5, 50, 0.15)",

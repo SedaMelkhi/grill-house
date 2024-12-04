@@ -1,21 +1,30 @@
-import { ProductModal } from "@/app/components/homePage";
+// pages/@modal/product/[id]/page.tsx
+"use client";
+//import { useRouter } from "next/navigation";
+import { ModalLoader } from "@/app/components/homePage/productModal/ModalLoader";
 import { DialogBody, DialogContent, DialogRoot } from "@/components/ui/dialog";
 
-export default async function ProductModalPage({
+export default function ProductModalPage({
   params: { id },
 }: {
-  params: { id: string };
+  params: { id: number };
 }) {
+  // const router = useRouter();
+
+  // const closeModal = () => {
+  //   router.back();
+  // };
+
   return (
-    <DialogRoot placement={"center"} defaultOpen={true} size="full">
+    <DialogRoot placement="center" defaultOpen={true} size="full">
       <DialogContent>
         <DialogBody
-          height={"100%"}
-          display={"flex"}
-          alignItems={"center"}
-          justifyContent={"center"}
+          height="100%"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
         >
-          <ProductModal id={+id} />
+          <ModalLoader id={+id} />
         </DialogBody>
       </DialogContent>
     </DialogRoot>

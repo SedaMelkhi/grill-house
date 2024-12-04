@@ -32,7 +32,7 @@ export default function RootLayout({
             <Nav />
             <ProgressBar />
             {children}
-            <Suspense>{modal}</Suspense>
+            <Suspense fallback={null}>{modal}</Suspense>
 
             <Footer />
           </>
