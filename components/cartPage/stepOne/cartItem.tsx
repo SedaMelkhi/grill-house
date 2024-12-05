@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { CountBtn } from "./countBtn";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CartSvg, CloseSvg } from "../../shared/svg";
+import { CartService, ICart } from "@/services";
+import { getCartItems } from "../utils";
 
 export const CartItem = ({
   name,
@@ -11,14 +13,36 @@ export const CartItem = ({
   price,
   quantity,
   image,
+  id,
+  setCartItems,
 }: {
   name: string;
   weight: string;
   price: number;
   quantity: number;
   image: string;
+  id: number;
+  setCartItems: (prev: ICart | null) => void;
 }) => {
   const [count, setCount] = useState(quantity);
+
+  const updateCart = async () => {
+    const data = await CartService.updateCart(id, count);
+    if (data) {
+      getCartItems(setCartItems);
+    }
+  };
+  const deleteCartItem = async () => {
+    const data = await CartService.deleteCart(id);
+    console.log(data);
+    if (data) {
+      getCartItems(setCartItems);
+    }
+  };
+  useEffect(() => {
+    if (count !== quantity) updateCart();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
   return (
     <div>
       <div className="md:py-5 py-3 border-t border-[#F3F3F7] flex justify-between items-center relative">
@@ -42,7 +66,10 @@ export const CartItem = ({
             <CountBtn count={count} setCount={setCount} />
           </div>
           <div className="md:ml-8 md:mr-14 ml-3 text-base]">{price} ₽</div>
-          <div className="md:block hidden flex-shrink-0">
+          <div
+            className="md:block hidden flex-shrink-0"
+            onClick={deleteCartItem}
+          >
             <CartSvg className="fill-green hover:fill-black transition-colors duration-200 cursor-pointer" />
           </div>
         </div>

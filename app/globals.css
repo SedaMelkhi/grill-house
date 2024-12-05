@@ -233,13 +233,18 @@ ul {
 .alert {
   width: calc(100% - 110px);
 }
-
+.cart-empty-height {
+  height: calc(100vh - 270px);
+}
 @media (min-width: 768px) {
   .addressModal {
     top: calc(50vh - 257px);
   }
   .margin {
     margin-bottom: calc(100dvh - 598px);
+  }
+  .cart-empty-height {
+    height: calc(100vh - 388px);
   }
 }
 
@@ -255,5 +260,8 @@ ul {
   }
   .alert {
     width: auto;
+  }
+  .cart-empty-height {
+    height: calc(100vh - 581px);
   }
 }

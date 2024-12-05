@@ -1,7 +1,7 @@
 "use client";
 
 import { StepsRoot } from "@chakra-ui/react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   AddressModal,
@@ -12,12 +12,18 @@ import {
   StepTwo,
 } from "@/components/cartPage";
 import qs from "qs";
+import { ICart } from "@/services";
+import CartItemsSkeleton from "@/components/cartPage/stepOne/CartItemsSkeleton";
+import { getCartItems } from "@/components/cartPage/utils";
 
 const Cart = () => {
   const params = useParams();
   const [step, setStep] = useState<number | null>(null);
   const [isAddressModalOpen, setAddressModalOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [cartItems, setCartItems] = useState<ICart | null>(null);
+  const [isLoad, setIsLoad] = useState(false);
+  const router = useRouter();
 
   // Установка текущего шага
   useEffect(() => {
@@ -47,6 +53,16 @@ const Cart = () => {
 
   // Обработчик кнопки "назад"
   useEffect(() => {
+    getCartItems(setCartItems).then((data: ICart | null) => {
+      setIsLoad(true);
+      console.log(data?.items.length, step);
+
+      if (data?.items.length === 0) {
+        if (step !== 1) {
+          router.push("/cart");
+        }
+      }
+    });
     const handlePopState = () => {
       setAddressModalOpen(false);
     };
@@ -54,6 +70,7 @@ const Cart = () => {
     return () => {
       window.removeEventListener("popstate", handlePopState);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Регистрация обработчика выполняется один раз
 
   return (
@@ -72,31 +89,54 @@ const Cart = () => {
           count={3}
           className="w-full block"
         >
-          <Header />
+          <div className={isLoad ? "" : "opacity-40"}>
+            <Header />
+          </div>
           <div className="max-w-[639px] mx-auto md:mt-24 mt-6 xl:px-0 px-5">
-            {step === 1 && <StepOne />}
-            {step === 2 && <StepTwo />}
-            {step === 3 && <StepThree />}
+            {cartItems && cartItems.items.length > 0 ? (
+              <>
+                {" "}
+                {step === 1 &&
+                  (isLoad ? (
+                    <StepOne
+                      cartItems={cartItems}
+                      setCartItems={setCartItems}
+                    />
+                  ) : (
+                    <CartItemsSkeleton />
+                  ))}
+                {step === 2 && <StepTwo />}
+                {step === 3 && <StepThree />}
+              </>
+            ) : (
+              <div className="cart-empty-height justify-center flex items-center">
+                <p>Корзина пустая</p>
+              </div>
+            )}
             {step === 1 && (
               <div className="flex flex-wrap md:mt-12 mt-8 justify-between gap-2 ">
                 <div className={"md:w-[269px] w-full"}>
                   <Button text="Вернуться в меню" link="/" arrow="left" />
                 </div>
-                <div
-                  onClick={() => {
-                    setAddressModalOpen(true);
-                    setStep(2);
-                    setHidden(false);
-                  }}
-                  className="md:w-[269px] w-full"
-                >
-                  <Button
-                    text="Оформить заказ"
-                    link="/cart"
-                    arrow="right"
-                    bgGreen={true}
-                  />
-                </div>
+                {isLoad && cartItems && cartItems.items.length ? (
+                  <div
+                    onClick={() => {
+                      setAddressModalOpen(true);
+                      setStep(2);
+                      setHidden(false);
+                    }}
+                    className="md:w-[269px] w-full"
+                  >
+                    <Button
+                      text="Оформить заказ"
+                      link="/cart"
+                      arrow="right"
+                      bgGreen={true}
+                    />
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
             )}
           </div>

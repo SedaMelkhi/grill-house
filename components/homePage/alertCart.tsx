@@ -8,7 +8,9 @@ export const AlertCart = () => {
   const { lastProduct, setLastProduct } = useCartStore();
   const [isHidden, setIsHidden] = useState<boolean>(true);
   useEffect(() => {
-    if (lastProduct) {
+    console.log(lastProduct);
+
+    if (lastProduct && lastProduct.name) {
       setIsHidden(false);
 
       setTimeout(() => {
@@ -18,19 +20,20 @@ export const AlertCart = () => {
     }
   }, [lastProduct, setLastProduct]);
   return (
-    <div
-      className={cn(
-        "alert xl:absolute fixed xl:top-[60px] xl:right-0 xl:left-auto left-5 xl:bottom-auto bottom-5 z-30 transition-all delay-150",
-        isHidden && "opacity-0 pointer-events-none translate-y-2"
-      )}
-    >
-      <div className="min-w-[210px] p-5 bg-[#1e1e1ec1] text-white rounded-xl text-[14px]">
-        <p>Добавлено:</p>
-        <p>
-          {lastProduct && lastProduct.name}, {lastProduct && lastProduct.count}{" "}
-          шт
-        </p>
+    lastProduct && (
+      <div
+        className={cn(
+          "alert xl:absolute fixed xl:top-[60px] xl:right-0 xl:left-auto left-5 xl:bottom-auto bottom-5 z-30 transition-all delay-150",
+          isHidden && "opacity-0 pointer-events-none translate-y-2"
+        )}
+      >
+        <div className="min-w-[210px] p-5 bg-[#1e1e1ec1] text-white rounded-xl text-[14px]">
+          <p>Добавлено:</p>
+          <p>
+            {lastProduct.name}, {lastProduct.count} шт
+          </p>
+        </div>
       </div>
-    </div>
+    )
   );
 };
