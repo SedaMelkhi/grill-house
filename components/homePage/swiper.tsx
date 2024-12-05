@@ -14,8 +14,8 @@ export const SwiperHeader = () => {
 
   return (
     <div className="relative z-0 w-[100%]  xl:h-[374px] md:h-[278px] h-[162px] mt-[34px] mx-auto xl:mx-0 ">
-      <div className="none xl:block  pointer-events-none absolute z-10  bg-custom-gradient-left left-0 t-0 w-custom-width h-[374px]"></div>
-      <div className="none xl:block  pointer-events-none absolute z-10 bg-custom-gradient-right right-0 t-0 w-custom-width h-[374px]"></div>
+      <div className="none xl:block  pointer-events-none absolute z-10  bg-custom-gradient-left left-0 t-0 2xl:w-64 xl:w-32 h-[374px]"></div>
+      <div className="none xl:block  pointer-events-none absolute z-10 bg-custom-gradient-right right-0 t-0 2xl:w-64 xl:w-32  h-[374px]"></div>
       <Swiper
         slidesPerView="auto"
         spaceBetween={10}

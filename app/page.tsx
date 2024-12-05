@@ -9,7 +9,7 @@ import {
 
 const Home = () => {
   return (
-    <main>
+    <main className="bg-white">
       <Header />
       <MenuPC />
       <SwiperHeader />

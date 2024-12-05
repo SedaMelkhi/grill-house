@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { IMenu } from "@/services";
+import { cn } from "@/lib/utils";
 
 interface MoreMenuProps {
   menu: IMenu[];
@@ -24,14 +25,18 @@ export const MoreMenu: React.FC<MoreMenuProps> = ({
         <Image src={"/select.png"} alt="" width={22} height={23} />
       </button>
       <div className="absolute opacity-0 pointer-events-none translate-y-2 peer-hover:opacity-100 hover:opacity-100 peer-hover:translate-y-0 hover:translate-y-0 peer-hover:pointer-events-auto hover:pointer-events-auto pt-5 z-10 min-w-[190px] transition-all delay-100">
-        <div className="bg-white shadow-menuShadow ">
+        <div className="bg-white shadow-menuShadow rounded-lg">
           {menu
             .filter((item, i) => i >= 7)
-            .map(({ id, title }) => (
+            .map(({ id, title }, index) => (
               <div
                 key={id}
                 onClick={() => handleAnchorClick(id)}
-                className="p-2.5 hover:bg-[#FAFAFA] transition-colors delay-75 cursor-pointer"
+                className={cn(
+                  "p-2.5 hover:bg-[#FAFAFA] transition-colors delay-75 cursor-pointer",
+                  index === 0 && "rounded-t-lg",
+                  index === menu.length - 8 && "rounded-b-lg"
+                )}
               >
                 {title}
               </div>

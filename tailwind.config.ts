@@ -24,12 +24,9 @@ const config: Config = {
       },
       backgroundImage: {
         "custom-gradient-left":
-          "linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.01) 100%)",
+          "linear-gradient(90deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.01) 100%)",
         "custom-gradient-right":
-          "linear-gradient(270deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.01) 100%)",
-      },
-      width: {
-        "custom-width": "calc(100% - 1650px)",
+          "linear-gradient(270deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.01) 100%)",
       },
       colors: {
         background: "var(--background)",
