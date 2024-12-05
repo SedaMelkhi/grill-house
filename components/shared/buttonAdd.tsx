@@ -30,10 +30,16 @@ export const ButtonAdd: React.FC<ButtonAddProps> = ({
   const router = useRouter();
   const addProductToCart = async () => {
     setIsLoading(true);
-    await CartService.addProductToCart({ product_id: id, quantity: count });
-    getCart(setCartItemsCount);
-    setLastProduct({ name, count });
-    setIsLoading(false);
+    const data = await CartService.addProductToCart({
+      product_id: id,
+      quantity: count,
+    });
+    if (data.items.length > 0) {
+      getCart(setCartItemsCount);
+      setLastProduct({ name, count });
+      setIsLoading(false);
+    }
+
     if (!isHomePage) {
       if (onClose) onClose();
       else router.back();
