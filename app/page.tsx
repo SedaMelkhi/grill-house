@@ -1,4 +1,3 @@
-"use client";
 import {
   Header,
   MenuPC,
@@ -6,7 +5,7 @@ import {
   MenuSection,
   SwiperHeader,
   Recommendation,
-} from "./components/homePage";
+} from "@/components/homePage";
 
 const Home = () => {
   return (

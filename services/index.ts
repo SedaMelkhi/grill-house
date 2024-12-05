@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const API_URL = "https://makhmudov.tech/api/";
 export const API = "https://makhmudov.tech/";
-export const API_DOMAIN = "https://jemmesgarden.com";
 export const DADATA_API_URL =
   "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
 export const DADATA_TOKEN = "209b8d5e8bb14b84a183757c77c9502d3bca4220";
@@ -23,16 +22,35 @@ export interface ISection {
   title: string;
   products: [];
 }
+
 export interface IProduct {
   id: number;
   name: string;
   description: string;
-  price: number;
-  weight?: number;
+  category: ICategory;
+  price: string; // Цена представлена как строка, например, "320.00"
+  weight: string; // Вес также представлен как строка, например, "300"
+  image: string;
+  available: boolean;
+  order_count: number;
+  recommended_categories: ICategory[];
+}
+export interface ICategory {
+  id: number;
+  name: string;
+  description: string;
   image: string;
 }
+
+export interface ICartItem {
+  id: number;
+  product: IProduct;
+  quantity: number;
+  get_total_price: number;
+}
+
 export interface ICart {
-  items: IProduct[];
+  items: ICartItem[];
   total_price: number;
 }
 export const BannersService = {
@@ -103,6 +121,14 @@ export const ProductService = {
     try {
       const { data } = await axios.get(`products/${productId}`);
 
+      return data;
+    } catch {
+      return null;
+    }
+  },
+  async getPopularProduct(): Promise<IProduct[] | null> {
+    try {
+      const { data } = await axios.get(`products/popular/`);
       return data;
     } catch {
       return null;

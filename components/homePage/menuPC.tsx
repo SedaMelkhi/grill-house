@@ -32,7 +32,7 @@ export const MenuPC = () => {
   return (
     <div className="">
       <div
-        className={`xl:flex hidden justify-between items-center ${
+        className={`flex justify-between items-center ${
           isScrolled
             ? "w-[100%] bg-[#fafafa] fixed z-10 top-0 ease-in-out shadow-lg"
             : "ease-in-out"

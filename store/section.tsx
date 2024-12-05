@@ -10,6 +10,8 @@ interface State {
 interface CartState {
   cartItemsCount: number;
   setCartItemsCount: (cartItemsCount: number) => void;
+  lastProduct: { name: string; count: number } | null;
+  setLastProduct: (lastProduct: { name: string; count: number } | null) => void;
 }
 
 export const useSectionStore = create<State>()((set) => ({
@@ -22,4 +24,6 @@ export const useSectionStore = create<State>()((set) => ({
 export const useCartStore = create<CartState>()((set) => ({
   cartItemsCount: 0,
   setCartItemsCount: (cartItemsCount) => set({ cartItemsCount }),
+  lastProduct: null,
+  setLastProduct: (lastProduct) => set({ lastProduct }),
 }));

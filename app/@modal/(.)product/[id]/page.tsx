@@ -1,7 +1,7 @@
 // pages/@modal/product/[id]/page.tsx
 "use client";
 //import { useRouter } from "next/navigation";
-import { ModalLoader } from "@/app/components/homePage/productModal/ModalLoader";
+import { ModalLoader } from "@/components/homePage/productModal/ModalLoader";
 import { DialogBody, DialogContent, DialogRoot } from "@/components/ui/dialog";
 
 export default function ProductModalPage({
@@ -19,7 +19,7 @@ export default function ProductModalPage({
     <DialogRoot placement="center" defaultOpen={true} size="full">
       <DialogContent>
         <DialogBody
-          height="100%"
+          height="100dvh"
           display="flex"
           alignItems="center"
           justifyContent="center"

@@ -1,16 +1,9 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import { Container } from "../shared";
 import { SectionService, ISection } from "@/services";
 import { ProductsGroupList } from "./";
 
-export const MenuSection = () => {
-  const [sections, setSections] = useState<ISection[]>([]);
-
-  useEffect(() => {
-    SectionService.getSection().then((res) => setSections(res));
-  }, []);
+export const MenuSection = async () => {
+  const sections: ISection[] | [] = await SectionService.getSection();
 
   return (
     <div className="menu-section">

@@ -2,11 +2,11 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export const ClosePc = () => {
+export const ClosePc = ({ onClose }: { onClose?: () => void }) => {
   const router = useRouter();
   return (
     <div
-      onClick={() => router.back()}
+      onClick={onClose ? onClose : () => router.back()}
       className="md:flex hidden  absolute top-5 right-5 "
     >
       <Image

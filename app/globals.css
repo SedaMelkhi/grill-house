@@ -227,6 +227,13 @@ ul {
   background-color: #fff0 !important;
 }
 
+.skeleton {
+  height: calc(100% - 350px);
+}
+.alert {
+  width: calc(100% - 110px);
+}
+
 @media (min-width: 768px) {
   .addressModal {
     top: calc(50vh - 257px);
@@ -236,7 +243,7 @@ ul {
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .addressModal {
     top: calc(50vh - 257px);
   }
@@ -245,5 +252,8 @@ ul {
   }
   #nprogress .bar {
     height: 4px;
+  }
+  .alert {
+    width: auto;
   }
 }

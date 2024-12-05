@@ -1,9 +1,9 @@
 import localFont from "next/font/local";
 import type { Metadata } from "next";
-import { Footer, Nav } from "./components/layout";
+import { Footer, Nav } from "@/components/layout";
 import "./globals.css";
-import { Provider } from "./../components/ui/provider";
-import ProgressBar from "./components/progressBar";
+import { Provider } from "@/components/ui/provider";
+import ProgressBar from "@/components/progressBar";
 import { Suspense } from "react";
 
 const rubikSans = localFont({

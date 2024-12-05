@@ -10,7 +10,7 @@ import {
   StepOne,
   StepThree,
   StepTwo,
-} from "../components/cartPage";
+} from "@/components/cartPage";
 import qs from "qs";
 
 const Cart = () => {
@@ -50,7 +50,6 @@ const Cart = () => {
     const handlePopState = () => {
       setAddressModalOpen(false);
     };
-
     window.addEventListener("popstate", handlePopState);
     return () => {
       window.removeEventListener("popstate", handlePopState);
