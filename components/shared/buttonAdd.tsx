@@ -34,12 +34,13 @@ export const ButtonAdd: React.FC<ButtonAddProps> = ({
       product_id: id,
       quantity: count,
     });
-    if (data.items.length > 0) {
+    console.log(data);
+
+    if (data) {
       getCart(setCartItemsCount);
       setLastProduct({ name, count });
-      setIsLoading(false);
     }
-
+    setIsLoading(false);
     if (!isHomePage) {
       if (onClose) onClose();
       else router.back();
