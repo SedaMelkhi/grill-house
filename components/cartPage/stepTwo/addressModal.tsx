@@ -74,22 +74,22 @@ export const AddressModal = ({
   }, []);
 
   const sendAddress = () => {
-    // setAddressModalOpen(false);
-    // if (typeDelivery === "Самовывоз") {
-    //   console.log("Грозный, пр. Махмуда А. Эсамбаева, 11");
-    // } else {
-    //   console.log(selectedAddress?.value);
-    //   console.log({
-    //     город: city,
-    //     isAddressInvalid,
-    //     entranceNumber,
-    //     doorCode,
-    //     floor,
-    //     apartment,
-    //     comment,
-    //     handleSubmit,
-    //   });
-    // }
+    setAddressModalOpen(false);
+    if (typeDelivery === "Самовывоз") {
+      console.log("Грозный, пр. Махмуда А. Эсамбаева, 11");
+    } else {
+      console.log(selectedAddress?.value);
+      console.log({
+        город: city,
+        isAddressInvalid,
+        entranceNumber,
+        doorCode,
+        floor,
+        apartment,
+        comment,
+        handleSubmit,
+      });
+    }
   };
 
   return (
