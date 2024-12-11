@@ -34,7 +34,6 @@ export const ButtonAdd: React.FC<ButtonAddProps> = ({
       product_id: id,
       quantity: count,
     });
-    console.log(data);
 
     if (data) {
       getCart(setCartItemsCount);

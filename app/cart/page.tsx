@@ -55,8 +55,6 @@ const Cart = () => {
   useEffect(() => {
     getCartItems(setCartItems).then((data: ICart | null) => {
       setIsLoad(true);
-      console.log(data?.items.length, step);
-
       if (data?.items.length === 0) {
         if (step !== 1) {
           router.push("/cart");
@@ -93,26 +91,26 @@ const Cart = () => {
             <Header />
           </div>
           <div className="max-w-[639px] mx-auto md:mt-24 mt-6 xl:px-0 px-5">
-            {cartItems && cartItems.items.length > 0 ? (
-              <>
-                {" "}
-                {step === 1 &&
-                  (isLoad ? (
+            <>
+              {step === 1 &&
+                (isLoad ? (
+                  cartItems && cartItems.items.length > 0 ? (
                     <StepOne
                       cartItems={cartItems}
                       setCartItems={setCartItems}
                     />
                   ) : (
-                    <CartItemsSkeleton />
-                  ))}
-                {step === 2 && <StepTwo />}
-                {step === 3 && <StepThree />}
-              </>
-            ) : (
-              <div className="cart-empty-height justify-center flex items-center">
-                <p>Корзина пустая</p>
-              </div>
-            )}
+                    <div className="cart-empty-height justify-center flex items-center">
+                      <p>Корзина пустая</p>
+                    </div>
+                  )
+                ) : (
+                  <CartItemsSkeleton />
+                ))}
+              {step === 2 && <StepTwo />}
+              {step === 3 && <StepThree />}
+            </>
+
             {step === 1 && (
               <div className="flex flex-wrap md:mt-12 mt-8 justify-between gap-2 ">
                 <div className={"md:w-[269px] w-full"}>

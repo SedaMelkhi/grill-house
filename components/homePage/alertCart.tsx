@@ -8,8 +8,6 @@ export const AlertCart = () => {
   const { lastProduct, setLastProduct } = useCartStore();
   const [isHidden, setIsHidden] = useState<boolean>(true);
   useEffect(() => {
-    console.log(lastProduct);
-
     if (lastProduct && lastProduct.name) {
       setIsHidden(false);
 

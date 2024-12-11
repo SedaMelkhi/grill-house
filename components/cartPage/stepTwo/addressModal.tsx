@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Form, MyDrawer, MyMap, Pickup, Tabs } from "..";
+import { Form, MyDrawer, MyMap, Pickup, Tabs, useFormState } from "..";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -24,6 +24,16 @@ export const AddressModal = ({
   setHidden: (prev: boolean) => void;
   hidden: boolean;
 }) => {
+  const {
+    city,
+    isAddressInvalid,
+    entranceNumber,
+    doorCode,
+    floor,
+    apartment,
+    comment,
+    handleSubmit,
+  } = useFormState();
   const [typeDelivery, setTypeDelivery] = useState<string>("Самовывоз");
   const [selectedAddress, setSelectedAddress] = useState<AddressData | null>(
     null
@@ -63,6 +73,25 @@ export const AddressModal = ({
     };
   }, []);
 
+  const sendAddress = () => {
+    // setAddressModalOpen(false);
+    // if (typeDelivery === "Самовывоз") {
+    //   console.log("Грозный, пр. Махмуда А. Эсамбаева, 11");
+    // } else {
+    //   console.log(selectedAddress?.value);
+    //   console.log({
+    //     город: city,
+    //     isAddressInvalid,
+    //     entranceNumber,
+    //     doorCode,
+    //     floor,
+    //     apartment,
+    //     comment,
+    //     handleSubmit,
+    //   });
+    // }
+  };
+
   return (
     <>
       <div
@@ -100,10 +129,10 @@ export const AddressModal = ({
             <Form
               selectedAddress={selectedAddress}
               setSelectedAddress={setSelectedAddress}
-              setAddressModalOpen={setAddressModalOpen}
+              sendAddress={sendAddress}
             />
           ) : (
-            <Pickup setAddressModalOpen={setAddressModalOpen} />
+            <Pickup sendAddress={sendAddress} />
           )}
         </div>
         <div className="md:w-[54%] w-full md:h-[513px] h-full">

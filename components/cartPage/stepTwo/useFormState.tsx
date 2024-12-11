@@ -17,14 +17,14 @@ export const useFormState = () => {
       return;
     }
     // Обработка отправки формы
-    // console.log({
-    //   city,
-    //   entranceNumber,
-    //   doorCode,
-    //   floor,
-    //   apartment,
-    //   comment,
-    // });
+    console.log({
+      city,
+      entranceNumber,
+      doorCode,
+      floor,
+      apartment,
+      comment,
+    });
   };
 
   return {

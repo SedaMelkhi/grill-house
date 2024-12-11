@@ -34,7 +34,6 @@ export const CartItem = ({
   };
   const deleteCartItem = async () => {
     const data = await CartService.deleteCart(id);
-    console.log(data);
     if (data) {
       getCartItems(setCartItems);
     }

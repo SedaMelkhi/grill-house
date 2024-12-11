@@ -1,11 +1,7 @@
 import React from "react";
 import { MyButton } from "./myButton";
 
-export const Pickup = ({
-  setAddressModalOpen,
-}: {
-  setAddressModalOpen: (prev: boolean) => void;
-}) => {
+export const Pickup = ({ sendAddress }: { sendAddress: () => void }) => {
   return (
     <div>
       <h2 className="md:hidden block mb-3">Грозный</h2>
@@ -19,10 +15,7 @@ export const Pickup = ({
           </div>
         </div>
       </div>
-      <div
-        className="md:mt-[260px] mt-[28px]"
-        onClick={() => setAddressModalOpen(false)}
-      >
+      <div className="md:mt-[260px] mt-[28px]" onClick={sendAddress}>
         <MyButton value="Заберу здесь" />
       </div>
     </div>

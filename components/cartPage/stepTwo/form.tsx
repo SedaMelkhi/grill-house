@@ -11,13 +11,13 @@ import {
 interface FormProps {
   selectedAddress: AddressData | null;
   setSelectedAddress: (prev: AddressData | null) => void;
-  setAddressModalOpen: (prev: boolean) => void;
+  sendAddress: () => void;
 }
 
 export const Form: React.FC<FormProps> = ({
   selectedAddress,
   setSelectedAddress,
-  setAddressModalOpen,
+  sendAddress,
 }) => {
   const {
     city,
@@ -60,10 +60,7 @@ export const Form: React.FC<FormProps> = ({
         />
         <AddressComment comment={comment} setComment={setComment} />
       </div>
-      <div
-        className="md:mt-[110px] mt-5"
-        onClick={() => setAddressModalOpen(false)}
-      >
+      <div className="md:mt-[110px] mt-5" onClick={sendAddress}>
         <MyButton value="Добавить" />
       </div>
     </form>
