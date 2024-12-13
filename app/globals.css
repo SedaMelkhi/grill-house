@@ -33,12 +33,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 /* Обнуление стилей по умолчанию */
 *,
 *::before,
@@ -329,4 +323,21 @@ ul {
     font-weight: 600;
     color: var(--green);
   }
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 5px; /* Ширина вертикального скроллбара */
+  height: 5px; /* Высота горизонтального скроллбара */
+}
+
+/* Стили для бегунка (ползунка) */
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  border-radius: 3px; /* Закругление углов бегунка */
+  border: 3px solid var(--green); /* Пространство между бегунком и краем полосы прокрутки */
+}
+
+/* Стили для трека (фона) скроллбара */
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #15523e59; /* Цвет фона полосы прокрутки */
+  border-radius: 3px; /* Закругленные края */
 }

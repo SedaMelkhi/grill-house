@@ -9,9 +9,9 @@ export const Menu = () => {
       <li className="hover:text-[#706e6e] transition-colors duration-150">
         <Link href="/about_us">О нас</Link>
       </li>
-      <li className="hover:text-[#706e6e] transition-colors duration-150">
+      {/* <li className="hover:text-[#706e6e] transition-colors duration-150">
         <Link href="/contacts">Контакты</Link>
-      </li>
+      </li> */}
     </ul>
   );
 };

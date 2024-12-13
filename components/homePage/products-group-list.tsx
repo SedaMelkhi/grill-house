@@ -4,7 +4,6 @@ import { Title } from "../shared";
 import { useSectionStore } from "@/store/section";
 import { CardProduct } from "./cardProduct";
 import { useIntersection } from "react-use";
-import { API } from "@/services";
 
 export const ProductsGroupList = ({
   id,
@@ -46,7 +45,7 @@ export const ProductsGroupList = ({
             <CardProduct
               id={productId}
               name={name}
-              image={API + image}
+              image={image}
               description={description}
               price={price}
             />

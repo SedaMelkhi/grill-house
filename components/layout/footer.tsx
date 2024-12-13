@@ -6,7 +6,7 @@ export const Footer = () => {
     <footer className="bg-white border-t border-[#F3F3F7] xl:h-[76px] md:h-16 h-[52px] flex items-center xl:mt-32 md:mt-16 mt-14">
       <Container>
         <div className="xl:text-2xl md:text-xl text-sm text-[#0F0F0F]">
-          © Grill House
+          Copyright © 2024 Grozny Grill House. Все права защищены
         </div>
       </Container>
     </footer>
