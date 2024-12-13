@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Form, MyDrawer, MyMap, Pickup, Tabs, useFormState } from "..";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useOrderStore } from "@/store/section";
 
 export interface AddressData {
   data: {
@@ -34,14 +35,14 @@ export const AddressModal = ({
     comment,
     handleSubmit,
   } = useFormState();
-  const [typeDelivery, setTypeDelivery] = useState<string>("Самовывоз");
+  const { order_type } = useOrderStore();
   const [selectedAddress, setSelectedAddress] = useState<AddressData | null>(
     null
   ); // Выбранный адрес
   const modalRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (typeDelivery === "Самовывоз") {
+    if (order_type === "Самовывоз") {
       setSelectedAddress({
         data: { geo_lat: "43.320386", geo_lon: "45.690076" },
         unrestricted_value:
@@ -51,7 +52,7 @@ export const AddressModal = ({
     } else {
       setSelectedAddress(null);
     }
-  }, [typeDelivery]);
+  }, [order_type]);
 
   // Обновляем высоту модального окна для мобильных устройств
   useEffect(() => {
@@ -75,10 +76,9 @@ export const AddressModal = ({
 
   const sendAddress = () => {
     setAddressModalOpen(false);
-    if (typeDelivery === "Самовывоз") {
+    if (order_type === "Самовывоз") {
       console.log("Грозный, пр. Махмуда А. Эсамбаева, 11");
     } else {
-      console.log(selectedAddress?.value);
       console.log({
         город: city,
         isAddressInvalid,
@@ -99,13 +99,7 @@ export const AddressModal = ({
         style={{ height: "100vh" }}
         onClick={() => setAddressModalOpen(false)}
       ></div>
-      {!hidden && (
-        <MyDrawer
-          typeDelivery={typeDelivery}
-          setTypeDelivery={setTypeDelivery}
-          setHidden={setHidden}
-        />
-      )}
+      {!hidden && <MyDrawer setHidden={setHidden} />}
       <div
         ref={modalRef} // Привязываем ref для управления высотой
         className={cn(
@@ -124,8 +118,8 @@ export const AddressModal = ({
           />
         </Link>
         <div className="md:w-[43%] relative z-10 bg-white md:p-0 p-5 rounded-t-[20px]">
-          <Tabs typeDelivery={typeDelivery} setTypeDelivery={setTypeDelivery} />
-          {typeDelivery === "Доставка" ? (
+          <Tabs />
+          {order_type === "Доставка" ? (
             <Form
               selectedAddress={selectedAddress}
               setSelectedAddress={setSelectedAddress}

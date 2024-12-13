@@ -1,17 +1,15 @@
 "use client";
 
+import { useOrderStore } from "@/store/section";
 import { MyButton } from "./myButton";
 import { Radio } from "./radio";
 
 export const MyDrawer = ({
-  typeDelivery,
-  setTypeDelivery,
   setHidden,
 }: {
-  typeDelivery: string;
-  setTypeDelivery: (prev: string) => void;
   setHidden: (prev: boolean) => void;
 }) => {
+  const { order_type, setOrder_type } = useOrderStore();
   return (
     <div className="md:opacity-0 md:pointer-events-none bg-white p-5 rounded-t-[20px] fixed bottom-0 w-full z-50">
       <h2 className="mb-6">Выберите способ доставки заказа</h2>
@@ -19,16 +17,16 @@ export const MyDrawer = ({
         <Radio
           value="Доставка"
           name="typeDelivery"
-          state={typeDelivery}
-          setState={setTypeDelivery}
+          state={order_type}
+          setState={setOrder_type}
         />
       </div>
       <div className="py-3">
         <Radio
           value="Самовывоз"
           name="typeDelivery"
-          state={typeDelivery}
-          setState={setTypeDelivery}
+          state={order_type}
+          setState={setOrder_type}
         />
       </div>
       <div onClick={() => setHidden(true)}>

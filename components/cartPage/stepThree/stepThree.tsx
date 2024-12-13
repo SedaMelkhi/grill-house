@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 export const StepThree = () => {
   return (
@@ -15,7 +14,7 @@ export const StepThree = () => {
         width={83}
         height={83}
         alt=""
-        className="block w-[83px] mx-auto pb-[86px] margin"
+        className="block w-[83px] mx-auto pb-[86px]"
       />
     </div>
   );

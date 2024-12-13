@@ -1,10 +1,13 @@
-import React, { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
-export const PhoneNumber = () => {
-  const [phone, setPhone] = useState("");
-
+export const PhoneNumber = ({
+  phone,
+  setPhone,
+}: {
+  phone: string;
+  setPhone: (prev: string) => void;
+}) => {
   return (
     <div>
       <div className="mx-auto max-w-[294px]">

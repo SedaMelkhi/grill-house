@@ -32,8 +32,8 @@ export const CartItem = ({
       getCartItems(setCartItems);
     }
   };
-  const deleteCartItem = async () => {
-    const data = await CartService.deleteCart(id);
+  const deleteCartItemItem = async () => {
+    const data = await CartService.deleteCartItem(id);
     if (data) {
       getCartItems(setCartItems);
     }
@@ -67,7 +67,7 @@ export const CartItem = ({
           <div className="md:ml-8 md:mr-14 ml-3 text-base]">{price} ₽</div>
           <div
             className="md:block hidden flex-shrink-0"
-            onClick={deleteCartItem}
+            onClick={deleteCartItemItem}
           >
             <CartSvg className="fill-green hover:fill-black transition-colors duration-200 cursor-pointer" />
           </div>

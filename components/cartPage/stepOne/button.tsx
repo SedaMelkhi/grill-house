@@ -4,17 +4,20 @@ import Link from "next/link";
 import { LeftSvg, RightSvg } from "../../shared/svg";
 import { StepsNextTrigger, StepsPrevTrigger } from "@/components/ui/steps";
 import { cn } from "@/lib/utils";
+import { Spinner } from "@/components/shared";
 
 export const Button = ({
   text,
   link,
   arrow,
   bgGreen,
+  isLoad,
 }: {
   text: string;
   link: string;
   arrow: string;
   bgGreen?: boolean;
+  isLoad?: boolean;
 }) => {
   return arrow === "right" ? (
     <StepsNextTrigger asChild>
@@ -64,7 +67,7 @@ export const Button = ({
             bgGreen && "text-white"
           )}
         >
-          {text}
+          {link === "?step=3" ? isLoad ? text : <Spinner /> : text}
         </div>
       </Link>
     </StepsPrevTrigger>

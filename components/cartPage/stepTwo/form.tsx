@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AddressData } from "./addressModal";
+import { useOrderStore } from "@/store/section";
 import {
   useFormState,
   AddressField,
@@ -36,6 +37,22 @@ export const Form: React.FC<FormProps> = ({
     setComment,
     handleSubmit,
   } = useFormState();
+  const { setAddress } = useOrderStore();
+  useEffect(() => {
+    if (city) {
+      setAddress(
+        `
+       город: ${city}
+       номер подъезда: ${entranceNumber}
+       код двери: ${doorCode}
+       этаж: ${floor}
+       квартира: ${apartment}
+       комментарий: ${comment}
+       `
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [city, entranceNumber, doorCode, floor, apartment, comment]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -48,6 +65,7 @@ export const Form: React.FC<FormProps> = ({
           isAddressInvalid={isAddressInvalid}
           setIsAddressInvalid={setIsAddressInvalid}
         />
+
         <AddressDetails
           entranceNumber={entranceNumber}
           setEntranceNumber={setEntranceNumber}

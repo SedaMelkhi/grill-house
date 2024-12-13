@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CartItems, Title, Promocode, Additionals } from "..";
-import { ICart } from "@/services";
+import { CartService, ICart, IProduct } from "@/services";
 
 export const StepOne = ({
   cartItems,
@@ -12,13 +12,41 @@ export const StepOne = ({
   setCartItems: (prev: ICart | null) => void;
 }) => {
   const [discountPrice, setDiscountPrice] = useState<string | null>(null);
+
+  const [recommendation, setRecommendation] = useState<{
+    recommended_products: { [key: string]: [IProduct[]] }[];
+  } | null>(null);
+  const getRecommendationData = async () => {
+    const data = await CartService.getRecommendation();
+    console.log(data);
+
+    setRecommendation(data);
+  };
+  useEffect(() => {
+    getRecommendationData();
+  }, [cartItems]);
   return (
     cartItems && (
       <>
-        <Title />
+        <Title setCartItems={setCartItems} />
         <CartItems items={cartItems.items} setCartItems={setCartItems} />
-        <Additionals title="Добавить к заказу" />
-        <Additionals title="Соусы" />
+        {recommendation && (
+          <>
+            <div className="dop">
+              <h2 className="md:mt-11 mt-[30px] md:text-xl">
+                Добавить к заказу:
+              </h2>
+            </div>
+            {recommendation.recommended_products.map((item) =>
+              Object.keys(item).map((name) => (
+                <Additionals title={name} key={name} products={item[name][0]} />
+              ))
+            )}
+          </>
+        )}
+
+        {/* <Additionals title="Добавить к заказу" /> */}
+
         <Promocode
           setCartItems={setCartItems}
           setDiscountPrice={setDiscountPrice}

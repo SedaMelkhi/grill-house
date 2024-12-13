@@ -28,14 +28,16 @@ export default function RootLayout({
     <html lang="ru" suppressHydrationWarning>
       <body className={`${rubikSans.variable} antialiased text-black bg-white`}>
         <Provider>
-          <>
-            <Nav />
-            <ProgressBar />
-            {children}
-            <Suspense fallback={null}>{modal}</Suspense>
+          <div className="flex flex-col min-h-dvh justify-between">
+            <div>
+              <Nav />
+              <ProgressBar />
+              {children}
+              <Suspense fallback={null}>{modal}</Suspense>
+            </div>
 
             <Footer />
-          </>
+          </div>
         </Provider>
       </body>
     </html>

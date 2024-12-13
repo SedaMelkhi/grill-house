@@ -2,7 +2,7 @@
 
 "use client";
 import { CartService } from "@/services";
-import { useCartStore } from "@/store/section";
+import { useCartStore, useUpdateStore } from "@/store/section";
 import { useRouter } from "next/navigation";
 import { Spinner } from "./"; // Убедитесь, что путь корректен
 import { getCart } from "./buttonCart";
@@ -26,7 +26,8 @@ export const ButtonAdd: React.FC<ButtonAddProps> = ({
   name,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const { setCartItemsCount, setLastProduct } = useCartStore();
+  const { setCartItemsCount, setLastProduct, setError } = useCartStore();
+  const { cartUpdate, setCartUpdate } = useUpdateStore();
   const router = useRouter();
   const addProductToCart = async () => {
     setIsLoading(true);
@@ -34,10 +35,12 @@ export const ButtonAdd: React.FC<ButtonAddProps> = ({
       product_id: id,
       quantity: count,
     });
-
-    if (data) {
+    if (data.type === "error") {
+      setError(data.message);
+    } else if (data) {
       getCart(setCartItemsCount);
       setLastProduct({ name, count });
+      setCartUpdate(cartUpdate + 1);
     }
     setIsLoading(false);
     if (!isHomePage) {

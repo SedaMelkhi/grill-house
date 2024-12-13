@@ -15,6 +15,8 @@ import qs from "qs";
 import { ICart } from "@/services";
 import CartItemsSkeleton from "@/components/cartPage/stepOne/CartItemsSkeleton";
 import { getCartItems } from "@/components/cartPage/utils";
+import { useOrderStore, useUpdateStore } from "@/store/section";
+import { CartEmpty } from "@/components/cartPage/stepOne/cartEmpty";
 
 const Cart = () => {
   const params = useParams();
@@ -23,8 +25,9 @@ const Cart = () => {
   const [hidden, setHidden] = useState(false);
   const [cartItems, setCartItems] = useState<ICart | null>(null);
   const [isLoad, setIsLoad] = useState(false);
+  const { cartUpdate, setCartUpdate } = useUpdateStore();
   const router = useRouter();
-
+  const { address } = useOrderStore();
   // Установка текущего шага
   useEffect(() => {
     if (window.location.search) {
@@ -53,6 +56,24 @@ const Cart = () => {
 
   // Обработчик кнопки "назад"
   useEffect(() => {
+    const handlePopState = () => {
+      setAddressModalOpen(false);
+    };
+    window.addEventListener("popstate", handlePopState);
+    if (window.location.search) {
+      const searchParams: { step: string } = qs.parse(
+        window.location.search.substring(1)
+      ) as { step: string };
+      if (searchParams && +searchParams.step == 2 && !address) {
+        setAddressModalOpen(true);
+      }
+    }
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Регистрация обработчика выполняется один раз
+  useEffect(() => {
     getCartItems(setCartItems).then((data: ICart | null) => {
       setIsLoad(true);
       if (data?.items.length === 0) {
@@ -61,16 +82,8 @@ const Cart = () => {
         }
       }
     });
-    const handlePopState = () => {
-      setAddressModalOpen(false);
-    };
-    window.addEventListener("popstate", handlePopState);
-    return () => {
-      window.removeEventListener("popstate", handlePopState);
-    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Регистрация обработчика выполняется один раз
-
+  }, [cartUpdate, setCartUpdate]);
   return (
     step && (
       <main>
@@ -100,9 +113,7 @@ const Cart = () => {
                       setCartItems={setCartItems}
                     />
                   ) : (
-                    <div className="cart-empty-height justify-center flex items-center">
-                      <p>Корзина пустая</p>
-                    </div>
+                    <CartEmpty />
                   )
                 ) : (
                   <CartItemsSkeleton />
@@ -111,7 +122,7 @@ const Cart = () => {
               {step === 3 && <StepThree />}
             </>
 
-            {step === 1 && (
+            {cartItems && cartItems.items.length > 0 && step === 1 && (
               <div className="flex flex-wrap md:mt-12 mt-8 justify-between gap-2 ">
                 <div className={"md:w-[269px] w-full"}>
                   <Button text="Вернуться в меню" link="/" arrow="left" />
