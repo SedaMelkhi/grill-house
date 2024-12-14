@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    domains: ["grozny-grillhouse.ru"],
+    domains: ["makhmudov.tech"],
   },
 };
 

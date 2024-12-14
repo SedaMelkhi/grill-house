@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const API_URL = "https://grozny-grillhouse.ru/api/";
-export const API = "https://grozny-grillhouse.ru/";
+export const API_URL = "https://makhmudov.tech/api/";
+export const API = "https://makhmudov.tech/";
 export const DADATA_API_URL =
   "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
 export const DADATA_TOKEN = "209b8d5e8bb14b84a183757c77c9502d3bca4220";
