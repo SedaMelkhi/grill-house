@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import axios from "axios";
 
-export const API_URL = "https://makhmudov.tech/api/";
-export const API = "https://makhmudov.tech/";
+export const API_URL = "https://grozny-grillhouse.ru/api/";
+export const API = "https://grozny-grillhouse.ru/";
 export const DADATA_API_URL =
-  "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
+  "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
 export const DADATA_TOKEN = "209b8d5e8bb14b84a183757c77c9502d3bca4220";
 
 axios.defaults.baseURL = API_URL;
@@ -181,17 +182,28 @@ export const ProductService = {
 //   }
 // }
 
-export const getCurrentHours = () => {
+export const isTimeInRange = (): boolean => {
   const options = {
     timeZone: "Europe/Moscow",
     hour: "2-digit",
+    minute: "2-digit",
     hour12: false,
   };
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-ignore
-  const moscowHours = new Date().toLocaleString("ru-RU", options);
-  return +moscowHours;
+  // Получаем текущее время в формате HH:MM
+  //@ts-expect-error
+  const currentTime = new Date().toLocaleString("ru-RU", options);
+
+  // Разделяем время на часы и минуты
+  const [currentHour, currentMinute] = currentTime.split(":").map(Number);
+
+  // Проверяем, находится ли время в заданном диапазоне
+  const isAfterStart =
+    currentHour > 11 || (currentHour === 11 && currentMinute >= 0); // >= 11:00
+  const isBeforeEnd =
+    currentHour < 23 || (currentHour === 23 && currentMinute <= 30); // <= 23:30
+
+  return isAfterStart && isBeforeEnd;
 };
 
 export const CartService = {
@@ -253,13 +265,13 @@ export const CartService = {
   },
   async addProductToCart(product: { product_id: number; quantity: number }) {
     try {
-      if (getCurrentHours() >= 11 && getCurrentHours() <= 23) {
+      if (isTimeInRange()) {
         const { data } = await axios.post("cart/add/", product, {
           withCredentials: true,
         });
         return data;
       } else {
-        throw { message: "Заказы принимаются только с 11:00 и до 23:00" };
+        throw { message: "Заказы принимаются только с 11:00 и до 23:30" };
       }
     } catch (error) {
       console.error("Ошибка при добавлении товара в корзину:", error);

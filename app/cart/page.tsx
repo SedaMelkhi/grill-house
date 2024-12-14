@@ -12,7 +12,7 @@ import {
   StepTwo,
 } from "@/components/cartPage";
 import qs from "qs";
-import { getCurrentHours, ICart } from "@/services";
+import { ICart, isTimeInRange } from "@/services";
 import CartItemsSkeleton from "@/components/cartPage/stepOne/CartItemsSkeleton";
 import { getCartItems } from "@/components/cartPage/utils";
 import { useCartStore, useOrderStore, useUpdateStore } from "@/store/section";
@@ -79,7 +79,7 @@ const Cart = () => {
     getCartItems(setCartItems).then((data: ICart | null) => {
       setIsLoad(true);
       if (data?.items.length === 0) {
-        if (step !== 1) {
+        if (step !== 1 && step !== 3) {
           router.push("/cart");
         }
       }
@@ -132,13 +132,13 @@ const Cart = () => {
                 {isLoad && cartItems && cartItems.items.length ? (
                   <div
                     onClick={() => {
-                      if (getCurrentHours() >= 11 && getCurrentHours() <= 23) {
+                      if (isTimeInRange()) {
                         setAddressModalOpen(true);
                         setStep(2);
                         setHidden(false);
                       } else {
                         setError(
-                          "Заказы принимаются только с 11:00 и до 23:00"
+                          "Заказы принимаются только с 11:00 и до 23:30"
                         );
                       }
                     }}

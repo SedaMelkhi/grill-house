@@ -1,12 +1,18 @@
 import { Container } from "../shared";
 import { ISection, API_URL } from "@/services";
 import { ProductsGroupList } from "./";
+import { notFound } from "next/navigation";
 
 export const MenuSection = async () => {
-  const res: Response = await fetch(API_URL + "menu/", {
-    next: { revalidate: 30 },
-  });
-  const sections: ISection[] | [] = await res.json();
+  let sections: ISection[] | [] = [];
+  try {
+    const res: Response = await fetch(API_URL + "menu/", {
+      next: { revalidate: 30 },
+    });
+    sections = await res.json();
+  } catch {
+    notFound();
+  }
 
   return (
     <div className="menu-section">

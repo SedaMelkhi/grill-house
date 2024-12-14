@@ -31,7 +31,7 @@ export const Promocode = ({
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          className="w-[60%] h-full border border-[#AEB1B74D] rounded-tl-full rounded-bl-full pl-6"
+          className="w-[60%] h-full border border-[#AEB1B74D] rounded-tl-full rounded-bl-full pl-6 bg-white"
           placeholder="Введите промокод"
         />
         <button

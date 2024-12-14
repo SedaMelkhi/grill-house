@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 
 import "swiper/css";
-import { IProduct } from "@/services";
+import { API, IProduct } from "@/services";
 
 export const Additionals = ({
   title,
@@ -27,7 +27,7 @@ export const Additionals = ({
               <Link href={`/product/${id}`} className="flex gap-2">
                 <div className="w-[69px] h-[69px] rounded-[7px] flex-shrink-0">
                   <Image
-                    src={image}
+                    src={API + image}
                     width={69}
                     height={69}
                     alt=""
