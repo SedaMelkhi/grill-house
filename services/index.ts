@@ -181,6 +181,19 @@ export const ProductService = {
 //   }
 // }
 
+export const getCurrentHours = () => {
+  const options = {
+    timeZone: "Europe/Moscow",
+    hour: "2-digit",
+    hour12: false,
+  };
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
+  const moscowHours = new Date().toLocaleString("ru-RU", options);
+  return +moscowHours;
+};
+
 export const CartService = {
   async getCart(): Promise<ICart | null> {
     try {
@@ -240,17 +253,19 @@ export const CartService = {
   },
   async addProductToCart(product: { product_id: number; quantity: number }) {
     try {
-      const { data } = await axios.post("cart/add/", product, {
-        withCredentials: true,
-      });
-      return data;
+      if (getCurrentHours() >= 11 && getCurrentHours() <= 23) {
+        const { data } = await axios.post("cart/add/", product, {
+          withCredentials: true,
+        });
+        return data;
+      } else {
+        throw { message: "Заказы принимаются только с 11:00 и до 23:00" };
+      }
     } catch (error) {
       console.error("Ошибка при добавлении товара в корзину:", error);
-      if (error instanceof Error) {
-        return { type: "error", message: error.message };
-      } else {
-        return { type: "error", message: "Неизвестная ошибка" };
-      }
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      return { type: "error", message: error.message };
     }
   },
   async addPromocode(code: string): Promise<IPromocode | null> {

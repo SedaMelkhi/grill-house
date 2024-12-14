@@ -7,7 +7,7 @@ export const ModalBackdrop = ({ onClose }: { onClose?: () => void }) => {
 
   return (
     <div
-      className="fixed inset-0  cursor-pointer h-[100dvh]"
+      className="fixed inset-0  cursor-pointer"
       onClick={onClose ? onClose : () => router.back()}
     ></div>
   );

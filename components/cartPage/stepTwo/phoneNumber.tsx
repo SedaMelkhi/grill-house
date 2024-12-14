@@ -16,7 +16,7 @@ export const PhoneNumber = ({
           value={phone}
           onChange={(value) => setPhone(value)} // Обновляем состояние при изменении
           placeholder="+7"
-          inputClass="!w-full !h-[43px] !rounded-md !border !border-[#AEB1B74D] !text-sm !text-black" // Дополнительные стили
+          inputClass="!w-full !h-[44px] !rounded-md !border !border-[#AEB1B74D] !text-base !text-black !bg-white" // Дополнительные стили
           buttonClass="!bg-transparent !border-0 hover:!bg-transparent"
         />
       </div>

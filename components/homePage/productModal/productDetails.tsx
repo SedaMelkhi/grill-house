@@ -15,7 +15,7 @@ export const ProductDetails = ({
         {weight} г
       </p>
       <p className="text-stroke-2 overflow-y-auto xl:h-[140px] md:h-[98px] pr-2 scrollbar-custom">
-        {description + " " + description + " " + description}
+        {description}
       </p>
       <p className="md:hidden text-right right-0 mt-[24px] text-[20px]">
         {price.substring(0, price.length - 3)} ₽

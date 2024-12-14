@@ -12,11 +12,12 @@ import {
   StepTwo,
 } from "@/components/cartPage";
 import qs from "qs";
-import { ICart } from "@/services";
+import { getCurrentHours, ICart } from "@/services";
 import CartItemsSkeleton from "@/components/cartPage/stepOne/CartItemsSkeleton";
 import { getCartItems } from "@/components/cartPage/utils";
-import { useOrderStore, useUpdateStore } from "@/store/section";
+import { useCartStore, useOrderStore, useUpdateStore } from "@/store/section";
 import { CartEmpty } from "@/components/cartPage/stepOne/cartEmpty";
+import { AlertCart } from "@/components/homePage";
 
 const Cart = () => {
   const params = useParams();
@@ -26,6 +27,7 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState<ICart | null>(null);
   const [isLoad, setIsLoad] = useState(false);
   const { cartUpdate, setCartUpdate } = useUpdateStore();
+  const { setError } = useCartStore();
   const router = useRouter();
   const { address } = useOrderStore();
   // Установка текущего шага
@@ -83,7 +85,7 @@ const Cart = () => {
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cartUpdate, setCartUpdate]);
+  }, [cartUpdate, setCartUpdate, params]);
   return (
     step && (
       <main>
@@ -121,7 +123,7 @@ const Cart = () => {
               {step === 2 && <StepTwo />}
               {step === 3 && <StepThree />}
             </>
-
+            <AlertCart className="xl:right-0 xl:left-0 mx-auto xl:top-[45dvh] !w-96 !h-36" />
             {cartItems && cartItems.items.length > 0 && step === 1 && (
               <div className="flex flex-wrap md:mt-12 mt-8 justify-between gap-2 ">
                 <div className={"md:w-[269px] w-full"}>
@@ -130,9 +132,15 @@ const Cart = () => {
                 {isLoad && cartItems && cartItems.items.length ? (
                   <div
                     onClick={() => {
-                      setAddressModalOpen(true);
-                      setStep(2);
-                      setHidden(false);
+                      if (getCurrentHours() >= 11 && getCurrentHours() <= 23) {
+                        setAddressModalOpen(true);
+                        setStep(2);
+                        setHidden(false);
+                      } else {
+                        setError(
+                          "Заказы принимаются только с 11:00 и до 23:00"
+                        );
+                      }
                     }}
                     className="md:w-[269px] w-full"
                   >

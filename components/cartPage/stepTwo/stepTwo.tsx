@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PhoneNumber } from "./phoneNumber";
 import { Button } from "../stepOne/button";
-import { OrderService } from "@/services";
+import { CartService, OrderService } from "@/services";
 import { useOrderStore } from "@/store/section";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -29,6 +29,11 @@ export const StepTwo = () => {
 
     setIsLoad(true);
   };
+  useEffect(() => {
+    CartService.getCart().then((res) =>
+      res && res.items.length > 0 ? "" : router.push("/cart")
+    );
+  }, []);
   return (
     <div>
       <h1 className="md:text-[32px] text-2xl text-black font-medium text-center mb-6 pt-24">

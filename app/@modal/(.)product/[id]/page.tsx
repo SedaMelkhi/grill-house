@@ -19,7 +19,7 @@ export default function ProductModalPage({
     <DialogRoot placement="center" defaultOpen={true} size="full">
       <DialogContent>
         <DialogBody
-          height="100dvh"
+          minHeight="100dvh"
           display="flex"
           alignItems="center"
           justifyContent="center"

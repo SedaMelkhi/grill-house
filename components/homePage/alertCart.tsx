@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { useCartStore } from "@/store/section";
 import React, { useEffect, useState } from "react";
 
-export const AlertCart = () => {
+export const AlertCart = ({ className }: { className?: string }) => {
   const { lastProduct, setLastProduct, error, setError } = useCartStore();
   const [isHidden, setIsHidden] = useState<boolean>(true);
 
@@ -44,7 +44,8 @@ export const AlertCart = () => {
     <div
       className={cn(
         "alert xl:absolute fixed xl:top-[60px] xl:right-0 xl:left-auto left-5 xl:bottom-auto bottom-5 z-30 transition-all delay-150",
-        !error && "opacity-0 pointer-events-none translate-y-2"
+        !error && "opacity-0 pointer-events-none translate-y-2",
+        className
       )}
     >
       <div className="min-w-[210px] p-5 bg-[#1e1e1ec1] text-white rounded-xl text-[14px]">

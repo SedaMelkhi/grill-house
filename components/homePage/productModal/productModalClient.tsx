@@ -35,15 +35,15 @@ const ProductModalClient = ({
   }, [id]);
 
   return (
-    <div className="flex items-center justify-center h-[100dvh] w-full">
+    <div className="flex items-center justify-center min-h-dvh  w-full md:static absolute top-0">
       <ModalBackdrop onClose={onClose ? closeModal : undefined} />
       <div
         className={
-          "relative flex md:flex-row flex-col md:justify-normal  md:mx-[28px] bg-white xl:max-w-[860px] w-full h-[100dvh] md:h-[317px] xl:h-[383px] xl:py-[25px] md:p-[20px] xl:p-[25px] md:rounded-[20px] xl:rounded-[25px] shadow-lg xl:gap-8 md:gap-6  text-base py-4"
+          "relative flex md:flex-row flex-col md:justify-normal  md:mx-[28px] bg-white xl:max-w-[860px] w-full md:min-h-min min-h-[100dvh] md:h-[317px] xl:h-[383px] xl:py-[25px] md:p-[20px] xl:p-[25px] md:rounded-[20px] xl:rounded-[25px] shadow-lg xl:gap-8 md:gap-6  text-base py-4"
         }
       >
         <ModalHeader onClose={onClose ? closeModal : undefined} />
-        <div className="flex justify-between md:flex-row flex-col flex-grow-[1] xl:gap-10 md:gap-6 gap-[18px]">
+        <div className="flex justify-between md:flex-row flex-col flex-grow-[1] xl:gap-10 md:gap-6 gap-[18px] md:pt-0 pt-[58px] md:pb-0 pb-2">
           {!loading ? (
             product && (
               <>
@@ -92,7 +92,7 @@ const ProductModalClient = ({
                   <Skeleton height="5" width="60px" marginBottom={"14px"} />
                   <Skeleton height="80px" width="100%" />
                 </div>
-                <div className="flex justify-end gap-3">
+                <div className="flex justify-end gap-3 mt-10">
                   <Skeleton height="46px" width="125px" borderRadius={"28px"} />
                   <Skeleton
                     height="46px"

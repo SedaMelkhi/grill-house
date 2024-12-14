@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export const ModalHeader = ({ onClose }: { onClose?: () => void }) => {
   const router = useRouter();
   return (
-    <div className="flex md:hidden p-[20px] py-0 mb-[20px] justify-between items-center">
+    <div className="fixed top-0 w-full bg-white flex md:hidden p-[20px] py-5 justify-between items-center">
       <Image
         onClick={onClose ? onClose : () => router.back()}
         src={"/ago.svg"}
