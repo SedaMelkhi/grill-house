@@ -105,6 +105,7 @@ const Cart = () => {
           <div className={isLoad ? "" : "opacity-40"}>
             <Header />
           </div>
+
           <div className="max-w-[639px] mx-auto md:mt-24 mt-6 xl:px-0 px-5">
             <>
               {step === 1 &&

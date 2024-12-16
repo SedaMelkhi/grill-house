@@ -59,7 +59,7 @@ export const AddressModal = ({
     const updateModalHeight = () => {
       if (modalRef.current) {
         if (window.innerWidth <= 768) {
-          modalRef.current.style.height = `${window.innerHeight}px`;
+          modalRef.current.style.height = `${document.documentElement.clientHeight}px`;
         } else {
           modalRef.current.style.height = ""; // Сбрасываем высоту для десктопа
         }
@@ -96,7 +96,7 @@ export const AddressModal = ({
     <>
       <div
         className="fixed w-full z-40 top-0 bg-[#000c]"
-        style={{ height: "100vh" }}
+        style={{ height: "100dvh" }}
         onClick={() => setAddressModalOpen(false)}
       ></div>
       {!hidden && <MyDrawer setHidden={setHidden} />}

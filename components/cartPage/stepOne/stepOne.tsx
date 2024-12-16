@@ -45,8 +45,6 @@ export const StepOne = ({
           </>
         )}
 
-        {/* <Additionals title="Добавить к заказу" /> */}
-
         <Promocode
           setCartItems={setCartItems}
           setDiscountPrice={setDiscountPrice}

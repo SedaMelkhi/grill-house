@@ -27,20 +27,20 @@ const SwiperAboutUs = () => {
           width={1300}
           height={803}
           alt=""
-          className="object-cover xl:max-w-[1300px] w-full mx-auto md:rounded-[20px] rounded-[13px]"
+          className="object-cover xl:max-w-[1300px] w-full h-full mx-auto md:rounded-[20px] rounded-[13px]"
         />
       </SwiperSlide>
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((item) => (
         <SwiperSlide
           key={item}
-          className="md:rounded-[20px] rounded-[13px] overflow-hidden"
+          className="md:rounded-[20px] rounded-[13px] h-full overflow-hidden"
         >
           <Image
             src={`/about/image-${item}.png`}
             width={1300}
             height={803}
             alt=""
-            className="object-cover xl:max-w-[1300px] w-full mx-auto md:rounded-[20px] rounded-[13px]"
+            className="object-cover !h-full xl:max-w-[1300px] w-full mx-auto md:rounded-[20px] rounded-[13px]"
           />
         </SwiperSlide>
       ))}

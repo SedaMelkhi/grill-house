@@ -32,12 +32,18 @@ export const MyHamburger = () => {
           }`}
         >
           <ul className="px-[10px] mt-[53px] md:mt-[73px]">
-            <li className="text-[16px] md:text-[20px]  p-[14px] pl-0 ">
+            <li
+              className="text-[16px] md:text-[20px]  p-[14px] pl-0 "
+              onClick={() => setOpen(false)}
+            >
               <Link href="/">Меню</Link>
             </li>
             <div className="bg-[rgba(243,243,247,1)] h-[1px] w-[100%]"></div>
-            <li className="text-[16px] md:text-[20px] p-[14px] md:py-4 pl-0 ">
-              <Link href="/about-us">О нас</Link>
+            <li
+              className="text-[16px] md:text-[20px] p-[14px] md:py-4 pl-0"
+              onClick={() => setOpen(false)}
+            >
+              <Link href="/about_us">О нас</Link>
             </li>
             <div className="bg-[rgba(243,243,247,1)] h-[1px] w-[100%]"></div>
           </ul>
