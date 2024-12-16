@@ -23,10 +23,10 @@ export const MenuMobile = () => {
   return (
     <div>
       <div
-        className={`flex xl:hidden h-[55px] items-center w-full  ${
+        className={`flex xl:hidden items-center w-full  ${
           isScrolled
-            ? "fixed z-10 bg-white top-0 ease-in-out shadow-lg"
-            : "transition-shadow duration-500 ease-in-out"
+            ? "fixed z-10 bg-white top-0 ease-in-out shadow-lg py-[9.5px] transition-[padding] duration-150"
+            : "transition-shadow"
         }`}
         style={{ WebkitOverflowScrolling: "touch" }}
       >

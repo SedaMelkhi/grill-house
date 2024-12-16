@@ -8,7 +8,7 @@ import { Spinner } from "./"; // Убедитесь, что путь корре�
 import { getCart } from "./buttonCart";
 import { useState } from "react";
 
-interface ButtonAddProps {
+export interface ButtonAddProps {
   id: number;
   onClose?: () => void;
   count: number;

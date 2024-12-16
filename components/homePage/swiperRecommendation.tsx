@@ -24,22 +24,22 @@ export const SwiperRecommendation = ({
       {recommendationItems.map(({ image, name, price, id }, i) => (
         <SwiperSlide
           className={cn(
-            "w-[auto!important] h-[auto!important] xl:pb-[70px] pd:mb-8 pb-[24px]",
+            "w-[auto!important] h-[auto!important] xl:pb-[70px] pd:mb-8 pb-[24px] xl:pt-8 md:pt-6 pt-4",
             i === 0 && "wrapper:ml-10 md:ml-7 ml-4"
           )}
           key={id}
         >
           <Link
             href={`/product/${id}`}
-            className="flex w-[213px] md:w-[310px] h-[91px] md:h-[132px] items-center 
-      md:gap-[14px] gap-[8px] shadow-recom hover:shadow-lg active:shadow-lg p-[11px] md:p-[16px] rounded-[12px] "
+            className="flex w-[213px] md:w-[310px] items-center 
+      md:gap-[14px] gap-[8px] shadow-recom hover:shadow-lg transition-shadow duration-150 active:shadow-lg p-[13px] md:p-[16px] rounded-[12px] "
           >
             <Image
               src={image}
               alt=""
-              width={1300}
-              height={374}
-              className="rounded-[10px] object-cover w-[69px] h-[69px] md:w-[100px] md:h-[100px]"
+              width={100}
+              height={100}
+              className="rounded-[8px] object-cover w-[83px] h-[83px] md:w-[100px] md:h-[100px]"
             />
             <div className="flex flex-col gap-[11px] md:gap-[20px]">
               <p>{name}</p>

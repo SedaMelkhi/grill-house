@@ -15,7 +15,7 @@ const config: Config = {
       },
       boxShadow: {
         cartHeader: "0px 1.67px 5.01px 0px rgba(0, 0, 0, 0.1)",
-        recom: "0px 4px 22px -6px rgba(6, 5, 50, 0.15)",
+        recom: "0px -2px 9.58px 3.3px #0000000A",
         dop: "0px 1px 22px -6px #06053226",
         menuShadow: "0px 4px 4px 0px #00000040",
       },

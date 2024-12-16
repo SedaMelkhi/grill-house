@@ -343,4 +343,5 @@ ul {
 }
 .custom-modal-height {
   height: calc(100dvh - 58px);
+  padding-top: 17px;
 }

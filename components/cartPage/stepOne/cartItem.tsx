@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { CountBtn } from "./countBtn";
 import { useEffect, useState } from "react";
-import { CartSvg, CloseSvg } from "../../shared/svg";
+import { CartSvg } from "../../shared/svg"; //CloseSvg
 import { CartService, ICart } from "@/services";
 import { getCartItems } from "../utils";
 
@@ -60,11 +60,13 @@ export const CartItem = ({
             <div className="text-sm text-[#7B8290]">{weight} г</div>
           </div>
         </div>
-        <div className="flex items-center md:static absolute bottom-3 right-0">
-          <div>
-            <CountBtn count={count} setCount={setCount} />
+        <div className="flex items-center md:static absolute bottom-3 right-0 gap-14">
+          <div className="flex md:w-auto md:min-w-44 min-w-[150px] justify-between items-center">
+            <div>
+              <CountBtn count={count} setCount={setCount} />
+            </div>
+            <div>{price} ₽</div>
           </div>
-          <div className="md:ml-8 md:mr-14 ml-3 text-base]">{price} ₽</div>
           <div
             className="md:block hidden flex-shrink-0"
             onClick={deleteCartItemItem}
@@ -73,7 +75,7 @@ export const CartItem = ({
           </div>
         </div>
         <div className="md:hidden block flex-shrink-0 absolute top-2 right-0">
-          <CloseSvg className="fill-green cursor-pointer w-4" />
+          <CartSvg className="fill-green hover:fill-black transition-colors duration-200 cursor-pointer" />
         </div>
       </div>
     </div>

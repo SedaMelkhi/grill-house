@@ -14,32 +14,43 @@ export const CardProduct: FC<{
   return (
     <div className="h-full">
       <div className="flex md:flex-col justify-between h-full" key={id}>
-        <Link
-          href={`/product/${id}`}
-          scroll={false}
-          className="md:block flex gap-3 md:min-h-min min-h-full"
-        >
-          <Image
-            src={image}
-            alt={name}
-            width={1300}
-            height={374}
-            className="rounded-[8px] md:rounded-[10px] 2xl:rounded-[15px] object-cover md:w-full w-[119px] h-[117px] md:h-[197px] xl:h-[273px]"
-          />
+        <div className="md:block flex gap-3 md:min-h-min min-h-full">
+          <Link
+            href={`/product/${id}`}
+            scroll={false}
+            className="flex-shrink-0"
+          >
+            <Image
+              src={image}
+              alt={name}
+              width={1300}
+              height={374}
+              className="rounded-[8px] md:rounded-[10px] 2xl:rounded-[15px] object-cover md:w-full w-[119px] h-[117px] md:h-[197px] xl:h-[273px]"
+            />
+          </Link>
+
           <div className="md:block flex flex-col min-h-full md:min-h-auto  justify-between">
-            <div>
-              <h2 className="text-[18px] md:text-[18px] xl:text-[24px] font-semibold mt-[7px] md:mt-[10px] xl:mt-[14px]">
+            <Link href={`/product/${id}`}>
+              <h2 className="text-[18px] md:text-[18px] xl:text-[24px] font-semibold md:mt-[10px] xl:mt-[14px]">
                 {name}
               </h2>
-              <p className="text-[10px] md:text-[11px] xl:text-[15px] text-gray-600 mt-[5px] md:mt-[7px] xl:mt-[10px]">
-                {description}
+              <p className="text-[12px] xl:text-[15px] text-gray-600 mt-[5px] md:mt-[7px] xl:mt-[10px]">
+                {description.length >= 93
+                  ? description.substring(0, 80) + "..."
+                  : description}{" "}
               </p>
-            </div>
-            <div className="flex md:hidden mt-3">
-              <Button value={`${price} ₽`} />
+            </Link>
+            <div className="flex md:hidden mt-3 items-center gap-5">
+              <Button
+                value={`${price} ₽`}
+                id={id}
+                count={1}
+                isHomePage={true}
+                name={name}
+              />
             </div>
           </div>
-        </Link>
+        </div>
 
         <div className="hidden md:flex items-center justify-between mt-[21px] md:mt-[28px] xl:mt-[40px]">
           <Link

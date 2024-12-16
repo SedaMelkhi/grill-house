@@ -198,10 +198,10 @@ export const isTimeInRange = (): boolean => {
   const [currentHour, currentMinute] = currentTime.split(":").map(Number);
 
   // Проверяем, находится ли время в заданном диапазоне
-  const isAfterStart =
-    currentHour > 11 || (currentHour === 11 && currentMinute >= 0); // >= 11:00
-  const isBeforeEnd =
-    currentHour < 23 || (currentHour === 23 && currentMinute <= 30); // <= 23:30
+  const isAfterStart = Boolean(currentHour + 1);
+  // const isAfterStart = currentHour > 11 || (currentHour === 11 && currentMinute >= 0); // >= 11:00
+  const isBeforeEnd = Boolean(currentMinute + 1);
+  // const isBeforeEnd = currentHour < 23 || (currentHour === 23 && currentMinute <= 30); // <= 23:30
 
   return isAfterStart && isBeforeEnd;
 };

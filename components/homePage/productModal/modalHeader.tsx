@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Logo } from "../../shared";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export const ModalHeader = ({ onClose }: { onClose?: () => void }) => {
   const router = useRouter();
@@ -16,7 +17,9 @@ export const ModalHeader = ({ onClose }: { onClose?: () => void }) => {
         height={374}
         className="object-cover cursor-pointer w-[28px] h-[28px]"
       />
-      <Logo className="w-[103px] h-[35px]" />
+      <Link href={"/"}>
+        <Logo className="w-[103px] h-[35px]" />
+      </Link>
       <Image
         onClick={onClose ? onClose : () => router.back()}
         src={"/close.svg"}

@@ -30,7 +30,7 @@ export const StepOne = ({
       <>
         <Title setCartItems={setCartItems} />
         <CartItems items={cartItems.items} setCartItems={setCartItems} />
-        {recommendation && (
+        {recommendation && recommendation.recommended_products.length > 0 && (
           <>
             <div className="dop">
               <h2 className="md:mt-11 mt-[30px] md:text-xl">

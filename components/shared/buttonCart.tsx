@@ -23,17 +23,15 @@ export const ButtonCart = () => {
 
   return (
     <Link href={"/cart"}>
-      {0 === cartItemsCount ? (
-        <button className="xl:block hidden h-[43px] py-[12px] px-[24px] rounded-[50px] bg-[var(--green)] text-white">
-          Корзина
-        </button>
-      ) : (
-        <>
-          <button className="xl:flex hidden w-[145px] justify-between h-[43px] py-[12px] px-[24px] rounded-[50px] bg-[var(--green)] text-white">
-            <p>Корзина</p> <p> | </p> <p>{cartItemsCount}</p>
-          </button>
-        </>
-      )}
+      <button className="xl:flex gap-3 hidden h-[43px] py-[12px] px-[24px] rounded-[50px] bg-green hover:bg-[#0c3024] duration-100  text-white hover:bg-">
+        Корзина
+        {cartItemsCount > 0 && (
+          <>
+            <span>|</span>
+            <span>{cartItemsCount}</span>
+          </>
+        )}
+      </button>
       <div className="xl:hidden flex fixed bottom-5 right-5 z-20">
         <div
           className="relative bg-white h-[50px] w-[50px] 
