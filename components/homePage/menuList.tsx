@@ -16,7 +16,13 @@ export const MenuList: React.FC<MenuListProps> = ({ menu }) => {
       setIsManualClick(true);
       setTimeout(() => setIsManualClick(false), 1000);
       setActiveCategoryId(id);
-      section.scrollIntoView({ behavior: "smooth", block: "center" });
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY; // Позиция секции относительно документа
+
+      // Прокручиваем с учетом отступа
+      window.scrollTo({
+        top: sectionTop - 100, // Отступ в пикселях
+        behavior: "smooth",
+      });
     }
   };
 

@@ -19,7 +19,7 @@ export const ProductsGroupList = ({
   const { setActiveCategoryId, isManualClick } = useSectionStore();
   const intersectionRef = React.useRef<HTMLDivElement | null>(null);
   const intersection = useIntersection(intersectionRef, {
-    threshold: 1,
+    threshold: 0.5,
   });
 
   useEffect(() => {
@@ -32,13 +32,15 @@ export const ProductsGroupList = ({
   return (
     <div
       key={id}
-      id={`section-${id}`}
       ref={intersectionRef}
       className={`${
         index === 0 ? "mt-[0px]" : "mt-[32px] md:mt-[70px] xl:mt-[100px]"
       }`}
     >
-      <Title value={title} />
+      <div id={`section-${id}`}>
+        <Title value={title} />
+      </div>
+
       <div className="mt-[24px] md:mt-[32px] xl:mt-[36px] grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-[20px_15px] md:gap-[32px_20px] xl:gap-[60px_20px]">
         {products.map(({ id: productId, name, image, description, price }) => (
           <div key={productId}>

@@ -50,7 +50,7 @@ const ProductModalClient = ({
                 <div className="flex-shrink-0">
                   <ProductImage src={product.image} alt={product.name} />
                   <ClosePc onClose={onClose ? closeModal : undefined} />
-                  <div className="md:hidden block px-5">
+                  <div className="md:hidden block px-5 pt-4">
                     <ProductDetails
                       name={product.name}
                       weight={product.weight || ""}

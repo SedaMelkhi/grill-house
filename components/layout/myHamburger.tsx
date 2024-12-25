@@ -14,7 +14,7 @@ export const MyHamburger = () => {
   }, [isOpen]);
   return (
     <div className="xl:hidden block">
-      <div className="z-20 relative right-[-12px]">
+      <div className="z-[100] relative right-[-12px]">
         <Hamburger
           toggled={isOpen}
           toggle={setOpen}
@@ -25,7 +25,7 @@ export const MyHamburger = () => {
       {isOpen && (
         <div
           className={`flex flex-col justify-between font-raleway fixed top-0 right-0 bg-white shadow-lg rounded-lg 
-          w-full h-full md:w-[640px] p-4 z-10 
+          w-full h-full md:w-[640px] p-4 z-50 
           transition-color duration-300 ease-in-out 
           ${
             isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
@@ -44,6 +44,13 @@ export const MyHamburger = () => {
               onClick={() => setOpen(false)}
             >
               <Link href="/about_us">О нас</Link>
+            </li>
+            <div className="bg-[rgba(243,243,247,1)] h-[1px] w-[100%]"></div>
+            <li
+              className="text-[16px] md:text-[20px] p-[14px] md:py-4 pl-0"
+              onClick={() => setOpen(false)}
+            >
+              <Link href="/cart">Корзина</Link>
             </li>
             <div className="bg-[rgba(243,243,247,1)] h-[1px] w-[100%]"></div>
           </ul>

@@ -242,8 +242,15 @@ ul {
 .about-us .swiper-button-next {
   display: none;
 }
-
+.custom-modal-height {
+  height: calc(100dvh - 58px);
+  padding-top: 17px;
+}
 @media (min-width: 768px) {
+  .custom-modal-height {
+    height: calc(100dvh - 58px);
+    padding-top: 0;
+  }
   .addressModal {
     top: calc(50vh - 257px);
   }
@@ -340,8 +347,4 @@ ul {
 .scrollbar-custom::-webkit-scrollbar-track {
   background: #15523e59; /* Цвет фона полосы прокрутки */
   border-radius: 3px; /* Закругленные края */
-}
-.custom-modal-height {
-  height: calc(100dvh - 58px);
-  padding-top: 17px;
 }
