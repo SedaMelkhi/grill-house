@@ -8,7 +8,7 @@ interface ProductImageProps {
 export const ProductImage: React.FC<ProductImageProps> = ({ src, alt }) => {
   return (
     <Image
-      src={src}
+      src={src || "/notphoto.png"}
       alt={alt}
       width={331}
       height={374}

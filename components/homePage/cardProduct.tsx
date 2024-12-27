@@ -21,7 +21,7 @@ export const CardProduct: FC<{
             className="flex-shrink-0"
           >
             <Image
-              src={image}
+              src={image || "/notphoto.png"}
               alt={name}
               width={1300}
               height={374}
