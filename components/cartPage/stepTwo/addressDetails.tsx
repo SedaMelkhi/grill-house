@@ -38,6 +38,7 @@ export const AddressDetails: React.FC<AddressDetailsProps> = ({
                 {...inputStyles}
                 placeholder="Номер подъезда"
                 value={entranceNumber}
+                type="number"
                 onChange={(e) => setEntranceNumber(e.target.value)}
               />
             </Box>
@@ -45,6 +46,7 @@ export const AddressDetails: React.FC<AddressDetailsProps> = ({
               <Input
                 {...inputStyles}
                 placeholder="Код двери"
+                type="number"
                 value={doorCode}
                 onChange={(e) => setDoorCode(e.target.value)}
               />
@@ -57,6 +59,7 @@ export const AddressDetails: React.FC<AddressDetailsProps> = ({
             <Input
               {...inputStyles}
               placeholder="Этаж"
+              type="number"
               value={floor}
               onChange={(e) => setFloor(e.target.value)}
             />
@@ -65,6 +68,7 @@ export const AddressDetails: React.FC<AddressDetailsProps> = ({
             <Input
               {...inputStyles}
               placeholder="Квартира"
+              type="number"
               value={apartment}
               onChange={(e) => setApartment(e.target.value)}
             />

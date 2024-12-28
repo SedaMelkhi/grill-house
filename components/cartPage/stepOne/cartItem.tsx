@@ -74,7 +74,10 @@ export const CartItem = ({
             <CartSvg className="fill-green hover:fill-black transition-colors duration-200 cursor-pointer" />
           </div>
         </div>
-        <div className="md:hidden block flex-shrink-0 absolute top-2 right-0">
+        <div
+          className="md:hidden block flex-shrink-0 absolute top-2 right-0"
+          onClick={deleteCartItemItem}
+        >
           <CartSvg className="fill-green hover:fill-black transition-colors duration-200 cursor-pointer" />
         </div>
       </div>
