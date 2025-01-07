@@ -348,3 +348,26 @@ ul {
   background: #15523e59; /* Цвет фона полосы прокрутки */
   border-radius: 3px; /* Закругленные края */
 }
+
+.review .selected-flag::before {
+  display: none;
+}
+
+.review .selected-flag {
+  padding: 0 !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.review .react-tel-input .form-control {
+  padding-left: 25px;
+}
+
+.review .react-tel-input .flag-dropdown {
+  display: flex;
+  align-items: center;
+}
+
+textarea {
+  resize: none; /* Убирает треугольник */
+}

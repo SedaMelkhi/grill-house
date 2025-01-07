@@ -1,12 +1,8 @@
 "use client";
-import { ModalLoader } from "@/components/homePage/productModal/ModalLoader";
+import { ModalLoader } from "@/components/homePage/reviewModal/ModalLoader";
 import { DialogBody, DialogContent, DialogRoot } from "@/components/ui/dialog";
 
-export default function ProductModalPage({
-  params: { id },
-}: {
-  params: { id: number };
-}) {
+export default function ReviewModalPage() {
   return (
     <DialogRoot placement="center" defaultOpen={true} size="full">
       <DialogContent>
@@ -16,7 +12,7 @@ export default function ProductModalPage({
           alignItems="center"
           justifyContent="center"
         >
-          <ModalLoader id={+id} />
+          <ModalLoader />
         </DialogBody>
       </DialogContent>
     </DialogRoot>

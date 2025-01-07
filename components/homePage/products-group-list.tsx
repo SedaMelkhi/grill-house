@@ -19,7 +19,7 @@ export const ProductsGroupList = ({
   const { setActiveCategoryId, isManualClick } = useSectionStore();
   const intersectionRef = React.useRef<HTMLDivElement | null>(null);
   const intersection = useIntersection(intersectionRef, {
-    threshold: 0.5,
+    threshold: [0.1, 1],
   });
 
   useEffect(() => {
