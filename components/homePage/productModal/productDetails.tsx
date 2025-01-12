@@ -12,7 +12,7 @@ export const ProductDetails = ({
         {name}
       </h1>
       <p className="text-stroke-2 mt-[12px] mb-[14px] leading-[22px]">
-        {weight} г
+        {weight}
       </p>
       <p className="text-stroke-2 overflow-y-auto xl:h-[100px] md:h-[78px] pr-2 scrollbar-custom">
         {description}

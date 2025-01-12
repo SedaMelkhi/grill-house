@@ -57,7 +57,7 @@ export const CartItem = ({
           </div>
           <div className="w-[160px] md:pb-0 pb-3">
             <h2 className="md:mb-2.5 mb-1.5 leading-4 text-base">{name}</h2>
-            <div className="text-sm text-[#7B8290]">{weight} г</div>
+            <div className="text-sm text-[#7B8290]">{weight}</div>
           </div>
         </div>
         <div className="flex items-center md:static absolute bottom-3 right-0 gap-14">

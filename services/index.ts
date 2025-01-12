@@ -317,3 +317,31 @@ export const OrderService = {
     }
   },
 };
+
+export const FeedbackService = {
+  async sendFeedback({
+    name,
+    phone,
+    comment,
+  }: {
+    name: string;
+    phone: string;
+    comment: string;
+  }) {
+    try {
+      const { data } = await axios.post(
+        "https://grozny-grillhouse.ru/api/feedback/",
+        {
+          name,
+          phone,
+          comment,
+        }
+      );
+      return data;
+    } catch (error) {
+      console.error("Ошибка при оформлении заказа:", error);
+      if (error instanceof Error)
+        return { type: "error", message: error.message };
+    }
+  },
+};
