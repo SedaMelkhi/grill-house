@@ -56,9 +56,15 @@ export const MyHamburger = () => {
           </ul>
           <div className="pb-20">
             <p className="pl-[10px] py-2 flex items-center">
-              <div className="pr-2">Номер для связи:</div>
-              <Link href="tel:+79289876543" className="font-medium">
-                + 7 (928) 987-65-43
+              <div className="pr-2">Номер для доставки:</div>
+              <Link href="tel:79288113030" className="font-medium">
+                +7 (928) 811-30-30
+              </Link>
+            </p>
+            <p className="pl-[10px] py-2 flex items-center">
+              <div className="pr-2">номер для брони:</div>
+              <Link href="tel:+79288163030" className="font-medium">
+                +7 (928) 816-30-30
               </Link>
             </p>
             <p className="pl-[10px] py-2 flex items-center">

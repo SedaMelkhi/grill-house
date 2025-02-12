@@ -42,7 +42,7 @@ const ReviewModalClient = ({ onClose }: { onClose?: boolean }) => {
       <ModalBackdrop onClose={onClose ? closeModal : undefined} />
       <div
         className={
-          "shadow-lg rounded-[18px] bg-white xl:py-12 xl:px-16 py-8 md:px-10 px-6 relative md:flex xl:gap-12 md:gap-8 gap-6"
+          "shadow-lg rounded-[18px] bg-white xl:py-12 xl:px-16 py-8 md:px-10 px-6 relative md:flex xl:gap-12 md:gap-8 gap-6 z-[100]"
         }
       >
         <ClosePc onClose={onClose ? closeModal : undefined} visible={true} />
