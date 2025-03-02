@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FC } from "react";
-import { Button } from "./button";
 import { ButtonAdd } from "../shared";
 
 export const CardProduct: FC<{
@@ -40,14 +39,25 @@ export const CardProduct: FC<{
                   : description}{" "}
               </p>
             </Link>
-            <div className="flex md:hidden mt-3 items-center gap-5">
-              <Button
-                value={`${price} ₽`}
-                id={id}
-                count={1}
-                isHomePage={true}
-                name={name}
-              />
+            <div className="flex md:hidden mt-3 items-center gap-[5px]">
+              <Link
+                href={`/product/${id}`}
+                className={
+                  "flex justify-center items-center xl:w-[110px] xl:h-[42px] px-[12px] py-[7px] rounded-[50px] bg-[#f3f2f8] active:bg-[var(--green)] active:text-white md:hover:bg-[var(--green)] md:hover:text-white text-[13px] text-[#5C6370] transition-colors delay-100"
+                }
+              >
+                {price} ₽
+              </Link>
+              <div className="w-[80px] h-[29px]">
+                <ButtonAdd
+                  value="В корзину"
+                  size="small"
+                  id={id}
+                  count={1}
+                  isHomePage={true}
+                  name={name}
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ export const Contacts = () => {
             href="tel:+79288113030 "
             className="font-medium hover:text-[#706e6e] transition-colors duration-150"
           >
-            Доставка: +7 928 811-30-30
+            +7 928 811-30-30
           </Link>
         </div>
         {/* <Link

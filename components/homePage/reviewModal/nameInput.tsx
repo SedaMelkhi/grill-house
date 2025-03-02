@@ -22,9 +22,9 @@ export const NameInput = ({
       />
       <label
         htmlFor="name"
-        className="text-[#7B8290] xl:text-sm text-[10px] leading-4 block mb-[5px] absolute xl:-translate-y-[52px] -translate-y-9 transition-all delay-50 xl:peer-placeholder-shown:-translate-y-[30px] peer-placeholder-shown:-translate-y-[22px] xl:peer-placeholder-shown:scale-125 peer-placeholder-shown:scale-150 peer-placeholder-shown:translate-x-1 xl:peer-focus:-translate-y-[52px] peer-focus:-translate-y-9 xl:peer-focus:scale-100 peer-focus:scale-100 peer-focus:translate-x-0"
+        className="text-[#7B8290] xl:text-sm text-[10px] leading-4 block mb-[5px] absolute xl:-translate-y-[52px] -translate-y-9 transition-all delay-50 xl:peer-placeholder-shown:-translate-y-[30px] peer-placeholder-shown:-translate-y-[22px] xl:peer-placeholder-shown:scale-125 peer-placeholder-shown:scale-150 xl:peer-placeholder-shown:translate-x-4 peer-placeholder-shown:translate-x-6 xl:peer-focus:-translate-y-[52px] peer-focus:-translate-y-9 xl:peer-focus:scale-100 peer-focus:scale-100 xl:peer-focus:translate-x-0 peer-focus:translate-x-0"
       >
-        Имя
+        Имя (необязательно)
       </label>
     </div>
   );

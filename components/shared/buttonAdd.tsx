@@ -15,6 +15,7 @@ export interface ButtonAddProps {
   value: string;
   isHomePage?: boolean;
   name: string;
+  size?: string;
 }
 
 export const ButtonAdd: React.FC<ButtonAddProps> = ({
@@ -23,6 +24,7 @@ export const ButtonAdd: React.FC<ButtonAddProps> = ({
   count,
   value,
   isHomePage,
+  size,
   name,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -59,10 +61,12 @@ export const ButtonAdd: React.FC<ButtonAddProps> = ({
         bg-[rgba(91,164,140,0.3)]  
         hover:bg-green hover:text-white 
         active:bg-green active:text-white
-        text-[20px] md:text-[14px] xl:text-[16px] 
+         md:text-[14px] xl:text-[16px] 
         text-green 
         transition-colors duration-300 ease-in-out
-        ${isLoading ? "bg-green text-white cursor-not-allowed" : ""}`}
+        ${isLoading ? "bg-green text-white cursor-not-allowed" : ""} ${
+        size === "small" ? "text-[13px]" : "text-[20px]"
+      }`}
     >
       {isLoading ? <Spinner /> : value}
     </button>

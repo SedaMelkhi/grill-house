@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 export const CheckboxApproval = ({
@@ -25,9 +24,13 @@ export const CheckboxApproval = ({
       </div>
       <div className="xl:text-sm text-[12px] xl:leading-5 leading-4">
         Я согласен с обработкой своих{" "}
-        <Link href="/" className="text-green font-medium">
+        <a
+          href="/consent.pdf"
+          target="_blank"
+          className="text-green font-medium"
+        >
           персональных данных
-        </Link>
+        </a>
       </div>
     </label>
   );

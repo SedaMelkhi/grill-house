@@ -32,26 +32,37 @@ export const MyHamburger = () => {
           }`}
         >
           <ul className="px-[10px] mt-[53px] md:mt-[73px]">
-            <li
-              className="text-[16px] md:text-[20px]  p-[14px] pl-0 "
+            <Link
+              href="/"
+              className="block text-[16px] md:text-[20px]  p-[14px] pl-0 "
               onClick={() => setOpen(false)}
             >
-              <Link href="/">Меню</Link>
-            </li>
+              Главная
+            </Link>
             <div className="bg-[rgba(243,243,247,1)] h-[1px] w-[100%]"></div>
-            <li
-              className="text-[16px] md:text-[20px] p-[14px] md:py-4 pl-0"
+            <Link
+              href="/about_us"
+              className="block text-[16px] md:text-[20px] p-[14px] md:py-4 pl-0"
               onClick={() => setOpen(false)}
             >
-              <Link href="/about_us">О нас</Link>
-            </li>
+              О нас
+            </Link>
             <div className="bg-[rgba(243,243,247,1)] h-[1px] w-[100%]"></div>
-            <li
-              className="text-[16px] md:text-[20px] p-[14px] md:py-4 pl-0"
+            <Link
+              href="/review"
+              className="block text-[16px] md:text-[20px] p-[14px] md:py-4 pl-0"
               onClick={() => setOpen(false)}
             >
-              <Link href="/cart">Корзина</Link>
-            </li>
+              Оставить отзыв
+            </Link>
+            <div className="bg-[rgba(243,243,247,1)] h-[1px] w-[100%]"></div>
+            <Link
+              href="/cart"
+              className="block text-[16px] md:text-[20px] p-[14px] md:py-4 pl-0"
+              onClick={() => setOpen(false)}
+            >
+              Корзина
+            </Link>
             <div className="bg-[rgba(243,243,247,1)] h-[1px] w-[100%]"></div>
           </ul>
           <div className="pb-20">
@@ -62,7 +73,7 @@ export const MyHamburger = () => {
               </Link>
             </p>
             <p className="pl-[10px] py-2 flex items-center">
-              <div className="pr-2">номер для брони:</div>
+              <div className="pr-2">Номер для брони:</div>
               <Link href="tel:+79288163030" className="font-medium">
                 +7 (928) 816-30-30
               </Link>

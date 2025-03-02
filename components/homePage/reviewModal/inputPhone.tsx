@@ -14,7 +14,7 @@ export const InputPhone = ({
         htmlFor="phone"
         className="text-[#7B8290] xl:text-sm text-[10px] leading-4 block mb-[5px] absolute xl:top-[8px] top-[5px]"
       >
-        Телефон
+        Телефон (необязательно)
       </label>
       <div className="xl:mt-3 mt-[-1px]">
         <PhoneInput
